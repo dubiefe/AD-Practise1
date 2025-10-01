@@ -1,0 +1,22 @@
+MyModel:
+  required_vars:
+    - name
+  admissible_vars:
+    - dni
+    - address
+  unique_indexes:
+    - dni
+  regular_indexes:
+    - name
+  location_index: address
+MyOtherModel:
+  required_vars:
+    - name
+  admissible_vars:
+    - dni
+    - address
+  unique_indexes:
+    - dni
+  regular_indexes:
+    - name
+  location_index: address
