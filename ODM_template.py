@@ -1,12 +1,18 @@
 __author__ = '???'
 __students__ = '???'
 
+# GeoJSON and geo locator
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut
 import time
 from typing import Generator, Any, Self
 from geojson import Point
+
+# PyMongo dependencies
 import pymongo
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+
 from bson.objectid import ObjectId
 import yaml
 
@@ -293,6 +299,24 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     """
     # TODO
     # Initialize database
+    client = None
+    if mongodb_uri != "mongodb://localhost:27017/":
+        client = MongoClient(
+            uri,
+            tls=True,
+            tlsCertificateKeyFile='./vockey.pem',
+            server_api=ServerApi('1')
+        )
+    else:
+        client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
+
+    # Send a ping to confirm a successful connection
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+    except Exception as e:
+        print(e)
+
 
     # TODO
     # Declare as many model classes as there are collections in the database
@@ -309,13 +333,21 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
 if __name__ == '__main__':
     # Initialize database and models with initApp
     # TODO
-    initApp()
+
+    # if vockey.pem found
+    #uri = "mongodb+srv://itziar:2hVxGqn7&w3Q5nRdDGVy@ad1.fnx6k6d.mongodb.net/?retryWrites=true&w=majority&appName=AD1"
+    uri = "mongodb+srv://ad1.fnx6k6d.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=AD1"
+
+    # Otherwise
+    #uri = ""
+    initApp(mongodb_uri = uri)
+
 
     # Example
-    m = MyModel(name="Pablo", surname="Ramos", age=18)
-    m.save()
-    m.name = "Pedro"
-    print(m.name)
+    #m = MyModel(name="Pablo", surname="Ramos", age=18)
+    #m.save()
+    #m.name = "Pedro"
+    #print(m.name)
 
     # Run tests to verify the model works correctly
     # TODO
