@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Universidad Complutense de Madrid",
+    "address": "Av. Séneca, 2, 28040 Madrid, España"
+  },
+  {
+    "name": "Instituto Politécnico de Sevilla",
+    "address": "Calle Juan de Mena, 3, 41003 Sevilla, España"
+  },
+  {
+    "name": "Escuela Técnica Superior de Ingeniería de Barcelona",
+    "address": "Carrer de Jordi Girona, 1-3, 08034 Barcelona, España"
+  },
+  {
+    "name": "Centro de Estudios Médicos Valencia",
+    "address": "Av. de Blasco Ibáñez, 15, 46010 Valencia, España"
+  },
+  {
+    "name": "Instituto de Formación Professional López",
+    "address": "Calle Gran Vía, 78, Madrid, España"
+  }
+]

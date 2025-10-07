@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Tecnologías Avanzadas S.A.",
+    "address": "Calle de Alcalá, 45, Madrid, España"
+  },
+  {
+    "name": "Industrias García",
+    "address": "Avenida de la Constitución, 12, Sevilla, España"
+  },
+  {
+    "name": "Soluciones Informáticas López",
+    "address": "Calle de Bravo Murillo, 101, Madrid, España"
+  },
+  {
+    "name": "Constructora Martínez",
+    "address": "Paseo de la Reforma, 58, Barcelona, España"
+  },
+  {
+    "name": "Servicios Médicos Rivera",
+    "address": "Calle Mayor, 23, Valencia, España"
+  }
+]
