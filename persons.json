@@ -1,0 +1,73 @@
+[
+  {
+    "name": "María Fernández",
+    "address": "Calle Gran Vía, 15, Madrid, España",
+    "interests": "reading,music,hiking",
+    "skills": "Java,Python,project management",
+    "educational_center_name": "Universidad Complutense de Madrid",
+    "company_name": "Tecnologías Avanzadas S.A."
+  },
+  {
+    "name": "Carlos García",
+    "address": "Avenida de Andalucía, 42, Sevilla, España",
+    "interests": "soccer,movies,music",
+    "skills": "graphic design,Photoshop,digital marketing",
+    "educational_center_name": "Instituto Politécnico de Sevilla",
+    "company_name": "Industrias García"
+  },
+  {
+    "name": "Lucía Martínez",
+    "address": "Calle del Prado, 8, Madrid, España",
+    "interests": "reading,yoga,music",
+    "skills": "project management,digital marketing,Python",
+    "educational_center_name": "Universidad Complutense de Madrid",
+    "company_name": "Soluciones Informáticas López"
+  },
+  {
+    "name": "Javier López",
+    "address": "Paseo de la Reforma, 22, Barcelona, España",
+    "interests": "cycling,technology,reading",
+    "skills": "C++,networking,Python",
+    "educational_center_name": "Escuela Técnica Superior de Ingeniería de Barcelona",
+    "company_name": "Constructora Martínez"
+  },
+  {
+    "name": "Ana Ruiz",
+    "address": "Calle San Vicente, 13, Valencia, España",
+    "skills": "customer service,administration,project management",
+    "educational_center_name": "Centro de Estudios Médicos Valencia",
+    "company_name": "Servicios Médicos Rivera"
+  },
+  {
+    "name": "Pedro Sánchez",
+    "address": "Calle Alcalde Sainz de Baranda, 19, Madrid, España",
+    "interests": "travel,photography,music",
+    "skills": "JavaScript,React,Python",
+    "company_name": "Tecnologías Avanzadas S.A."
+  },
+  {
+    "name": "Elena Torres",
+    "address": "Avenida del Puerto, 77, Sevilla, España",
+    "interests": "cooking,reading,music",
+    "educational_center_name": "Instituto Politécnico de Sevilla"
+  },
+  {
+    "name": "Miguel Ortega",
+    "address": "Calle Muntaner, 59, Barcelona, España",
+    "skills": "AutoCAD,project management,Python",
+    "company_name": "Constructora Martínez"
+  },
+  {
+    "name": "Isabel Morales",
+    "address": "Calle Colón, 4, Valencia, España",
+    "interests": "theater,classical music,reading",
+    "educational_center_name": "Centro de Estudios Médicos Valencia"
+  },
+  {
+    "name": "Diego Navarro",
+    "address": "Calle Alcalá, 32, Madrid, España",
+    "skills": "Python,data analysis,project management",
+    "company_name": "Soluciones Informáticas López",
+    "educational_center_name": "Instituto de Formación Professional López"
+  }
+]
