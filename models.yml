@@ -1,22 +1,36 @@
-MyModel:
+Person:
   required_vars:
-    - name
+    - _id
+    - nane
   admissible_vars:
-    - dni
     - address
+    - interests
+    - skills
+    - company_id
+    - educational_center_id
   unique_indexes:
-    - dni
+    - _id
   regular_indexes:
     - name
   location_index: address
-MyOtherModel:
+Company:
   required_vars:
-    - name
-  admissible_vars:
-    - dni
+    - _id
+    - nane
     - address
   unique_indexes:
-    - dni
+    - _id
   regular_indexes:
     - name
   location_index: address
+Educational_Center:
+  required_vars:
+    - _id
+    - nane
+    - address
+  unique_indexes:
+    - _id
+  regular_indexes:
+    - name
+  location_index: address
+
