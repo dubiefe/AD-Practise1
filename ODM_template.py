@@ -241,17 +241,17 @@ class Model:
         cls._admissible_vars = admissible_vars
 
         # Initialize indexes from the indexes dictionary
-        for field, idx_type in indexes.items():
-            # Map string to pymongo index type
-            if idx_type.upper() == "ASCENDING":
-                pymongo_type = pymongo.ASCENDING
-            elif idx_type.upper() == "DESCENDING":
-                pymongo_type = pymongo.DESCENDING
-            else:
-                continue  # or handle other types
+        #for field, idx_type in indexes.items():
+        #    # Map string to pymongo index type
+        #    if idx_type.upper() == "ASCENDING":
+        #        pymongo_type = pymongo.ASCENDING
+        #    elif idx_type.upper() == "DESCENDING":
+        #        pymongo_type = pymongo.DESCENDING
+        #    else:
+        #        continue  # or handle other types
     
             # Create the index on the collection
-            cls._db.create_index([(field, pymongo_type)])
+            #cls._db.create_index([(field, pymongo_type)])
         print(f"Creating class: {Self.__class__.__name__}")
         print(f"required_vars: {required_vars}")
         # TODO
@@ -358,21 +358,17 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     scope = {}
 
     for class_name, details in schema.items():
-        cls = type(class_name, (Model,), {})
-        scope[class_name] = cls
-
         # Get required data from schema
+        indexes = details.get('indexes', {})
         required_vars = set(details.get('required', []))
         admissible_vars = set(details.get('admissible', []))
-        indexes = details.get('indexes', {})
 
         # Get or create the MongoDB collection
         db_collection = db[class_name]
 
-        _data = details
-        # _db = 
-
         # Initialize the class (link it to the collection, set attributes)
+        cls = type(class_name, (Model,), {})
+        scope[class_name] = cls
         cls.init_class(db_collection, indexes, required_vars, admissible_vars)
         print(class_name)
         print(details)

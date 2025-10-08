@@ -1,4 +1,4 @@
-Person:
+Perregular_indexesson:
   required_vars:
     - email
     - name
@@ -8,28 +8,25 @@ Person:
     - skills
     - company_email
     - educational_center_email
-  unique_indexes:
-    - email
-  regular_indexes:
-    - name
-  location_index: address
+  indexes:
+    - email: unique
+    - name: regular
+    - location: 2dsphere
 Company:
   required_vars:
     - email
     - name
     - address
-  unique_indexes:
-    - email
-  regular_indexes:
-    - name
-  location_index: address
+  indexes:
+    - email: unique
+    - name: regular
+    - location: 2dsphere
 Educational_Center:
   required_vars:
     - email
     - name
     - address
-  unique_indexes:
-    - email
-  regular_indexes:
-    - name
-  location_index: address
+  indexes:
+    - email: unique
+    - name: regular
+    - location: 2dsphere
