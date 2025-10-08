@@ -1,4 +1,4 @@
-Perregular_indexesson:
+Person:
   required_vars:
     - email
     - name

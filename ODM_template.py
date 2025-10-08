@@ -240,20 +240,26 @@ class Model:
         cls._required_vars = required_vars
         cls._admissible_vars = admissible_vars
 
-        # Initialize indexes from the indexes dictionary
-        #for field, idx_type in indexes.items():
-        #    # Map string to pymongo index type
-        #    if idx_type.upper() == "ASCENDING":
-        #        pymongo_type = pymongo.ASCENDING
-        #    elif idx_type.upper() == "DESCENDING":
-        #        pymongo_type = pymongo.DESCENDING
-        #    else:
-        #        continue  # or handle other types
-    
-            # Create the index on the collection
-            #cls._db.create_index([(field, pymongo_type)])
+        # Initialize indexes from the indexes dictionary, ascending by default
+        for index in indexes:
+            for field, idx_type in index.items():
+                try:
+                    if idx_type == "unique":
+                        print(f"Creating UNIQUE index on field '{field}'")
+                        cls._db.create_index([(field, pymongo.ASCENDING)], unique=True)
+                    elif idx_type == "regular":
+                        print(f"Creating REGULAR index on field '{field}'")
+                        cls._db.create_index([(field, pymongo.ASCENDING)])
+                    elif idx_type == "2dsphere":
+                        print(f"Creating GEOSPHERE (2dsphere) index on field '{field}'")
+                        cls._db.create_index([(field, pymongo.GEOSPHERE)])
+                    else:
+                        raise ValueError(f"Unknown index type for field '{field}': {idx_type}")
+                except Exception as e:
+                    print(f"Error creating index on field '{field}': {e}")
+
         print(f"Creating class: {Self.__class__.__name__}")
-        print(f"required_vars: {required_vars}")
+        print(f"required_vars: {cls._required_vars}")
         # TODO
         
 class ModelCursor:
@@ -316,8 +322,8 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     db_name : str
         Name of the database
     """
-    # TODO
     # Initialize database
+    print(f"Loading schema from {definitions_path}")
     client = None
     if mongodb_uri != "mongodb://localhost:27017/":
         client = MongoClient(
@@ -329,6 +335,9 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     else:
         client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
 
+    print(f"Connected to database: {db_name}")
+
+    # Drop previous data
     client.drop_database(db_name)
 
     # Send a ping to confirm a successful connection
@@ -339,7 +348,6 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
         print(e)
 
     db = client[db_name]
-
 
     # TODO
     # Declare as many model classes as there are collections in the database
@@ -359,6 +367,7 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
 
     for class_name, details in schema.items():
         # Get required data from schema
+        print(f"Initializing model: {class_name}")
         indexes = details.get('indexes', {})
         required_vars = set(details.get('required', []))
         admissible_vars = set(details.get('admissible', []))
@@ -370,8 +379,10 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
         cls = type(class_name, (Model,), {})
         scope[class_name] = cls
         cls.init_class(db_collection, indexes, required_vars, admissible_vars)
-        print(class_name)
-        print(details)
+        print(f"Collection: {db_collection.name}")
+        print(f"Required vars: {required_vars}")
+        print(f"Admissible vars: {admissible_vars}")
+        print(f"Indexes: {indexes}\n")
 
     # Ignore Pylance warning about MyModel, it cannot detect
     # that the class was declared in the previous line since it is done
