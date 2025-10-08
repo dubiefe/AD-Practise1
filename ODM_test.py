@@ -11,7 +11,8 @@ from ODM_template import initApp, getLocationPoint, ModelCursor
 # ─────────────────────────────────────────────────────────────
 
 DB_NAME = "abd_test"
-MONGO_URI = "mongodb://localhost:27017/"
+# MONGO_URI = "mongodb://localhost:27017/"
+MONGO_URI = "mongodb+srv://ad1.fnx6k6d.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=AD1"
 TEST_YML_FILE_PATH = "./models_test.yml"
 COLLECTION_NAME = "User"
 
