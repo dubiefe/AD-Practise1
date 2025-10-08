@@ -1,73 +1,83 @@
 [
   {
     "name": "María Fernández",
+    "email": "mfernandez@ucm.es",
     "address": "Calle Gran Vía, 15, Madrid, España",
     "interests": "reading,music,hiking",
     "skills": "Java,Python,project management",
-    "educational_center_name": "Universidad Complutense de Madrid",
-    "company_name": "Tecnologías Avanzadas S.A."
+    "educational_center_email": "info@ucm.es",
+    "company_email": "contacto@tecnologiasavanzadas.com"
   },
   {
     "name": "Carlos García",
+    "email": "cgarcia@ips.es",
     "address": "Avenida de Andalucía, 42, Sevilla, España",
     "interests": "soccer,movies,music",
     "skills": "graphic design,Photoshop,digital marketing",
-    "educational_center_name": "Instituto Politécnico de Sevilla",
-    "company_name": "Industrias García"
+    "educational_center_email": "info@ips.es",
+    "company_email": "contacto@industriasgarcia.com"
   },
   {
     "name": "Lucía Martínez",
+    "email": "lmartinez@ucm.es",
     "address": "Calle del Prado, 8, Madrid, España",
     "interests": "reading,yoga,music",
     "skills": "project management,digital marketing,Python",
-    "educational_center_name": "Universidad Complutense de Madrid",
-    "company_name": "Soluciones Informáticas López"
+    "educational_center_email": "info@ucm.es",
+    "company_email": "contacto@solucioneslopez.com"
   },
   {
     "name": "Javier López",
+    "email": "jlopez@etseib.es",
     "address": "Paseo de la Reforma, 22, Barcelona, España",
     "interests": "cycling,technology,reading",
     "skills": "C++,networking,Python",
-    "educational_center_name": "Escuela Técnica Superior de Ingeniería de Barcelona",
-    "company_name": "Constructora Martínez"
+    "educational_center_email": "info@etseib.es",
+    "company_email": "contacto@constructoramartinez.com"
   },
   {
     "name": "Ana Ruiz",
+    "email": "aruiz@cemv.es",
     "address": "Calle San Vicente, 13, Valencia, España",
     "skills": "customer service,administration,project management",
-    "educational_center_name": "Centro de Estudios Médicos Valencia",
-    "company_name": "Servicios Médicos Rivera"
+    "educational_center_email": "info@cemv.es",
+    "company_email": "contacto@serviciosrivera.com"
   },
   {
     "name": "Pedro Sánchez",
+    "email": "psanchez@tecnologiasavanzadas.com",
     "address": "Calle Alcalde Sainz de Baranda, 19, Madrid, España",
     "interests": "travel,photography,music",
     "skills": "JavaScript,React,Python",
-    "company_name": "Tecnologías Avanzadas S.A."
+    "company_email": "contacto@tecnologiasavanzadas.com"
   },
   {
     "name": "Elena Torres",
+    "email": "etorres@ips.es",
     "address": "Avenida del Puerto, 77, Sevilla, España",
     "interests": "cooking,reading,music",
-    "educational_center_name": "Instituto Politécnico de Sevilla"
+    "educational_center_email": "info@ips.es"
   },
   {
     "name": "Miguel Ortega",
+    "email": "mortega@constructoramartinez.com",
     "address": "Calle Muntaner, 59, Barcelona, España",
     "skills": "AutoCAD,project management,Python",
-    "company_name": "Constructora Martínez"
+    "company_email": "contacto@constructoramartinez.com"
   },
   {
     "name": "Isabel Morales",
+    "email": "imorales@cemv.es",
     "address": "Calle Colón, 4, Valencia, España",
     "interests": "theater,classical music,reading",
-    "educational_center_name": "Centro de Estudios Médicos Valencia"
+    "educational_center_email": "info@cemv.es"
   },
   {
     "name": "Diego Navarro",
+    "email": "dnavarro@solucioneslopez.com",
     "address": "Calle Alcalá, 32, Madrid, España",
     "skills": "Python,data analysis,project management",
-    "company_name": "Soluciones Informáticas López",
-    "educational_center_name": "Instituto de Formación Professional López"
+    "company_email": "contacto@solucioneslopez.com",
+    "educational_center_email": "info@ifpl.es"
   }
 ]

@@ -1,36 +1,35 @@
 Person:
   required_vars:
-    - _id
-    - nane
+    - email
+    - name
   admissible_vars:
     - address
     - interests
     - skills
-    - company_id
-    - educational_center_id
+    - company_email
+    - educational_center_email
   unique_indexes:
-    - _id
+    - email
   regular_indexes:
     - name
   location_index: address
 Company:
   required_vars:
-    - _id
-    - nane
+    - email
+    - name
     - address
   unique_indexes:
-    - _id
+    - email
   regular_indexes:
     - name
   location_index: address
 Educational_Center:
   required_vars:
-    - _id
-    - nane
+    - email
+    - name
     - address
   unique_indexes:
-    - _id
+    - email
   regular_indexes:
     - name
   location_index: address
-

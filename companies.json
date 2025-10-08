@@ -1,22 +1,27 @@
 [
   {
     "name": "Tecnologías Avanzadas S.A.",
-    "address": "Calle de Alcalá, 45, Madrid, España"
+    "address": "Madrid, España",
+    "email": "contacto@tecnologiasavanzadas.com"
   },
   {
     "name": "Industrias García",
-    "address": "Avenida de la Constitución, 12, Sevilla, España"
+    "address": "Sevilla, España",
+    "email": "contacto@industriasgarcia.com"
   },
   {
     "name": "Soluciones Informáticas López",
-    "address": "Calle de Bravo Murillo, 101, Madrid, España"
+    "address": "Madrid, España",
+    "email": "contacto@solucioneslopez.com"
   },
   {
     "name": "Constructora Martínez",
-    "address": "Paseo de la Reforma, 58, Barcelona, España"
+    "address": "Barcelona, España",
+    "email": "contacto@constructoramartinez.com"
   },
   {
     "name": "Servicios Médicos Rivera",
-    "address": "Calle Mayor, 23, Valencia, España"
+    "address": "Valencia, España",
+    "email": "contacto@serviciosrivera.com"
   }
 ]

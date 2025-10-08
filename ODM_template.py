@@ -18,7 +18,6 @@ import yaml
 from pathlib import Path
 
 # Globals
-DATABASE_NAME = "LinkedEs"
 KEY_FILE_PATH = "./vockey.pem"
 
 def getLocationPoint(address: str) -> Point:
@@ -115,7 +114,6 @@ class Model:
         # Encapsulating data in one variable simplifies
         # handling in methods like save.
         self._data.update(kwargs)
-        print(f"Creating class {self.__class__.__name__}")
 
     def __setattr__(self, name: str, value: str | dict) -> None:
         """
@@ -241,6 +239,21 @@ class Model:
         cls._db = db_collection
         cls._required_vars = required_vars
         cls._admissible_vars = admissible_vars
+
+        # Initialize indexes from the indexes dictionary
+        for field, idx_type in indexes.items():
+            # Map string to pymongo index type
+            if idx_type.upper() == "ASCENDING":
+                pymongo_type = pymongo.ASCENDING
+            elif idx_type.upper() == "DESCENDING":
+                pymongo_type = pymongo.DESCENDING
+            else:
+                continue  # or handle other types
+    
+            # Create the index on the collection
+            cls._db.create_index([(field, pymongo_type)])
+        print(f"Creating class: {Self.__class__.__name__}")
+        print(f"required_vars: {required_vars}")
         # TODO
         
 class ModelCursor:
@@ -315,6 +328,8 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
         )
     else:
         client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
+
+    client.drop_database(db_name)
 
     # Send a ping to confirm a successful connection
     try:
