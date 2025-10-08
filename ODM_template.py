@@ -15,6 +15,8 @@ from pymongo.server_api import ServerApi
 
 from bson.objectid import ObjectId
 import yaml
+from pathlib import Path
+
 
 def getLocationPoint(address: str) -> Point:
     """
@@ -109,6 +111,7 @@ class Model:
         # saved in the database in a single attribute
         # Encapsulating data in one variable simplifies
         # handling in methods like save.
+        print(f"Creating class {self.__class__.__name__}")
         self._data.update(kwargs)
 
     def __setattr__(self, name: str, value: str | dict) -> None:
@@ -352,11 +355,12 @@ if __name__ == '__main__':
 
     # if vockey.pem found
     #uri = "mongodb+srv://itziar:2hVxGqn7&w3Q5nRdDGVy@ad1.fnx6k6d.mongodb.net/?retryWrites=true&w=majority&appName=AD1"
-    uri = "mongodb+srv://ad1.fnx6k6d.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=AD1"
+    atlas_uri = "mongodb+srv://ad1.fnx6k6d.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=AD1"
 
     # Otherwise
     #uri = ""
-    initApp(mongodb_uri = uri)
+
+    initApp(mongodb_uri = atlas_uri) if Path("./vockey.pem").exists() else initApp()
 
 
     # Example
