@@ -1,5 +1,5 @@
-__author__ = '???'
-__students__ = '???'
+__author__ = "Emilie & Itziar"
+__students__ = "Emilie Dubief & Itziar Morales Rodríguez"
 
 # GeoJSON and geo locator
 from geopy.geocoders import Nominatim
