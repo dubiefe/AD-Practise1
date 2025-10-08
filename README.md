@@ -4,7 +4,13 @@
 
 - [x] Sketch diagram
 - [x] Create JSON Data
-- [ ] Get base Python files
+- [x] Get base Python files
+- [x] Connect to Database
+- [x] Read YML file and create classes from it
+  - [ ] Create collections for each class
+- [ ] Read the JSON file and get the data from it
+- [ ] Create objects using the classes from the YML file using the JSON data
+- [ ] Use the created classes to fill/create the database
 
 ## Connection
 
