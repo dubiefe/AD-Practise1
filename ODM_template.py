@@ -17,6 +17,9 @@ from bson.objectid import ObjectId
 import yaml
 from pathlib import Path
 
+# Globals
+DATABASE_NAME = "LinkedEs"
+KEY_FILE_PATH = "./vockey.pem"
 
 def getLocationPoint(address: str) -> Point:
     """
@@ -111,8 +114,8 @@ class Model:
         # saved in the database in a single attribute
         # Encapsulating data in one variable simplifies
         # handling in methods like save.
-        print(f"Creating class {self.__class__.__name__}")
         self._data.update(kwargs)
+        print(f"Creating class {self.__class__.__name__}")
 
     def __setattr__(self, name: str, value: str | dict) -> None:
         """
@@ -305,7 +308,7 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     client = None
     if mongodb_uri != "mongodb://localhost:27017/":
         client = MongoClient(
-            uri,
+            mongodb_uri,
             tls=True,
             tlsCertificateKeyFile='./vockey.pem',
             server_api=ServerApi('1')
@@ -320,6 +323,8 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     except Exception as e:
         print(e)
 
+    db = client[db_name]
+
 
     # TODO
     # Declare as many model classes as there are collections in the database
@@ -327,21 +332,33 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     # indexes, and the allowed and required attributes for each of them.
 
     # Example of model declaration for a collection called MyModel
-    scope["MyModel"] = type("MyModel", (Model,), {})
+    #scope["MyModel"] = type("MyModel", (Model,), {})
 
     _location_var: None
 
     yml_path = "./models.yml"
     with open(yml_path, 'r') as f:
         schema = yaml.safe_load(f)
+
     scope = {}
+
     for class_name, details in schema.items():
-        # attrs = details.get('attributes', {})
-        # _required_vars = 
-        # _admissible_vars = 
+        cls = type(class_name, (Model,), {})
+        scope[class_name] = cls
+
+        # Get required data from schema
+        required_vars = set(details.get('required', []))
+        admissible_vars = set(details.get('admissible', []))
+        indexes = details.get('indexes', {})
+
+        # Get or create the MongoDB collection
+        db_collection = db[class_name]
+
         _data = details
         # _db = 
-        scope[class_name] = type(class_name, (Model,), {})
+
+        # Initialize the class (link it to the collection, set attributes)
+        cls.init_class(db_collection, indexes, required_vars, admissible_vars)
         print(class_name)
         print(details)
 
