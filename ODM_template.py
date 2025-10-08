@@ -326,6 +326,22 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     # Example of model declaration for a collection called MyModel
     scope["MyModel"] = type("MyModel", (Model,), {})
 
+    _location_var: None
+
+    yml_path = "./models.yml"
+    with open(yml_path, 'r') as f:
+        schema = yaml.safe_load(f)
+    scope = {}
+    for class_name, details in schema.items():
+        # attrs = details.get('attributes', {})
+        # _required_vars = 
+        # _admissible_vars = 
+        _data = details
+        # _db = 
+        scope[class_name] = type(class_name, (Model,), {})
+        print(class_name)
+        print(details)
+
     # Ignore Pylance warning about MyModel, it cannot detect
     # that the class was declared in the previous line since it is done
     # at runtime.
