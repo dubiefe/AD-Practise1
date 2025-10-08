@@ -1,22 +1,27 @@
 [
   {
     "name": "Universidad Complutense de Madrid",
-    "address": "Av. Séneca, 2, 28040 Madrid, España"
+    "address": "Madrid, España",
+    "email": "info@ucm.es"
   },
   {
     "name": "Instituto Politécnico de Sevilla",
-    "address": "Calle Juan de Mena, 3, 41003 Sevilla, España"
+    "address": "Sevilla, España",
+    "email": "info@ips.es"
   },
   {
     "name": "Escuela Técnica Superior de Ingeniería de Barcelona",
-    "address": "Carrer de Jordi Girona, 1-3, 08034 Barcelona, España"
+    "address": "Barcelona, España",
+    "email": "info@etseib.es"
   },
   {
     "name": "Centro de Estudios Médicos Valencia",
-    "address": "Av. de Blasco Ibáñez, 15, 46010 Valencia, España"
+    "address": "Valencia, España",
+    "email": "info@cemv.es"
   },
   {
     "name": "Instituto de Formación Professional López",
-    "address": "Calle Gran Vía, 78, Madrid, España"
+    "address": "Madrid, España",
+    "email": "info@ifpl.es"
   }
 ]
