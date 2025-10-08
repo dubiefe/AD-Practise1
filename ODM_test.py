@@ -4,7 +4,7 @@ from geojson import Point
 from geopy.exc import GeocoderTimedOut
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
-from ODM import initApp, getLocationPoint, ModelCursor
+from ODM_template import initApp, getLocationPoint, ModelCursor
 
 # ─────────────────────────────────────────────────────────────
 # 🔧 Configuration Constants
