@@ -15,8 +15,8 @@ print("Certificate exists:", os.path.exists("./vockey.pem"))
 # ─────────────────────────────────────────────────────────────
 
 DB_NAME = "abd_test"
-# MONGO_URI = "mongodb://localhost:27017/"
-MONGO_URI = "mongodb+srv://ad1.fnx6k6d.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=AD1"
+MONGO_URI = "mongodb://localhost:27017/"
+#MONGO_URI = "mongodb+srv://ad1.fnx6k6d.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=AD1"
 TEST_YML_FILE_PATH = "./models_test.yml"
 COLLECTION_NAME = "User"
 
@@ -34,7 +34,7 @@ def db_scope():
     initApp(definitions_path=TEST_YML_FILE_PATH, mongodb_uri=MONGO_URI, db_name=DB_NAME, scope=scope)
     yield scope
     client = None
-    if MONGO_URI == "mongodb://localhost:27017":
+    if MONGO_URI == "mongodb://localhost:27017/":
         client = MongoClient(MONGO_URI, server_api=ServerApi('1'))
     else:
         client = MongoClient(
@@ -52,7 +52,7 @@ def get_collection():
     Returns the MongoDB collection used for testing.
     """
     client = None
-    if MONGO_URI == "mongodb://localhost:27017":
+    if MONGO_URI == "mongodb://localhost:27017/":
         client = MongoClient(MONGO_URI, server_api=ServerApi('1'))
     else:
         client = MongoClient(
