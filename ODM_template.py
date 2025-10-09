@@ -133,7 +133,8 @@ class Model:
         # Perform necessary checks and handling
         # before assignment.
         # Assign the value to the variable name
-        self.data[name] = value
+        self._data[name] = value
+
 
     def __getattr__(self, name: str) -> Any:
         """
