@@ -18,6 +18,7 @@ import yaml
 from pathlib import Path
 
 # Globals
+DATABASE_NAME = "LinkedEs"
 KEY_FILE_PATH = "./vockey.pem"
 
 def getLocationPoint(address: str) -> Point:
@@ -105,15 +106,22 @@ class Model:
             Dictionary with the model's attribute values
         """
         # TODO
+        print(f"Creating class {self.__class__.__name__}")
+        self.data = {}
         # Perform necessary checks and handling
         # before assignment.
+        for key in kwargs:
+            if(key not in self._required_vars & key not in self._admissible_vars):
+                # if the attributes is not registered in either required and admissible attributes
+                raise "The attributes " + key + " doesn't exists"
         # Assign all values in kwargs to attributes with
         # names matching the keys in kwargs
         # Use the data attribute to store variables
         # saved in the database in a single attribute
         # Encapsulating data in one variable simplifies
         # handling in methods like save.
-        self._data.update(kwargs)
+        self.data.update(kwargs)
+        
 
     def __setattr__(self, name: str, value: str | dict) -> None:
         """
@@ -124,7 +132,7 @@ class Model:
         # Perform necessary checks and handling
         # before assignment.
         # Assign the value to the variable name
-        self._data[name] = value
+        self.data[name] = value
 
     def __getattr__(self, name: str) -> Any:
         """
