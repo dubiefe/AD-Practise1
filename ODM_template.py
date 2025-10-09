@@ -376,7 +376,7 @@ class ModelCursor:
             while self.alive(): 
                 try :
                     document = next(self.cursor)       # get the next document
-                    instance = self.model              # creation of an instance of the model to store the document
+                    instance = self.model()              # creation of an instance of the model to store the document
                     instance._data = document
                     yield instance              # send the instance
                 except StopIteration:           # handle exception raised by next if there are no documents left
@@ -488,13 +488,13 @@ if __name__ == '__main__':
 
     # if vockey.pem found
     #atlas_uri = "mongodb+srv://itziar:2hVxGqn7&w3Q5nRdDGVy@ad1.fnx6k6d.mongodb.net/?retryWrites=true&w=majority&appName=AD1"
-    atlas_uri = "mongodb+srv://ad1.fnx6k6d.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=AD1"
+    #atlas_uri = "mongodb+srv://ad1.fnx6k6d.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=AD1"
 
     # Otherwise
     #uri = ""
 
-    initApp(mongodb_uri = atlas_uri) if Path("./vockey.pem").exists() else initApp()
-
+    #initApp(mongodb_uri = atlas_uri) if Path("./vockey.pem").exists() else initApp()
+    initApp()
 
     # Example
     #m = User(name="Pablo", email="pedro@gmail.com")
