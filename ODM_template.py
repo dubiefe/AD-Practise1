@@ -113,7 +113,21 @@ class Model:
         # saved in the database in a single attribute
         # Encapsulating data in one variable simplifies
         # handling in methods like save.
-        self._data.update(kwargs)
+        #self._data.update(kwargs)
+
+        self._data = {}
+        # Validate required variables
+        missing = [var for var in getattr(self, "_required_vars", set()) if var not in kwargs]
+        if missing:
+            raise ValueError(f"Missing required fields: {missing}")
+        # Only store admissible and required vars
+        valid_vars = getattr(self, "_required_vars", set()).union(getattr(self, "_admissible_vars", set()))
+        for k, v in kwargs.items():
+            if k in valid_vars or k == "_id":
+                self._data[k] = v
+            else:
+                # TODO: Raise or ignore error
+                pass
 
     def __setattr__(self, name: str, value: str | dict) -> None:
         """
