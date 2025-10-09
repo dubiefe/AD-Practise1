@@ -3,6 +3,7 @@ User:
     - email
     - name
   admissible_vars:
+    - age
     - address
     - interests
     - skills
@@ -11,7 +12,7 @@ User:
   indexes:
     - email: unique
     - name: regular
-    - location: 2dsphere
+    - address: 2dsphere
 Company:
   required_vars:
     - email
@@ -20,7 +21,7 @@ Company:
   indexes:
     - email: unique
     - name: regular
-    - location: 2dsphere
+    - address: 2dsphere
 Educational_Center:
   required_vars:
     - email
@@ -29,4 +30,4 @@ Educational_Center:
   indexes:
     - email: unique
     - name: regular
-    - location: 2dsphere
+    - address: 2dsphere
