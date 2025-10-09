@@ -376,9 +376,7 @@ class ModelCursor:
             while self.alive(): 
                 try :
                     document = next(self.cursor)       # get the next document
-                    instance = self.model()              # creation of an instance of the model to store the document
-                    instance._data = document
-                    yield instance              # send the instance
+                    yield self.model(**document)              # send the instance
                 except StopIteration:           # handle exception raised by next if there are no documents left
                     self._alive = False         # set the iterator to not be alive
 
