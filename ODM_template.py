@@ -241,6 +241,7 @@ class Model:
         cls._admissible_vars = admissible_vars
 
         # Initialize indexes from the indexes dictionary, ascending by default
+        location_fields = set()
         for index in indexes:
             for field, idx_type in index.items():
                 try:
@@ -253,11 +254,13 @@ class Model:
                     elif idx_type == "2dsphere":
                         print(f"Creating GEOSPHERE (2dsphere) index on field '{field}'")
                         cls._db.create_index([(field, pymongo.GEOSPHERE)])
-                        cls._location_var = field;
+                        location_fields.add(field)
                     else:
                         raise ValueError(f"Unknown index type for field '{field}': {idx_type}")
                 except Exception as e:
                     print(f"Error creating index on field '{field}': {e}")
+
+        cls._location_var = location_fields if location_fields else None
 
         # Get tihs to work
         print(f"Creating class: {Self.__class__.__name__}")
@@ -366,8 +369,6 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     with open(yml_path, 'r') as f:
         schema = yaml.safe_load(f)
 
-    scope = {}
-
     for class_name, details in schema.items():
         # Get required data from schema
         print(f"Initializing model: {class_name}")
@@ -406,10 +407,10 @@ if __name__ == '__main__':
 
 
     # Example
-    m = User(name="Pablo", email="pedro@gmail.com")
-    m.save()
-    m.name = "Pedro"
-    print(m.name)
+    #m = User(name="Pablo", email="pedro@gmail.com")
+    #m.save()
+    #m.name = "Pedro"
+    #print(m.name)
 
     # Run tests to verify the model works correctly
     # TODO
