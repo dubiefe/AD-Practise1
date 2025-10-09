@@ -155,7 +155,7 @@ def test_find_multiple_model_instances(db_scope):
 # 🌍 Geolocation Tests
 # ─────────────────────────────────────────────────────────────
 
-@patch("ODM.Nominatim")
+@patch("ODM_template.Nominatim")
 def test_get_location_point_success(mock_nominatim):
     mock_geolocator = MagicMock()
     mock_geolocator.geocode.return_value = MagicMock(latitude=40.7128, longitude=-74.0060)
@@ -165,7 +165,7 @@ def test_get_location_point_success(mock_nominatim):
     assert isinstance(result, Point)
     assert result.coordinates == [-74.0060, 40.7128]
 
-@patch("ODM.Nominatim")
+@patch("ODM_template.Nominatim")
 def test_get_location_point_timeout_recovery(mock_nominatim):
     """Test geolocation with a recoverable timeout."""
     mock_geolocator = MagicMock()
@@ -176,7 +176,7 @@ def test_get_location_point_timeout_recovery(mock_nominatim):
     assert isinstance(result, Point)
     assert result.coordinates == [2.3522, 48.8566]
 
-@patch("ODM.Nominatim")
+@patch("ODM_template.Nominatim")
 def test_get_location_point_timeout_failure(mock_nominatim):
     """Test geolocation with repeated timeouts leading to failure."""
     mock_geolocator = MagicMock()
