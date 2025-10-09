@@ -253,13 +253,16 @@ class Model:
                     elif idx_type == "2dsphere":
                         print(f"Creating GEOSPHERE (2dsphere) index on field '{field}'")
                         cls._db.create_index([(field, pymongo.GEOSPHERE)])
+                        cls._location_var = field;
                     else:
                         raise ValueError(f"Unknown index type for field '{field}': {idx_type}")
                 except Exception as e:
                     print(f"Error creating index on field '{field}': {e}")
 
+        # Get tihs to work
         print(f"Creating class: {Self.__class__.__name__}")
-        print(f"required_vars: {cls._required_vars}")
+
+        print(f"Required_vars: {cls._required_vars}")
         # TODO
         
 class ModelCursor:
@@ -368,9 +371,9 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     for class_name, details in schema.items():
         # Get required data from schema
         print(f"Initializing model: {class_name}")
-        indexes = details.get('indexes', {})
-        required_vars = set(details.get('required', []))
-        admissible_vars = set(details.get('admissible', []))
+        indexes = details.get('indexes', {})                      # dictionary
+        required_vars = set(details.get('required_vars', []))     # set
+        admissible_vars = set(details.get('admissible_vars', [])) # set
 
         # Get or create the MongoDB collection
         db_collection = db[class_name]
@@ -403,10 +406,10 @@ if __name__ == '__main__':
 
 
     # Example
-    #m = MyModel(name="Pablo", surname="Ramos", age=18)
-    #m.save()
-    #m.name = "Pedro"
-    #print(m.name)
+    m = User(name="Pablo", email="pedro@gmail.com")
+    m.save()
+    m.name = "Pedro"
+    print(m.name)
 
     # Run tests to verify the model works correctly
     # TODO
