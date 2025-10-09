@@ -204,7 +204,7 @@ class Model:
         Deletes the model from the database.
         """
         # TODO
-        pass
+        self._db.delete_one({"_id": self._data["_id"]})
 
     @classmethod
     def find(cls, filter: dict[str, str | dict]) -> Any:
@@ -225,7 +225,10 @@ class Model:
         """
         # TODO
         # cls is the pointer to the class
-        pass  # Don't forget to remove this line once implemented
+        result_find = cls._db.find(filter) # the filter is in the right format
+
+        # creating the cursor
+        return ModelCursor(cls, result_find)
 
     @classmethod
     def aggregate(cls, pipeline: list[dict]) -> pymongo.command_cursor.CommandCursor:
