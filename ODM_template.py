@@ -135,7 +135,6 @@ class Model:
         # Assign the value to the variable name
         self._data[name] = value
 
-
     def __getattr__(self, name: str) -> Any:
         """
         Overrides the attribute access method.
