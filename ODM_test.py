@@ -1,10 +1,14 @@
 import pytest
+import os
 from unittest.mock import patch, MagicMock
 from geojson import Point
 from geopy.exc import GeocoderTimedOut
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 from ODM_template import initApp, getLocationPoint, ModelCursor
+
+print("Current working directory:", os.getcwd())
+print("Certificate exists:", os.path.exists("./vockey.pem"))
 
 # ─────────────────────────────────────────────────────────────
 # 🔧 Configuration Constants
@@ -29,7 +33,17 @@ def db_scope():
     scope = {}
     initApp(definitions_path=TEST_YML_FILE_PATH, mongodb_uri=MONGO_URI, db_name=DB_NAME, scope=scope)
     yield scope
-    client = MongoClient(MONGO_URI, server_api=ServerApi('1'))
+    client = None
+    if MONGO_URI == "mongodb://localhost:27017":
+        client = MongoClient(MONGO_URI, server_api=ServerApi('1'))
+    else:
+        client = MongoClient(
+            MONGO_URI,
+            tls=True,
+            tlsCertificateKeyFile='./vockey.pem',
+            tlsAllowInvalidCertificates=True,  # Remove in production!
+            server_api=ServerApi('1')
+        )
     client.drop_database(DB_NAME)
     client.close()
 
@@ -37,7 +51,17 @@ def get_collection():
     """
     Returns the MongoDB collection used for testing.
     """
-    client = MongoClient(MONGO_URI, server_api=ServerApi('1'))
+    client = None
+    if MONGO_URI == "mongodb://localhost:27017":
+        client = MongoClient(MONGO_URI, server_api=ServerApi('1'))
+    else:
+        client = MongoClient(
+            MONGO_URI,
+            tls=True,
+            tlsCertificateKeyFile='./vockey.pem',
+            tlsAllowInvalidCertificates=True,  # Remove in production!
+            server_api=ServerApi('1')
+        )
     return client[DB_NAME][COLLECTION_NAME]
 
 # ─────────────────────────────────────────────────────────────
