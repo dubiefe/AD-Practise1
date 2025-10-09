@@ -105,12 +105,17 @@ class Model:
         kwargs : dict[str, str | dict]
             Dictionary with the model's attribute values
         """
-        # TODO
-        print(f"Creating class {self.__class__.__name__}")
         # Perform necessary checks and handling
         # before assignment.
-        # Only use self._data
+        # Assign all values in kwargs to attributes with
+        # names matching the keys in kwargs
+        # Use the data attribute to store variables
+        # saved in the database in a single attribute
+        # Encapsulating data in one variable simplifies
+        # handling in methods like save.
+        print(f"Creating class {self.__class__.__name__}")
         self._data = {}
+
         # Proper attribute check
         for key in kwargs:
             if key not in self._required_vars and key not in self._admissible_vars:
@@ -134,6 +139,12 @@ class Model:
         # before assignment.
         # Assign the value to the variable name
         self._data[name] = value
+
+        # check if the attribut is in the required or in the admissible variables
+        if (name not in self._required_vars) and (name not in self._admissible_vars) :
+            raise AttributeError("The attribute " + name + " is not accepted for this document")
+        else :
+            self._data[name] = value
 
     def __getattr__(self, name: str) -> Any:
         """
@@ -309,6 +320,9 @@ class ModelCursor:
 
     Methods
     -------
+    alive()
+        Return the value of alive
+    
     __iter__() -> Generator
         Returns an iterator that goes through the cursor elements
         and returns the documents as model objects.
@@ -326,6 +340,10 @@ class ModelCursor:
         """
         self.model = model_class
         self.cursor = cursor
+        self._alive = True
+
+    def alive(self):
+        return self._alive
 
     def __iter__(self) -> Generator:
         """
@@ -336,7 +354,16 @@ class ModelCursor:
         Use alive to check if more documents exist.
         """
         # TODO
-        pass  # Don't forget to remove this line once implemented
+        # creating the generator
+        def generator():
+            while self.alive(): 
+                try :
+                    document = next(self)       # get the next document
+                    yield document              # send the document
+                except StopIteration:           # handle exception raised by next if there are no documents left
+                    self._alive = False         # set the iterator to not be alive
+
+        return generator()
     
 def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://localhost:27017/", db_name="abd", scope=globals()) -> None:
     """
