@@ -433,7 +433,23 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     for class_name, details in schema.items():
         # Get required data from schema
         print(f"Initializing model: {class_name}")
-        indexes = details.get('indexes', {})                      # dictionary
+
+
+        # Extract indexes from schema
+        unique_indexes = details.get('unique_indexes', [])
+        regular_indexes = details.get('regular_indexes', [])
+        location_index = details.get('location_index', [])
+
+        # Combine all index types into a list of dicts as required by init_class
+        indexes = []
+        for field in unique_indexes:
+            indexes.append({field: "unique"})
+        for field in regular_indexes:
+            indexes.append({field: "regular"})
+
+        indexes.append({location_index: "2dsphere"})
+
+        # Get variables
         required_vars = set(details.get('required_vars', []))     # set
         admissible_vars = set(details.get('admissible_vars', [])) # set
 
@@ -458,7 +474,7 @@ if __name__ == '__main__':
     # TODO
 
     # if vockey.pem found
-    #uri = "mongodb+srv://itziar:2hVxGqn7&w3Q5nRdDGVy@ad1.fnx6k6d.mongodb.net/?retryWrites=true&w=majority&appName=AD1"
+    #atlas_uri = "mongodb+srv://itziar:2hVxGqn7&w3Q5nRdDGVy@ad1.fnx6k6d.mongodb.net/?retryWrites=true&w=majority&appName=AD1"
     atlas_uri = "mongodb+srv://ad1.fnx6k6d.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=AD1"
 
     # Otherwise
