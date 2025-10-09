@@ -147,7 +147,23 @@ class Model:
         the existing document is updated with the new values.
         """
         # TODO
-        pass  # Don't forget to remove this line once implemented
+        # Ensure required fields are present
+        missing = [var for var in self._required_vars if var not in self._data]
+        if missing:
+            raise ValueError(f"Missing required fields: {missing}")
+
+        # Only save admissible (and required) fields
+        valid_fields = self._required_vars.union(self._admissible_vars)
+        data_to_save = {k: v for k, v in self._data.items() if k in valid_fields or k == "_id"}
+
+        # If _id present, update, else insert
+        if "_id" in self._data:
+            print("Updating", self._data)
+            self._db.update_one({"_id": self._data["_id"]}, {"$set": data_to_save})
+        else:
+            print("Inserting", data_to_save)
+            res = self._db.insert_one(data_to_save)
+            self._data["_id"] = res.inserted_id
 
     def delete(self) -> None:
         """
@@ -239,9 +255,9 @@ class Model:
         cls._db = db_collection
         cls._required_vars = required_vars
         cls._admissible_vars = admissible_vars
+        cls._location_var = None
 
         # Initialize indexes from the indexes dictionary, ascending by default
-        location_fields = set()
         for index in indexes:
             for field, idx_type in index.items():
                 try:
@@ -254,13 +270,15 @@ class Model:
                     elif idx_type == "2dsphere":
                         print(f"Creating GEOSPHERE (2dsphere) index on field '{field}'")
                         cls._db.create_index([(field, pymongo.GEOSPHERE)])
-                        location_fields.add(field)
+                        cls._location_var = field
                     else:
                         raise ValueError(f"Unknown index type for field '{field}': {idx_type}")
                 except Exception as e:
                     print(f"Error creating index on field '{field}': {e}")
 
-        cls._location_var = location_fields if location_fields else None
+        # Check if the location variable is set (mandatory for all)
+        if cls._location_var == None:
+            raise ValueError(f"_location_var not set")
 
         # Get tihs to work
         print(f"Creating class: {Self.__class__.__name__}")
@@ -336,6 +354,7 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
             mongodb_uri,
             tls=True,
             tlsCertificateKeyFile='./vockey.pem',
+            tlsAllowInvalidCertificates=True,  # Remove in production!
             server_api=ServerApi('1')
         )
     else:
