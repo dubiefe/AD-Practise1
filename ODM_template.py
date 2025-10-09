@@ -140,11 +140,15 @@ class Model:
         # Assign the value to the variable name
         self._data[name] = value
 
-        # check if the attribut is in the required or in the admissible variables
-        if (name not in self._required_vars) and (name not in self._admissible_vars) :
-            raise AttributeError("The attribute " + name + " is not accepted for this document")
-        else :
-            self._data[name] = value
+        # Use super for class attributes, _data for model fields
+        if name in {"_required_vars", "_admissible_vars", "_db", "_data", "_location_var"}:
+            super().__setattr__(name, value)
+        else:
+            # Check if the attribute is in the required or in the admissible variables
+            if (name not in self._required_vars) and (name not in self._admissible_vars) :
+                raise AttributeError("The attribute " + name + " is not accepted for this document")
+            else :
+                self._data[name] = value
 
     def __getattr__(self, name: str) -> Any:
         """
