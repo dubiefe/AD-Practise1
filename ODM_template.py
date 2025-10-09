@@ -120,8 +120,21 @@ class Model:
         # saved in the database in a single attribute
         # Encapsulating data in one variable simplifies
         # handling in methods like save.
-        self.data.update(kwargs)
-        
+        #self._data.update(kwargs)
+
+        self._data = {}
+        # Validate required variables
+        missing = [var for var in getattr(self, "_required_vars", set()) if var not in kwargs]
+        if missing:
+            raise ValueError(f"Missing required fields: {missing}")
+        # Only store admissible and required vars
+        valid_vars = getattr(self, "_required_vars", set()).union(getattr(self, "_admissible_vars", set()))
+        for k, v in kwargs.items():
+            if k in valid_vars or k == "_id":
+                self._data[k] = v
+            else:
+                # TODO: Raise or ignore error
+                pass
 
     def __setattr__(self, name: str, value: str | dict) -> None:
         """
@@ -155,7 +168,23 @@ class Model:
         the existing document is updated with the new values.
         """
         # TODO
-        pass  # Don't forget to remove this line once implemented
+        # Ensure required fields are present
+        missing = [var for var in self._required_vars if var not in self._data]
+        if missing:
+            raise ValueError(f"Missing required fields: {missing}")
+
+        # Only save admissible (and required) fields
+        valid_fields = self._required_vars.union(self._admissible_vars)
+        data_to_save = {k: v for k, v in self._data.items() if k in valid_fields or k == "_id"}
+
+        # If _id present, update, else insert
+        if "_id" in self._data:
+            print("Updating", self._data)
+            self._db.update_one({"_id": self._data["_id"]}, {"$set": data_to_save})
+        else:
+            print("Inserting", data_to_save)
+            res = self._db.insert_one(data_to_save)
+            self._data["_id"] = res.inserted_id
 
     def delete(self) -> None:
         """
@@ -247,21 +276,35 @@ class Model:
         cls._db = db_collection
         cls._required_vars = required_vars
         cls._admissible_vars = admissible_vars
+        cls._location_var = None
 
-        # Initialize indexes from the indexes dictionary
-        for field, idx_type in indexes.items():
-            # Map string to pymongo index type
-            if idx_type.upper() == "ASCENDING":
-                pymongo_type = pymongo.ASCENDING
-            elif idx_type.upper() == "DESCENDING":
-                pymongo_type = pymongo.DESCENDING
-            else:
-                continue  # or handle other types
-    
-            # Create the index on the collection
-            cls._db.create_index([(field, pymongo_type)])
+        # Initialize indexes from the indexes dictionary, ascending by default
+        for index in indexes:
+            for field, idx_type in index.items():
+                try:
+                    if idx_type == "unique":
+                        print(f"Creating UNIQUE index on field '{field}'")
+                        cls._db.create_index([(field, pymongo.ASCENDING)], unique=True)
+                    elif idx_type == "regular":
+                        print(f"Creating REGULAR index on field '{field}'")
+                        cls._db.create_index([(field, pymongo.ASCENDING)])
+                    elif idx_type == "2dsphere":
+                        print(f"Creating GEOSPHERE (2dsphere) index on field '{field}'")
+                        cls._db.create_index([(field, pymongo.GEOSPHERE)])
+                        cls._location_var = field
+                    else:
+                        raise ValueError(f"Unknown index type for field '{field}': {idx_type}")
+                except Exception as e:
+                    print(f"Error creating index on field '{field}': {e}")
+
+        # Check if the location variable is set (mandatory for all)
+        if cls._location_var == None:
+            raise ValueError(f"_location_var not set")
+
+        # Get tihs to work
         print(f"Creating class: {Self.__class__.__name__}")
-        print(f"required_vars: {required_vars}")
+
+        print(f"Required_vars: {cls._required_vars}")
         # TODO
         
 class ModelCursor:
@@ -324,19 +367,23 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     db_name : str
         Name of the database
     """
-    # TODO
     # Initialize database
+    print(f"Loading schema from {definitions_path}")
     client = None
     if mongodb_uri != "mongodb://localhost:27017/":
         client = MongoClient(
             mongodb_uri,
             tls=True,
             tlsCertificateKeyFile='./vockey.pem',
+            tlsAllowInvalidCertificates=True,  # Remove in production!
             server_api=ServerApi('1')
         )
     else:
         client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
 
+    print(f"Connected to database: {db_name}")
+
+    # Drop previous data
     client.drop_database(db_name)
 
     # Send a ping to confirm a successful connection
@@ -347,7 +394,6 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
         print(e)
 
     db = client[db_name]
-
 
     # TODO
     # Declare as many model classes as there are collections in the database
@@ -363,27 +409,24 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     with open(yml_path, 'r') as f:
         schema = yaml.safe_load(f)
 
-    scope = {}
-
     for class_name, details in schema.items():
-        cls = type(class_name, (Model,), {})
-        scope[class_name] = cls
-
         # Get required data from schema
-        required_vars = set(details.get('required', []))
-        admissible_vars = set(details.get('admissible', []))
-        indexes = details.get('indexes', {})
+        print(f"Initializing model: {class_name}")
+        indexes = details.get('indexes', {})                      # dictionary
+        required_vars = set(details.get('required_vars', []))     # set
+        admissible_vars = set(details.get('admissible_vars', [])) # set
 
         # Get or create the MongoDB collection
         db_collection = db[class_name]
 
-        _data = details
-        # _db = 
-
         # Initialize the class (link it to the collection, set attributes)
+        cls = type(class_name, (Model,), {})
+        scope[class_name] = cls
         cls.init_class(db_collection, indexes, required_vars, admissible_vars)
-        print(class_name)
-        print(details)
+        print(f"Collection: {db_collection.name}")
+        print(f"Required vars: {required_vars}")
+        print(f"Admissible vars: {admissible_vars}")
+        print(f"Indexes: {indexes}\n")
 
     # Ignore Pylance warning about MyModel, it cannot detect
     # that the class was declared in the previous line since it is done
@@ -404,7 +447,7 @@ if __name__ == '__main__':
 
 
     # Example
-    #m = MyModel(name="Pablo", surname="Ramos", age=18)
+    #m = User(name="Pablo", email="pedro@gmail.com")
     #m.save()
     #m.name = "Pedro"
     #print(m.name)

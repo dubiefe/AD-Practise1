@@ -9,6 +9,7 @@ pkgs.mkShell {
     python311Packages.geopy
     python311Packages.geojson
     python311Packages.pyyaml
+    python311Packages.pytest
     # You may also want ipython for testing
     # python311Packages.ipython
   ];
