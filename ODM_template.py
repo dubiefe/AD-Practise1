@@ -37,18 +37,28 @@ def getLocationPoint(address: str) -> Point:
     geojson.Point
         Coordinates of the address point
     """
+
+    max_attempts = 5
+    attempts = 0
     location = None
-    while location is None:
+    while location is None and attempts < max_attempts:
         try:
             time.sleep(1)
             # TODO
             # A user_agent is required to use the API
             # Use a random name for the user_agent
-            location = Nominatim(user_agent="My-Random-Name").geocode(address)
+            geolocator = Nominatim(user_agent="emilie_itziar_adv_database")
+            location = geolocator.geocode(address)
         except GeocoderTimedOut:
             # May throw an exception if timeout is exceeded
             # Try again
+            attempts += 1
             continue
+
+    if location is None:
+        raise ValueError("No se pudieron obtener coordenadas")
+    return Point((location.longitude, location.latitude))
+
     # TODO
 
 class Model:
