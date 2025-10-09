@@ -107,34 +107,22 @@ class Model:
         """
         # TODO
         print(f"Creating class {self.__class__.__name__}")
-        self.data = {}
         # Perform necessary checks and handling
         # before assignment.
-        for key in kwargs:
-            if(key not in self._required_vars & key not in self._admissible_vars):
-                # if the attributes is not registered in either required and admissible attributes
-                raise "The attributes " + key + " doesn't exists"
-        # Assign all values in kwargs to attributes with
-        # names matching the keys in kwargs
-        # Use the data attribute to store variables
-        # saved in the database in a single attribute
-        # Encapsulating data in one variable simplifies
-        # handling in methods like save.
-        #self._data.update(kwargs)
-
+        # Only use self._data
         self._data = {}
+        # Proper attribute check
+        for key in kwargs:
+            if key not in self._required_vars and key not in self._admissible_vars:
+                raise ValueError(f"The attribute {key} doesn't exist")
         # Validate required variables
-        missing = [var for var in getattr(self, "_required_vars", set()) if var not in kwargs]
+        missing = [var for var in self._required_vars if var not in kwargs]
         if missing:
             raise ValueError(f"Missing required fields: {missing}")
-        # Only store admissible and required vars
-        valid_vars = getattr(self, "_required_vars", set()).union(getattr(self, "_admissible_vars", set()))
+        valid_vars = self._required_vars.union(self._admissible_vars)
         for k, v in kwargs.items():
             if k in valid_vars or k == "_id":
                 self._data[k] = v
-            else:
-                # TODO: Raise or ignore error
-                pass
 
     def __setattr__(self, name: str, value: str | dict) -> None:
         """
