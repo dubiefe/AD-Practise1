@@ -126,9 +126,10 @@ class Model:
         print(f"Creating class {self.__class__.__name__}")
         self._data = {}
 
-        # Proper attribute check
+
+
         for key in kwargs:
-            if key not in self._required_vars and key not in self._admissible_vars:
+            if key not in self._required_vars and key not in self._admissible_vars and key != "_id":
                 raise ValueError(f"The attribute {key} doesn't exist")
         # Validate required variables
         missing = [var for var in self._required_vars if var not in kwargs]
