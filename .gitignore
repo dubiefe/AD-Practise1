@@ -1,1 +1,6 @@
+# Credential key
 ./vockey.pem
+
+# Cache
+./__pycache
+./__pycache__/*

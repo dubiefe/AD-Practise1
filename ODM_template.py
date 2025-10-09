@@ -430,7 +430,7 @@ if __name__ == '__main__':
     # TODO
 
     # if vockey.pem found
-    #uri = "mongodb+srv://itziar:2hVxGqn7&w3Q5nRdDGVy@ad1.fnx6k6d.mongodb.net/?retryWrites=true&w=majority&appName=AD1"
+    #atlas_uri = "mongodb+srv://itziar:2hVxGqn7&w3Q5nRdDGVy@ad1.fnx6k6d.mongodb.net/?retryWrites=true&w=majority&appName=AD1"
     atlas_uri = "mongodb+srv://ad1.fnx6k6d.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=AD1"
 
     # Otherwise
