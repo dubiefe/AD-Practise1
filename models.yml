@@ -13,7 +13,7 @@ User:
     - email
   regular_indexes:
     - name
-  location_indexes: address
+  location_index: address
 Company:
   required_vars:
     - email
@@ -23,7 +23,7 @@ Company:
     - email
   regular_indexes:
     - name
-  location_indexes: address
+  location_index: address
 Educational_Center:
   required_vars:
     - email
@@ -33,4 +33,4 @@ Educational_Center:
     - email
   regular_indexes:
     - name
-  location_indexes: address
+  location_index: address
