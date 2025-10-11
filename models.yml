@@ -1,3 +1,4 @@
+# User model
 User:
   required_vars:
     - email
@@ -14,6 +15,8 @@ User:
   regular_indexes:
     - email
   location_index: address
+
+# Company model
 Company:
   required_vars:
     - email
@@ -24,6 +27,8 @@ Company:
   regular_indexes:
     - email
   location_index: address
+
+# Educational_Center model
 Educational_Center:
   required_vars:
     - email

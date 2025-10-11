@@ -1,0 +1,32 @@
+\par
+In regression the target column is a continuous variable. Meanwhile in
+classification it consists of a target class (for example, "cat" or "dot", is it
+"rainy" or "not rainy"), treated as binary outcomes. The outcome column
+therefore changes its name to "label".
+
+\par
+Predictions are probabilistic, meaning that the model outputs the probability
+for each "label". One can turn this probability into a decisive action or class,
+through a decision threshold (could be $0.5$, but it varies based on the
+necessity of the variable).
+
+\par
+In regression, we are looking for the line that is closest to all the points at
+the same time. On the other hand in classification, we are looking for the most
+reliable dividing line between the points, called the "decision boundary".
+
+\par
+To do this, a logistic regression is used instead (having a sigmoid shape),
+being symmetric:
+
+% TODO: include start
+
+\begin{center}
+	Logistic function: $\mathbb{R}$               $\rightarrow (0,1)$ \\
+	probabilities($p$) $\leftarrow$ logistic($x$) $:= \frac{1}{1 + e^{-\kappa_1x +
+					\kappa_0}}$
+\end{center}
+
+\par
+Before, $\beta_i$ was found for the best linear fit, and in this case,
+$\kappa_0$ and $\kappa_1$ are used to find the best logistic fit.

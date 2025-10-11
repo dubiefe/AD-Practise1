@@ -1,0 +1,614 @@
+% {{{ Basic stuff
+
+%\author{Itziar Morales Rodríguez}
+%\author{Author}
+
+% Some basic packages
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[main=english]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+%\usepackage{lastpage}
+%\usepackage{dirtytalk}
+\usepackage{float}
+%\usepackage{gensymb}
+
+% Code
+%\usepackage[cachedir=\detokenize{~/.cache/minted}]{minted}
+\usepackage{listings}
+
+% Use the Roboto font
+%\usepackage[sfdefault,light]{roboto}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+% Set enumerate
+%\usepackage{enumitem}
+%\setlist{nosep}
+%\setitemize{topsep=0.5em, itemsep=0.5em}
+%\setenumerate{topsep=0.5em, itemsep=0.5em}
+%\setitemize[1]{label=\bullet}
+%\setitemize[2]{label=\circ}
+
+% Adjust page margins
+\usepackage{geometry} % Required for adjusting page dimensions and margins
+
+\geometry{%
+	paper=a4paper, % Change to letterpaper for US letter
+	%total={209mm,157mm},
+	top=3cm,% Top margin
+	bottom=3cm,% Bottom margin
+	left=2.5cm,% Left margin
+	right=2.5cm, % Right margin
+	headheight=30pt, % Header height
+	footskip=1.4cm, % Space from the bottom margin to the baseline of the footer
+	headsep=1.2cm, % Space from the top margin to the baseline of the header
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+% Don't indent paragraphs, leave some space between them
+\usepackage{parskip}
+
+% Floating elements
+%\usepackage{wrapfig}
+
+% Hide page number when page is empty
+%\usepackage{emptypage}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage[table,x11names]{xcolor}
+
+% Hyper ref
+\usepackage[
+	pdfencoding=auto, psdextra, % Enable unicode and math in titles
+	colorlinks=true,
+	urlcolor=DodgerBlue4,
+	linkcolor=DodgerBlue4,
+	citecolor=DodgerBlue4
+]{hyperref}
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\pdfstringdefDisableCommands{\def\varepsilon{\textepsilon}}
+\usepackage{bookmark}% faster updated bookmarks
+%\usepackage{csquotes}
+
+% Bibliography
+% \usepackage[nottoc,numbib]{tocbibind} % add toc in index
+%\usepackage[
+%	autocite     = superscript,
+%	backend      = biber,
+%	sortcites    = true,
+%	style        = numeric,
+%	defernumbers = true
+%]{biblatex}
+
+% }}}
+
+% {{{ Sectioning
+
+%\usepackage{titlesec} % Required for modifying sections
+\usepackage{tikz}
+
+%------------------------------------------------
+% Part
+
+%\titleformat%
+%{\part} % command
+%[display] % shape
+%{\bfseries\huge\scshape} % format
+%{
+%	\center%
+%	Parte\ \thepart
+%} % label
+%{0.5ex} % sep
+%{
+%	\center
+%} % before-code
+%[
+%	\vspace{-0.5ex}%
+%] % after-code
+%
+%%------------------------------------------------
+%% Chapter
+%
+%%\addto\captionsspanish{\renewcommand{\chaptername}{\assignmentChapterName}}
+%%Options: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
+%\titleformat%
+%{\chapter} % command
+%[hang] % shape
+%{\LARGE\scshape} % format
+%{\thechapter\ \ } % label
+%{0.5ex} % sep
+%{} % before-code
+%[
+%	\vspace{-0.5ex}%
+%	\color{DodgerBlue3}\rule{\textwidth}{0.3pt}
+%] % after-code
+%
+%\titlespacing{\chapter}{0pt}{-0.5cm}{1.5em}
+%
+%%------------------------------------------------
+%% Section
+%
+%\titleformat%
+%{\section} % command
+%[hang] % shape
+%{\bfseries\LARGE} % format
+%{\thesection\ \ } % label
+%{0.5ex} % sep
+%{} % before-code
+%[] % after-code
+%
+%
+%%------------------------------------------------
+%% SubSection
+%
+%\titleformat%
+%{\subsection} % command
+%[hang] % shape
+%{\bfseries\Large} % format
+%{\thesubsection\ \ } % label
+%{0.5ex} % sep
+%{} % before-code
+%[] % after-code
+%
+%%------------------------------------------------
+%% SubSubSection
+%
+%\titleformat%
+%{\subsubsection}
+%[hang]
+%{\bfseries\large}
+%{\thesubsubsection\ \ }
+%{0.5ex}
+%{}
+%[]
+%
+%% }}}
+
+% {{{ Math stuff
+
+% Math stuff
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{physics}
+
+% Fancy script capitals
+\usepackage{mathrsfs}
+%\usepackage{cancel}
+
+% Math code
+%\usepackage{sagetex}
+
+% Bold math
+\usepackage{bm}
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N} }}
+\newcommand\M{\ensuremath{\mathfrak{M} }}
+\newcommand\R{\ensuremath{\mathbb{R} }}
+\newcommand\K{\ensuremath{\mathbb{K} }}
+\newcommand\Z{\ensuremath{\mathbb{Z} }}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q} }}
+\newcommand\C{\ensuremath{\mathbb{C} }}
+\newcommand\Dom{\ensuremath{\textrm{Dom}} }
+
+% Add \contra symbol to denote contradiction
+\usepackage{stmaryrd} % for \lightning
+\newcommand\contra{\scalebox{1.5}{$\lightning$}}
+
+% Theorem tools
+\usepackage{thmtools}
+%\usepackage{cleveref}
+
+%\DeclareMathOperator{\sech}{sech}
+%\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arccosh}{arcCosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arcCsch}
+\DeclareMathOperator{\arccoth}{arcCoth}
+
+%\newcommand\oast{\stackMath\mathbin{\stackinset{c}{0ex}{c}{0ex}{\ast}{\bigcirc}} }
+
+% Theorems in fancy boxes
+%\usepackage{todonotes}
+%\usepackage[most]{tcolorbox}
+%\tcbuselibrary{theorems}
+%\tcbuselibrary{minted}
+%\tcbset{listing engine=minted}
+
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+%\newtcbtheorem[number within=section]{definition}{Definition}%
+%{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{def}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+%\newtcbinputlisting{\mathcodeinput}[3]{
+%	listing engine=minted,
+%	%minted style=colorful,
+%	minted language={#2},
+%	minted options={
+%			fontsize=\small,
+%			breaklines,
+%			autogobble,
+%			linenos,
+%			numbersep=3mm,
+%			mathescape=true
+%		},
+%	colback=DodgerBlue1!6,
+%	colframe=DodgerBlue4,
+%	boxrule=0.0mm,
+%	left=5mm,
+%	listing file={#1},
+%	enhanced,
+%	breakable,
+%	overlay={
+%			\begin{tcbclipinterior}
+%				\fill[DodgerBlue2!20]
+%				(frame.south west)rectangle([xshift=5mm]frame.north west);
+%			\end{tcbclipinterior}
+%		},
+%	#3
+%}
+
+%\newtcblisting{mathcodebox}[2][]{
+%	listing engine=minted,
+%	%minted style=colorful,
+%	minted language={#2},
+%	minted options={
+%			fontsize=\small,
+%			breaklines,
+%			autogobble,
+%			linenos,
+%			numbersep=3mm
+%		},
+%	colback=DodgerBlue1!6,
+%	colframe=DodgerBlue4,
+%	boxrule=0.0mm,
+%	left=5mm,
+%	enhanced,
+%	breakable,
+%	overlay={
+%			\begin{tcbclipinterior}
+%				\fill[DodgerBlue2!20]
+%				(frame.south west)rectangle([xshift=5mm]frame.north west);
+%			\end{tcbclipinterior}
+%		},
+%	#1
+%}
+
+% End example and intermezzo environments with a small diamond (just like proof
+% environments end with a small square)
+\usepackage{etoolbox}
+%\AtEndEnvironment{eg}{\null\hfill$\qed$}%
+\AtEndEnvironment{myproof}{\null\hfill$\square$}%
+
+\newcommand{\exerciseSection}[1]{%
+	\pagebreak
+	\section*{#1}
+	\addcontentsline{toc}{section}{\protect\numberline{}#1}%
+}
+
+%\usepackage{xifthen}
+
+% Exercise
+% Usage:
+% \exercise{5}
+% \subexercise{1}
+% \subexercise{2}
+% \subexercise{3}
+% gives
+% Problema 5
+%   Problema 5.1
+%   Problema 5.2
+%   Problema 5.3
+%\newcommand{\exercise}[1]{%
+%  \problemDivider
+%  \problem{#1}
+%  \def\@exercise{#1}%
+%}
+%
+%\newcommand{\subexercise}[1]{%
+%  \problem{\@exercise.#1}
+%}
+
+% }}}
+
+% {{{ Physics
+
+\usepackage{physics}
+
+% }}}
+
+% {{{ Class stuff
+
+% \lecture starts a new lecture (les in dutch)
+%
+% Usage:
+% \lecture{1}{di 12 feb 2019 16:00}{Inleiding}
+%
+% This adds a section heading with the number / title of the lecture and a
+% margin paragraph with the date.
+
+% I use \dateparts here to hide the year (2019). This way, I can easily parse
+% the date of each lecture unambiguously while still having a human-friendly
+% short format printed to the pdf.
+
+\def\testdateparts#1{\dateparts#1\relax}
+\def\dateparts#1 #2 #3 #4 #5\relax{
+	\marginpar{\small\textsf{\mbox{#1 #2 #3 #5}} }
+}
+
+\def\@lecture{}%
+\newcommand{\lecture}[3]{
+	\ifthenelse{\isempty{#3}}{%
+		\def\@lecture{Class #1}%
+	}{%
+		\def\@lecture{Class #1: #3}%
+	}%
+	\subsection*{\@lecture}
+	\marginpar{\small\textsf{\textbf{Class #1} \\ \mbox{#2}} }
+}
+
+\newcommand{\lectureMargin}[2]{
+	\marginpar{\small\textsf{\textbf{Clase #1} \\ \mbox{#2}} }
+}
+
+\def\@studySession{}%
+\newcommand{\studySession}[3]{
+	\ifthenelse{\isempty{#3}}{%
+		\def\@studySession{Study #1}%
+	}{%
+		\def\@studySession{Study #1: #3}%
+	}%
+	\subsection*{\@studySession}
+	\marginpar{\small\textsf{\def\@studySession{Study #1}\\ \mbox{#2}} }
+}
+
+\newcommand{\studySessionMargin}[2]{
+	\marginpar{\small\textsf{\textbf{Study #1} \\ \mbox{#2}} }
+}
+
+%\usepackage{bbding}
+%\newcommand{\pendingCorrectionMargin}[2]{
+%	\marginpar{\footnotesize\textsf{\textbf{\PencilLeftDown\, #1} \\ \mbox{#2}} }
+%}
+
+%\newenvironment{mathProblem}{
+%  \vspace{0.5\baselineskip} % Whitespace before the question
+%  \paragraph{} % Blank section title (e.g. just Question 2)
+%  \lfoot{\small\itshape\assignmentQuestionName~\thesection~continuada en la siguiente página\ldots} % Set the left footer to state the question continues on the next page, this is reset to nothing if it doesn't (below)
+%}{
+%  \lfoot{} % Reset the left footer to nothing if the current question does not continue on the next page
+%}
+
+% }}}
+
+% {{{ Header and footer
+
+% LE: left even
+% RO: right odd
+% CE, CO: center even, center odd
+% My name for when I print my lecture notes to use for an open book exam.
+% \fancyhead[LE,RO]{Gilles Castel}
+
+\makeatletter
+\let\runauthor\@author
+\let\runtitle\@title
+\makeatother
+
+%\newcommand{\uniIcon}{../../../utad-logo.png}
+\newcommand{\uniIcon}{assets/img/utad-icon.png}
+%\newcommand{\uniIcon}{../../../utad-icon.png}
+
+\usepackage{fancyhdr} % Required for customizing headers and footers
+\usepackage{refcount}
+
+\pagestyle{fancy} % Enable custom headers and footers
+
+\renewcommand\headrulewidth{0.5pt} % Thickness of the header rule
+
+\fancyhead{} % Clear default header
+\fancyfoot{} % Clear default footer
+
+\fancyhead[L]{\small\runtitle}
+\fancyhead[C]{\includegraphics[height=0.85em, trim= 0 0 0 -1em]{\uniIcon}}
+\fancyhead[R]{\small\runauthor}
+
+\fancyfoot[L]{\small{\leftmark}}
+%\fancyfoot[R]{\small \textcolor{gray}{PÁGINA} \thepage\ | \getrefbykeydefault{LastPage}{page}{0}}% Número de página
+
+\renewcommand{\headrulewidth}{0.5pt}% 1pt header rule
+\renewcommand{\headrule}{\hbox to\headwidth{%
+		\color{DodgerBlue4}\leaders\hrule height\headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0pt}% No footer rule
+
+\fancypagestyle{plain}{
+	\fancyhead[L]{\small\runtitle}
+	\fancyhead[C]{\includegraphics[height=0.85em, trim= 0 0 0 -1em]{\uniIcon}}
+	\fancyhead[R]{\small\runauthor}
+
+	\fancyfoot[L]{\small{\leftmark}}
+	\fancyfoot[R]{
+		\small \textcolor{gray}{PAGE} \thepage\ | \getrefbykeydefault{LastPage}{page}{0}}% Número de página
+
+	\renewcommand{\headrulewidth}{0.5pt}% 1pt header rule
+	\renewcommand{\headrule}{\hbox to\headwidth{%
+			\color{DodgerBlue4}\leaders\hrule height\headrulewidth\hfill}}
+	\renewcommand{\footrulewidth}{0pt}% No footer rule
+}
+
+\setlength{\headheight}{24pt} % Suppress warnings
+
+\makeatother
+
+% }}}
+
+% {{{ Notes
+
+
+% Corrección is correction in Spanish
+% Usage:
+% \begin{verbetering}
+%     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+%     tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+%     vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+%     no sea takimata sanctus est Lorem ipsum dolor sit amet.
+% \end{verbetering}
+\newenvironment{correction}{\begin{tcolorbox}[
+			arc=0mm,
+			colback=white,
+			colframe=green!60!black,
+			title=Opmerking,
+			fonttitle=\sffamily,
+			breakable
+		]}{\end{tcolorbox}}
+
+% Nota is note in Dutch. Same as 'verbetering' but color of box is different
+%\newenvironment{note}[1]{\begin{tcolorbox}[
+%      arc=0mm,
+%      colback=white,
+%      colframe=white!60!black,
+%      title=#1,
+%      fonttitle=\sffamily,
+%      breakable
+%    ]}{\end{tcolorbox}}
+
+\makeatletter
+\AtBeginDocument{%
+	\newcommand\My@Macro[1]{#1}%
+	\newcommand\My@Thirdoffive[5]{\My@Macro{#3}}%
+	\renewcommand*\@namerefstar[1]{%
+		\HyRef@StarSetRef{#1}\My@Thirdoffive
+	}%
+	\renewcommand*\T@nameref[1]{%
+		\begingroup
+		\let\label\@gobble
+		\NR@setref{#1}\My@Thirdoffive{#1}%
+		\endgroup
+	}%
+	\DeclareRobustCommand\fucnameref{%
+		\@ifstar\fucnameref@star\fucnameref@nostar
+	}%
+	\newcommand\callemakefirstuc[1]{%
+		\MakeLowercase{\emakefirstuc{#1}}%
+	}%
+	\newcommand\fucnameref@star[1]{%
+		\begingroup
+		\let\My@Macro=\callemakefirstuc
+		\nameref*{#1}%
+		\endgroup
+	}%
+	\newcommand\fucnameref@nostar[1]{%
+		\begingroup
+		\let\My@Macro=\callemakefirstuc
+		\nameref{#1}%
+		\endgroup
+	}%
+	\DeclareRobustCommand\ucnameref{%
+		\@ifstar\ucnameref@star\ucnameref@nostar
+	}%
+	\newcommand\ucnameref@star[1]{%
+		\begingroup
+		\MFUhyphentrue
+		\let\My@Macro=\ecapitalisefmtwords
+		\nameref*{#1}%
+		\endgroup
+	}%
+	\newcommand\ucnameref@nostar[1]{%
+		\begingroup
+		\MFUhyphentrue
+		\let\My@Macro=\ecapitalisefmtwords
+		\nameref{#1}%
+		\endgroup
+	}%
+	\DeclareRobustCommand\lcnameref{%
+		\@ifstar\lcnameref@star\lcnameref@nostar
+	}%
+	\newcommand\lcnameref@star[1]{%
+		\begingroup
+		\let\My@Macro=\MakeLowercase
+		\nameref*{#1}%
+		\endgroup
+	}%
+	\newcommand\lcnameref@nostar[1]{%
+		\begingroup
+		\let\My@Macro=\MakeLowercase
+		\nameref{#1}%
+		\endgroup
+	}%
+}%
+\makeatother
+
+% }}}
+
+% {{{ Figure support
+
+% Figure support as explained in my blog post.
+%\usepackage{import}
+%\usepackage{xifthen}
+%\usepackage{pdfpages}
+%\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+	\def\svgwidth{\columnwidth}
+	%\import{./figures/}{#1.pdf_tex}
+}
+
+%\usepackage{svg}
+
+% }}}
+
+% {{{ Diagram support
+%\usepackage{pgfplots}
+%\pgfplotsset{colormap={utad}{color=(DodgerBlue1) color=(black) color=(Firebrick1)}}
+%\pgfplotsset{
+%	compat=newest,
+%	colormap name=utad
+%}
+%\usepgfplotslibrary{polar}
+%\usetikzlibrary{
+%	3d,
+%	angles,
+%	arrows,
+%	babel,
+%	calc,
+%	decorations.markings,
+%	patterns,
+%	pgfplots.fillbetween,
+%	quotes
+%}
+% }}}
