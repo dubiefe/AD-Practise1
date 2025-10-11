@@ -1,0 +1,119 @@
+\section{Artificial Intelligence}
+
+\par
+Understanding how the term "Artificial Intelligence" (AI) was coined, one can
+look at the way it is currently used nowadays, and connect how there isn't
+really a consensus on "Intelligence" in AI implies. Even almost 70 years later
+in 2025, people and researchers still debate what AI really means (as
+highlighted in "On the Measure of Intelligence" by François
+Chollet\cite{DBLP:journals/corr/abs-1911-01547}.
+
+\subsection{Classification}
+
+\par
+When applied to different data sets, AI is often classified in the following
+categories:
+
+\begin{itemize}
+	\item \textbf{Tabular data:} Machine Learning (ML)
+	\item \textbf{Image data:} Artificial (Narrow) Intelligence (AI) or Computer
+	      Cision
+	\item \textbf{Text data:} Artificial (Narrow) Intelligence (AI) or Natural
+	      Language Processing (NLP)
+	\item \textbf{Image and text data:} Artificial General Intelligence (AGI)
+\end{itemize}
+
+\par
+The reason for specifying "Narrow" in AI is to differentiate it from AGI and
+theoretically ASI (Artificial Super Intelligence). Narrow AI referers to AI that
+excels at specific tasks but cannot generalize or learn beyond its programming.
+This is the reason why in the previous classification, "Narrow" was used to
+specify for focusing on only one type of data. When an AI can understand and
+learn across various domains, it can be classified as AGI.
+
+\subsection{Issues with defining intelligence}
+
+\par
+In 1950, the Turing Test was proposed by Alan Turing to determine whether a
+machine can exhibit intelligent behavior equivalent to, or indistinguishable
+from a human:
+
+\begin{quote}
+	The new form of the problem can be described in terms of a game which
+	we call the \textbf{imitation game}. It is played with three people, a man
+	(A), a woman (B), and an interrogator (C) who may be of either sex. The
+	interrigator stays in a room apart from the other two. The object of the game
+	for the interrogator is to determine which of the other two is the man and
+	which is the woman\cite{10.1093/mind/LIX.236.433}.
+\end{quote}
+
+\par
+If one were to abide by the Turing Test as the definition of Intelligence, then
+current day AI systems would be considered intelligent, as some of them can
+successfully pass the Turing Test.
+
+\par
+The Loebner Prize, a competition that awards the most human-like AI through a
+standard Turing Test, many flaws with the test have been highlighted. For
+instance, many competitors focused on developing the AI for just the
+competition, making it \textit{seem} intelligent, being able to fool the Turing
+Test in the context of the competition, but not being truly intelligent.
+
+\par
+Another critique to the notion of machine intelligence is the "Lady Lovelace
+objection":
+
+\begin{quote}
+	The analytical engine has no pretensions whatever to originate anything. It
+	can do whatever we know how to order it to perform
+\end{quote}
+
+\par
+It's understandable as to why pioneers in the field believed in how machines
+would later evolve into being able to develop intelligence with sufficient
+complexity.
+
+\par
+In 1820, Charles Babbage's "Difference Engine" was a complex enough
+machine to perform basic arithmetic operations, nowadays with a much more
+compact machine one can perform billions of the same operations performed by
+the "Difference Engine" in a second. If one where to think of the brain as a
+machine that performs billions of operations per second, then what follows is to
+assume that a sufficiently complex machine should be able to operate in a
+similar fashion, and therefore be intelligent. However, this assumption is based
+on the idea that the brain \textit{is} a machine, which is still up for debate.
+
+\par
+A good analogy to understand the issue with defining intelligence in being a
+"complex machine" is the Chinese Room argument by John Searle, in which the idea
+is proposed where a complex enough machine could operate in a way in which it
+"acts" and "seems" intelligent, but in reality it doesn't understand the subject
+matter at all.
+
+\begin{quote}
+	\par
+
+\end{quote}
+
+\par
+
+% TODO: Define equations for intelligence
+Intelligence of system is over scope (sufficient case)
+
+$$
+	I^{{\theta}_T}_{IS,scope} = {Avg}_{T\in scope} \left[
+	\omega_T\cdot\theta_T \sum_{C\in C_{{ur}_T^{\theta_T}}} \left[
+	P_C \cdot \frac{GD_{IS,T,C}^{\theta_T}}{
+	P_{IS,T}^{\theta_T}+E^{\theta_T}_{IS,T,C}}
+	\right] \right]
+$$
+
+Intelligence of system is over scope (optimal case):
+
+$$
+	I^{opt}_{IS,scope} = {Avg}_{T\in scope} \left[
+	\omega_{T,\Theta}\cdot\Theta \sum_{C\in C_{{ur}_T^{opt}}} \left[
+	P_C \cdot \frac{GD_{IS,T,C}^{\Theta}}{
+	P_{IS,T}^{\Theta}+E^{\Theta}_{IS,T,C}}
+	\right] \right]
+$$

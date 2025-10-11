@@ -1,0 +1,192 @@
+$$
+	y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_n x_n + \epsilon
+$$
+
+\par
+For each \textit{feature} $x$ there is an adjustable parameter, $\beta_1$,
+which corresponds to its slope or gradient (often called the \textbf{weight})
+as well as a intersection term $\beta_0$ (often called the \textbf{bias}).
+
+\par
+This is a \textit{parametric} model; here we assume the relation between the
+dependent and the independent variables is linear, and the noise is from a
+(\textbf{Gaussian}) normal distribution.
+
+\par
+Our data especially when working with tabular data, is usually stored in a
+\texttt{DataFrame} (\texttt{df}). One can you use the \texttt{pandas} library to
+handle this data structure, or convert it to a \texttt{numpy} array.
+
+\par
+There exists a closed form solution for this problem:
+
+$$
+	y = \beta_1x+\beta_0
+$$
+
+The OLS equation for $\beta_1$:
+
+$$
+	\beta_1 = \frac{
+		\sum((x_i - \overline{x})(y_i - \overline{y}))}{
+		\sum(x_i - \overline{x})^2
+	}
+$$
+
+And for $\beta_0$:
+
+$$
+	\beta_0 = \overline{y} - \beta_1 \overline{x}
+$$
+
+\par
+Our \texttt{DataFrame} is basically an augmented coefficient matrix:
+
+% TODO: Include example
+
+\par
+We can treat our \texttt{DataFrame} as if it were a system of linear equations
+where values of $x_{mn}$ represent the coefficients:
+
+%TODO: Include example matrix
+$$
+	%	\left\{ \begin{array}{l}
+	%	y_1 = \beta_0 + \beta_1 x_{11} + \beta_2 x_{12} + ... + \beta_n x_{1n} \\
+	%	y_2 = \beta_0 + \beta_1 x_{21} + \beta_2 x_{22} + ... + \beta_n x_{2n} \\
+	%	... \\
+	%	y_m = \beta_0 + \beta_1 x_{m1} + \beta_2 x_{m2} + ... + \beta_n x_{mn} \\
+	%	\right\}
+$$
+
+\subsection{Loss function}
+
+\par
+There are 2 options in calculating the loss function for linear regression:
+
+\begin{itemize}
+	\item \textbf{error:} Distance between points (not used) $y_i-\hat{y_i}$
+	\item \textbf{Absolute distance:} $L1 loss = |y_i-\hat{y_i}|$
+	\item \textbf{The square:} $L2 loss = (y_i-\hat{y_i})^2$
+\end{itemize}
+
+\par
+A correct loss function should satisfy these requirements:
+
+% TODO:
+
+Each function has a different behavior:
+
+\begin{itemize}
+	\item $L1 loss$ is not very sensitive to \textit{outliers}
+	\item $L2 loss$ is very sensitive to \textit{outliers}
+\end{itemize}
+
+In code:
+
+\begin{lstlisting}[language=Python, caption=Loss functions]
+# y
+y_true
+
+# y hat
+y_pred
+
+# L1 loss = AE (absolute error)
+abs(y_true - y_pred)
+
+# L1 cost = MAE (mean absolute error)
+sum(abs(y_true - y_pred)) / len(y_true)
+
+# L2 loss = SE (squared error)
+(y_true - y_pred) ** 2
+
+# L2 cost = MSE (mean squared error)
+sum((y_true - y_pred) ** 2) / len(y_true)
+\end{lstlisting}
+
+\par
+We want to minimize the cost or \textit{objective} function $J$. For example, in
+linear regression, we use ordinary least squares, in other words the $L2 loss$
+and the $L2 cost$.
+
+% TODO:
+%\begin{array}
+%	J(\beta) & = MSE
+%	         & = \frac{1}{m} \sum_{i=1}^{m} (y_i - \hat{y_i})^2
+%\end{array}
+
+\par
+The \texttt{argmin(J)} function gives us the optial values of  $\beta_1$ and
+$\beta_0$.
+
+\par
+$J$ is piecewise-continuous (for $L1 loss$)and the minima is multivalued for this
+example, which is ambiguous (not great). For $J$ in $L2 loss$ is smooth, it is a
+convex function which means it has a unique global minima. In a 2 dimensional
+problem, $J$ takes a parabolic surface as a form, having the same dimension as
+the number of parameters.
+
+\subsection{Gradient Descent}
+
+\par
+The gradient ($G$) of a surface is given by:
+
+$$
+	G = \frac{\partial J(\beta)}{\partial \beta_0}
+$$
+
+where $\beta$ is a vector of parameters.
+
+% TODO: more theory on this
+
+\par
+Gradient descent does not know the form of the parabola, meaning that if $\eta$
+is not set appropriately, the step can be too big and can quickly diverge away.
+
+% TODO: Include graphs of $\eta$too small, good or too big
+
+\par
+The Aagrad Gradient Algorithm changes the $\eta$ on the fly
+
+% TODO: Equation for $\eta$
+
+\par
+What happens if the features have very different scales? The steps taken in both
+$\beta$ values are very different. This can be solved by finding the maximum and
+minimum values of each feature and normalizing them to a common scale. This
+makes it so that the previous cost function $J$ for the $L2 loss$ is now a more
+circular paraboloid. This is called \textbf{feature scaling} or
+\textbf{normalization}.
+
+\par
+With parametric estimators the solvers have better numerical stability if the
+data is \textit{normalized}. Here are some linear transformations.
+
+\begin{itemize}
+	\item \texttt{sklearn.preprocessing.MinMaxScaler()}: $[0,1]$
+	\item \texttt{sklearn.preprocessing.StandardScaler()}: $\eta = 0, \sigma = 1$
+	\item \texttt{sklearn.preprocessing.Normalizer()}: in case of outliers
+\end{itemize}
+
+\par
+Usage example:
+
+\begin{lstlisting}[language=Python, caption=Feature scaling]
+from sklearn.preprocessing import RobustScaler
+
+RS = RobustScaler()
+
+X_train = RS.fit_transform(X_train)
+X_test = RS.transform(X_test)
+\end{lstlisting}
+
+An example of a real neural network loss surface:
+
+% TODO: Include example
+
+\par
+The reason why numerical methods are used is because there aren't any methods
+that analytically find a global minimum in these real neural network loss
+surface models. This makes them very costly to train.
+
+
+
