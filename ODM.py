@@ -17,10 +17,6 @@ from bson.objectid import ObjectId
 import yaml
 from pathlib import Path
 
-# Globals
-USE_ATLAS = False
-KEY_FILE_PATH = "./vockey.pem"
-
 def getLocationPoint(address: str) -> Point:
     """
     Gets the coordinates of an address in geojson.Point format.
@@ -401,18 +397,7 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
         Name of the database
     """
     # Initialize database
-    print(f"Loading schema from {definitions_path}")
-    client = None
-    if USE_ATLAS:
-        client = MongoClient(
-            mongodb_uri,
-            tls=True,
-            tlsCertificateKeyFile='./vockey.pem',
-            server_api=ServerApi('1')
-        )
-    else:
-        client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
-
+    client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
     print(f"Connected to database: {db_name}")
 
     # Drop previous data
@@ -428,8 +413,8 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     db = client[db_name]
 
     # Open and read definitions file
-    yml_path = "./models.yml"
-    with open(yml_path, 'r') as f:
+    print(f"Loading schema from {definitions_path}")
+    with open(definitions_path, 'r') as f:
         schema = yaml.safe_load(f)
 
 
@@ -480,8 +465,4 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
 if __name__ == '__main__':
 
     # Initialize database and models with initApp
-    if USE_ATLAS:
-        atlas_uri = "mongodb+srv://ad1.fnx6k6d.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=AD1"
-        initApp(mongodb_uri = atlas_uri) if Path("./vockey.pem").exists() else initApp()
-    else:
-        initApp()
+    initApp()
