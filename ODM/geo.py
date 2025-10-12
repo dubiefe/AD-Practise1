@@ -1,4 +1,4 @@
-# Import from __init__.py
+# Import fom __init__.py
 import ODM
 
 # GeoJSON and geo locator
@@ -32,7 +32,6 @@ def getLocationPoint(address: str) -> Point:
     while location is None and attempts < max_attempts:
         try:
             time.sleep(1)
-
             # A user_agent is required to use the API
             # Use a random name for the user_agent
             geolocator = ODM.Nominatim(user_agent="Emilie_Itziar_AdvDB")
