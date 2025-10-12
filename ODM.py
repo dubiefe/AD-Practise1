@@ -14,8 +14,8 @@ def main():
     Educational_Center = scope.get("Educational_Center")
 
     # Load JSON data
-    with open("persons.json", "r", encoding="utf-8") as f:
-        persons = json.load(f)
+    with open("users.json", "r", encoding="utf-8") as f:
+        users = json.load(f)
     with open("companies.json", "r", encoding="utf-8") as f:
         companies = json.load(f)
     with open("educational_centers.json", "r", encoding="utf-8") as f:
@@ -28,15 +28,15 @@ def main():
 
     # Test User
     print("\n=== Creating and saving Users from JSON ===")
-    users = []
-    for person in persons:
-        args = valid_args(User, person)
-        user = User(**args)
-        user.save()
-        users.append(user)
-        print("User saved:", user._data)
-        if hasattr(user, "address_loc"):
-            print("  address_loc:", user.address_loc)
+    _users = []
+    for user in users:
+        args = valid_args(User, user)
+        _user = User(**args)
+        _user.save()
+        _users.append(_user)
+        print("User saved:", _user._data)
+        if hasattr(_user, "address_loc"):
+            print("  address_loc:", _user.address_loc)
 
     # Test Company
     print("\n=== Creating and saving Companies from JSON ===")
