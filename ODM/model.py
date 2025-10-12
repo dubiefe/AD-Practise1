@@ -17,12 +17,18 @@ class Model:
 
     Attributes
     ----------
-    required_vars : set[str]
+    _required_vars : set[str]
         Set of attributes required by the model
-    admissible_vars : set[str]
+    _admissible_vars : set[str]
         Set of attributes allowed by the model
-    db : pymongo.collection.Collection
+    _location_var : set[str]
+        Attribute used to store location by the model
+    _db : pymongo.collection.Collection
         Connection to the database collection
+    _modified_vars : set[str]
+        Set of attributes changed in the instantiated object
+    _data : pymongo.collection.Collection
+        Data saved by instantiated object
 
     Methods
     -------
@@ -50,6 +56,7 @@ class Model:
     _admissible_vars: set[str]
     _location_var: None
     _db: pymongo.collection.Collection
+    _modified_vars: set[str] = set()
     _data: dict[str, str | dict] = {}
 
     def __init__(self, **kwargs: dict[str, str | dict]):
@@ -66,6 +73,9 @@ class Model:
         # Encapsulating data in one variable simplifies
         # handling in methods like save.
         self._data = {}
+
+        # Track modified variables
+        self._modified_vars = set()
 
         # Check if key (attribute) is valid
         valid_vars = self._required_vars.union(self._admissible_vars)
@@ -92,7 +102,6 @@ class Model:
             base_field = self._location_var[:-4]
             if base_field in kwargs:
                 self._data[self._location_var] = getLocationPoint(kwargs[base_field])
-            # TODO: Maybe error?
 
     def __setattr__(self, name: str, value: str | dict) -> None:
         """
@@ -102,7 +111,7 @@ class Model:
 
         # Define class attributes and check if __setattr__ is used for them
         class_attributes = { "_required_vars", "_admissible_vars", "_db", 
-                            "_data", "_location_var" }
+                            "_data", "_location_var", "_modified_vars" }
         if name in class_attributes:
             super().__setattr__(name, value)
         else:
@@ -110,6 +119,11 @@ class Model:
             valid_vars = self._required_vars.union(self._admissible_vars)
             if name not in valid_vars:
                 raise AttributeError(f"[__setattr__] Invalid attribute: {name}")
+
+            # Only add to modified_var if value is actually changing
+            old_value = self._data.get(name, None)
+            if old_value != value:
+                self._modified_vars.add(name)
             # Assign if data checks are passed
             self._data[name] = value
             # If setting the base location field, also set the _loc field
@@ -117,8 +131,7 @@ class Model:
                 base_field = self._location_var[:-4]
                 if name == base_field:
                     self._data[self._location_var] = getLocationPoint(value)
-
-
+                    self._modified_vars.add(self._location_var)
 
     def __getattr__(self, name: str) -> Any:
         """
@@ -129,7 +142,7 @@ class Model:
 
         # Define class attributes and check if __getattr__ is used for them
         class_attributes = { "_required_vars", "_admissible_vars", "_db", 
-                            "_data", "_location_var" }
+                            "_data", "_location_var", "_modified_vars" }
         if name in class_attributes:
             # return super().__getattr__(name)
             return super().__getattribute__(name)
@@ -145,6 +158,8 @@ class Model:
         If the model does not exist in the database, a new
         document is created with the model's values. Otherwise,
         the existing document is updated with the new values.
+        Only variables that have been modified (tracked in _modified_vars)
+        are saved in updates.
         """
 
         # Ensure required fields are present
@@ -152,30 +167,34 @@ class Model:
         if missing:
             raise ValueError(f"Missing required fields: {missing}")
 
-        # TODO: Do we need to check for this again? (we checked for it in
-        # setattr)
-        # --- Update the location field if the base field is present ---
-        #if self._location_var and self._location_var.endswith("_loc"):
-        #    base_field = self._location_var[:-4]
-        #    if base_field in self._data:
-        #        self._data[self._location_var] = getLocationPoint(self._data[base_field])
-
         # Save required, admissible, _id, and location _loc field
         valid_fields = self._required_vars.union(self._admissible_vars)
         to_save_fields = valid_fields.union({self._location_var}) if self._location_var else valid_fields
-        data_to_save = {key: value
-            for key, value in self._data.items()
-            if key in to_save_fields or key == "_id"
-        }
 
-        # If _id present, update, else insert
+        # If _id present, update only modified fields, else insert all
         if "_id" in self._data:
-            print("Updating", self._data)
-            self._db.update_one({"_id": self._data["_id"]}, {"$set": data_to_save})
+            # Only update fields that have changed
+            if self._modified_vars:
+                data_to_update = {key: self._data[key]
+                    for key in self._modified_vars
+                    if key in to_save_fields or key == "_id"
+                }
+                if data_to_update:
+                    print("Updating", data_to_update)
+                    self._db.update_one({"_id": self._data["_id"]}, {"$set": data_to_update})
+                self._modified_vars.clear()
+            else:
+                print("No changes to update.")
         else:
+            # Insert all valid fields for new document
+            data_to_save = {key: value
+                for key, value in self._data.items()
+                if key in to_save_fields or key == "_id"
+            }
             print("Inserting", data_to_save)
             res = self._db.insert_one(data_to_save)
             self._data["_id"] = res.inserted_id
+            self._modified_vars.clear()
 
     def delete(self) -> None:
         """
