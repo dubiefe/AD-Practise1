@@ -1,6 +1,9 @@
 import json
 from ODM import initApp
 
+# If locations aren't appearing, its due to using the actual API and not the
+# mock one.
+
 def main():
     scope = {}
     # Use the real models.yml path!
