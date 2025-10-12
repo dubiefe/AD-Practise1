@@ -1,23 +1,54 @@
 # Advanced Databases - Practice 1
 
-## TODO
+College project for Advanced Databases at U-TAD
 
-- [x] Sketch diagram
-- [x] Create JSON Data
-- [x] Get base Python files
-- [x] Connect to Database
-- [x] Read YML file and create classes from it
-  - [ ] Create collections for each class
-- [ ] Read the JSON file and get the data from it
-- [ ] Create objects using the classes from the YML file using the JSON data
-- [ ] Use the created classes to fill/create the database
+Authors:
 
-## Connection
+- Emilie Dubief
+- Itziar Morales Rodríguez
 
-If you desire to connect to your own database locally, substitute the following
-attributes in the file:
+Toolset:
 
-```md
-uri: localhost::27017
-key: "empty"
+- Python (3.12)
+- MongoDB
+- Nix (dependencies)
+- LaTeX (documentation)
+
+## Project structure
+
+- The necessary files for the ODM are in the `ODM/` folder.
+- `data/` contains mock data for users, companies and educational centers plus
+  the model schemas.
+- `nix.shell` only needed to install necessary python dependencies
+- `doc.pdf` contains a brief explanation of the project
+
+```
+project_root/
+|-- ODM/
+|   |-- __init__.py
+|   |-- app.py
+|   |-- geo.py
+|   |-- model.py
+|-- data/
+|   |-- users.json
+|   |-- companies.json
+|   |-- educational_centers.json
+|   |-- models.yml
+|-- README.md
+|-- ODM.py
+|-- doc.pdf
+|-- nix.shell
+```
+
+## Dependencies
+
+If you don't have the Python dependencies installed locally, you can get them
+through the shell.nix file with the following commands:
+
+```bash
+# Install nix
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+
+# Initialize nix-shell environemnt using shell.nix
+nix-shell
 ```
