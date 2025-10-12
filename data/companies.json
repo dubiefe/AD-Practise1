@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Tecnologías Avanzadas S.A.",
+    "address": "Madrid, España",
+    "email": "contacto@tecnologiasavanzadas.com"
+  },
+  {
+    "name": "Industrias García",
+    "address": "Sevilla, España",
+    "email": "contacto@industriasgarcia.com"
+  },
+  {
+    "name": "Soluciones Informáticas López",
+    "address": "Madrid, España",
+    "email": "contacto@solucioneslopez.com"
+  },
+  {
+    "name": "Constructora Martínez",
+    "address": "Barcelona, España",
+    "email": "contacto@constructoramartinez.com"
+  },
+  {
+    "name": "Servicios Médicos Rivera",
+    "address": "Valencia, España",
+    "email": "contacto@serviciosrivera.com"
+  },
+  {
+    "name": "Agroalimentaria Torres",
+    "address": "Zaragoza, España",
+    "email": "info@agrotorres.com"
+  },
+  {
+    "name": "Textiles Romero",
+    "address": "Bilbao, España",
+    "email": "info@textilesromero.com"
+  },
+  {
+    "name": "Electrónica Ruiz",
+    "address": "Granada, España",
+    "email": "info@electronicaruiz.com"
+  },
+  {
+    "name": "Transportes Sánchez",
+    "address": "Valladolid, España",
+    "email": "info@transportessanchez.com"
+  },
+  {
+    "name": "Consultora Fernández",
+    "address": "Alicante, España",
+    "email": "info@consultorafernandez.com"
+  },
+  {
+    "name": "Editorial Ortega",
+    "address": "Murcia, España",
+    "email": "info@editorialortega.com"
+  },
+  {
+    "name": "Seguros Morales",
+    "address": "Pamplona, España",
+    "email": "info@segurosmorales.com"
+  },
+  {
+    "name": "Farmacia Jiménez",
+    "address": "Santander, España",
+    "email": "info@farmaciajimenez.com"
+  },
+  {
+    "name": "Publicidad Navarro",
+    "address": "Gijón, España",
+    "email": "info@publicidadnavarro.com"
+  },
+  {
+    "name": "Viajes Castillo",
+    "address": "Córdoba, España",
+    "email": "info@viajescastillo.com"
+  },
+  {
+    "name": "Servicios Financieros Pérez",
+    "address": "Burgos, España",
+    "email": "info@financierosperez.com"
+  },
+  {
+    "name": "Automóviles Gómez",
+    "address": "Toledo, España",
+    "email": "info@automovilesgomez.com"
+  },
+  {
+    "name": "Restaurantes Herrera",
+    "address": "Salamanca, España",
+    "email": "info@restaurantesherrera.com"
+  },
+  {
+    "name": "Consultoría Domínguez",
+    "address": "Logroño, España",
+    "email": "info@consultoriadominguez.com"
+  },
+  {
+    "name": "Almacenes Mendoza",
+    "address": "Vitoria, España",
+    "email": "info@almacenesmendoza.com"
+  }
+]
