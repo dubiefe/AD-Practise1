@@ -3,6 +3,7 @@
 
 # Cache
 __pycache__/
+__pycache__/__pycache__/
 
 # Ignore LaTeX build files in doc/
 doc/*.aux
