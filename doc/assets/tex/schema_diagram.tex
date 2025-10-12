@@ -1,0 +1,66 @@
+\begin{center}
+	\begin{tikzpicture}[
+			class/.style={
+					rectangle, draw, fill=white, drop shadow, minimum width=2.6cm,
+					align=left, font=\sffamily, rounded corners, inner sep=2pt
+				},
+			legend/.style={
+					rectangle, draw, fill=gray!10, drop shadow,
+					font=\scriptsize, rounded corners, align=left, inner sep=4pt
+				},
+			labelbox/.style={
+					rectangle, draw, fill=blue!10, rounded corners, font=\scriptsize, inner sep=2pt, drop shadow
+				},
+			node distance=0.8cm
+		]
+
+		% Matrix for alignment (legend and user left, company and edu_center right)
+		\matrix[column sep=2.8cm, row sep=0.5cm, nodes={align=left}] (m) {
+			% First row
+			\node[legend] (legend) {
+				\textbf{Legend:}\\
+				\abbrev{UI} = unique index\\
+				\abbrev{RI} = regular index\\
+				\abbrev{LI} = location index\\
+				\abbrev{R} = required\\
+				\abbrev{A} = admissible
+			};        &
+			\node[class] (ed) {
+				\textbf{Educational\_Center}\\
+				\field{email: String} \annot{[UI,R]}\\
+				\field{name: String} \annot{[RI,R]}\\
+				\field{address: String} \annot{[R]}\\
+				\field{address\_loc: Location} \annot{[LI,R]}
+			}; \\
+			% Second row
+			\node[class] (user) {
+				\textbf{User}\\
+				\field{email: String} \annot{[UI,R]}\\
+				\field{name: String} \annot{[RI,R]}\\
+				\field{address: String} \annot{[A]}\\
+				\field{address\_loc: Location} \annot{[LI,A]}\\
+				\field{age: Int} \annot{[A]}\\
+				\field{interests: String} \annot{[A]}\\
+				\field{skills: String} \annot{[A]}\\
+				\field{educational\_center\_email: String} \annot{[A]}\\
+				\field{company\_email: String} \annot{[A]}
+			}; &
+			\node[class] (co) {
+				\textbf{Company}\\
+				\field{email: String} \annot{[UI,R]}\\
+				\field{name: String} \annot{[RI,R]}\\
+				\field{address: String} \annot{[R]}\\
+				\field{address\_loc: Location} \annot{[LI,R]}
+			}; \\
+		};
+
+		% Relationship label boxes above arrows (increase offset for edlabel)
+		\node[labelbox, above=0.4cm of $(user.east)!0.5!(ed.west)$] (edlabel) {educational\_center\_email};
+		\node[labelbox, above=0.12cm of $(user.east)!0.5!(co.west)$] (colabel) {company\_email};
+
+		% Relationship arrows go from user.east to ed.west and co.west, with a vertical offset to go under the label boxes
+		\draw[->, thick] (user.east) -- ([yshift=-5pt]edlabel.south) -- ([yshift=-5pt]ed.west);
+		\draw[->, thick] (user.east) -- ([yshift=-5pt]colabel.south) -- ([yshift=-5pt]co.west);
+
+	\end{tikzpicture}
+\end{center}

@@ -8,7 +8,7 @@
 \date{\today}
 
 \newcommand{\uniClassInstructor}{Stanislav Vakaruk}
-\newcommand{\uniClassDegree}{Software Engineering (Mention in Data Engineering) }
+\newcommand{\uniClassDegree}{Software Engineering (Mention in Data Engineering)}
 \newcommand{\uniClassYear}{3}
 \newcommand{\uniClassSemester}{September 2025 - January 2026}
 \newcommand{\uniClassCredits}{6}
@@ -27,13 +27,13 @@
 
 % {{{ Extra packages 
 
-\usepackage{tikz}
-\usetikzlibrary{shadows,positioning, calc}
-
 \usepackage{multicol}
 
-\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shadows,positioning, calc, trees}
 
+
+\usepackage{listings}
 \lstdefinelanguage{yaml}{
   morecomment=[l]{\#},
   morestring=[b]',
@@ -51,13 +51,13 @@
     unique\_indexes,
     regular\_indexes,
     location\_index,
-  }, % add your keys here!
+  },
   keywordstyle=\color{red},
 }
 
 \lstset{
-  frame=none,                              % No border/frame
-  backgroundcolor=\color{gray!7},          % Very light grey background
+  frame=none,
+  backgroundcolor=\color{gray!7},
   basicstyle=\ttfamily\small,
   breaklines=true,
   showstringspaces=false,
@@ -76,12 +76,9 @@
 
 \begin{document}
 
-
 % {{{ Title and ToC
 \maketitle
 
-%\setcounter{tocdepth}{1}
-%\tableofcontents
 \begin{multicols}{2}
 	\tableofcontents
 \end{multicols}
@@ -95,11 +92,11 @@
 \subsection{Purpose}
 
 \par
-The goal of this document is to indicate the approaches made to design a social
-network with the aim of connecting students and employees based of their
-interests and skills, specifically the ODM design. This is because due to the
-nature of the data being handled, a document oriented NoSQL database like
-MongoDB is a good fit for this use case.
+The goal of this document is to indicate the approaches made to design a
+social network with the aim of connecting students and employees based of
+their interests and skills, specifically the ODM design. This is because
+due to the nature of the data being handled, a document oriented NoSQL
+database like MongoDB is a good fit for this use case.
 
 \subsection{Toolset}
 
@@ -107,16 +104,12 @@ MongoDB is a good fit for this use case.
 Toolset used for the creation of the ODM:
 
 \begin{itemize}
-	\item \texttt{MongoDB}: as the NoSQL database management system.
-	\item \texttt{Python}: as the programming language.
-	\item \texttt{YAML}: for the \texttt{MongoDB} schema definition.
-	\item \texttt{Nix}: for the management of dependencies and environments.
-	\item \protect\LaTeX\ : for the writing of documentation.
+	\item \texttt{MongoDB}: NoSQL database management system.
+	\item \texttt{Python}: programming language for the ODM.
+	\item \texttt{YAML}: \texttt{MongoDB} schema definition.
+	\item \texttt{Nix}: management of dependencies and environments.
+	\item \LaTeX\ : writing of documentation.
 \end{itemize}
-
-\par
-Even though \texttt{MongoDB Atlas} is used to host the database, the option
-exists to use a local instance of \texttt{MongoDB}.
 
 % }}}
 
@@ -133,94 +126,32 @@ attributes but they are required to have the \texttt{email} and \texttt{name},
 \texttt{email} being the unique index.
 
 \par
-As for the \texttt{Company} and \texttt{Educational\_Center} entities, the first
-approach considered was to have them as a single collection with a type field to
-specify if it was a company or an educational center. However, it was decided to
-create two separate collections for them as in the future they might have
-different attributes such as degrees offered in the case of educational centers
-or jobs available in the case of companies. These entities are also required to
-provide their \texttt{email}, \texttt{name} and also \texttt{address}, since
-companies and educational centers are required by law to provide their address.
+As for the \texttt{Company} and \texttt{Educational\_Center} entities,
+the first approach considered was to have them as a single collection
+with a type field to specify if it was a company or an educational center.
+However, it was decided to create two separate collections for them as in
+the future they might have different attributes such as degrees offered
+in the case of educational centers or jobs available in the case of
+companies. These entities are also required to provide their \texttt{email},
+\texttt{name} and also \texttt{address}, since companies and educational
+centers are required by law to provide their address.
 
 \subsection{Schema Overview}
 
 \par
-Below a diagram showing the schema overview with the entities, their attributes
-and how they relate to each other is shown. Things to take note of:
+Below a diagram showing the schema overview with the entities, their
+attributes and how they relate to each other is shown. Things to take note of:
 
 \begin{itemize}
-	\item Even though \texttt{interests} and \texttt{skills} are shown as being of
-	      type \texttt{string}, in the actual implementation they are strings that
-	      contain words separated by commas.
-	\item The \texttt{educational\_center\_email} and
-	      \texttt{company\_email} fields in the \texttt{User} entity are used to
-	      relate a user to an educational center or a company respectively.
+	\item Even though \texttt{interests} and \texttt{skills} are shown as being
+	      of type \texttt{string}, in the actual implementation they are strings
+	      that contain words separated by commas.
+	\item The \texttt{educational\_center\_email} and \texttt{company\_email}
+	      fields in the \texttt{User} entity are used to relate a user to an
+	      educational center or a company respectively.
 \end{itemize}
 
-
-\begin{center}
-	\begin{tikzpicture}[
-			class/.style={
-					rectangle, draw, fill=white, drop shadow, minimum width=2.6cm,
-					align=left, font=\sffamily, rounded corners, inner sep=2pt
-				},
-			legend/.style={
-					rectangle, draw, fill=gray!10, drop shadow,
-					font=\scriptsize, rounded corners, align=left, inner sep=4pt
-				},
-			labelbox/.style={
-					rectangle, draw, fill=blue!10, rounded corners, font=\scriptsize, inner sep=2pt, drop shadow
-				},
-			node distance=0.8cm
-		]
-
-		% Matrix for alignment (legend and user left, company and edu_center right)
-		\matrix[column sep=2.8cm, row sep=0.5cm, nodes={align=left}] (m) {
-			% First row
-			\node[legend] (legend) {
-				\textbf{Legend:}\\
-				\abbrev{UI} = unique index\\
-				\abbrev{RI} = regular index\\
-				\abbrev{LI} = location index\\
-				\abbrev{R} = required\\
-				\abbrev{A} = admissible
-			};       &
-			\node[class] (ed) {
-				\textbf{Educational\_Center}\\
-				\field{email: String} \annot{[UI,R]}\\
-				\field{name: String} \annot{[RI,R]}\\
-				\field{address: Location} \annot{[LI,R]}
-			}; \\
-			% Second row
-			\node[class] (user) {
-				\textbf{User}\\
-				\field{email: String} \annot{[UI,R]}\\
-				\field{name: String} \annot{[RI,R]}\\
-				\field{address: Location} \annot{[LI,A]}\\
-				\field{age: Int} \annot{[A]}\\
-				\field{interests: String} \annot{[A]}\\
-				\field{skills: String} \annot{[A]}\\
-				\field{educational\_center\_email: String} \annot{[A]}\\
-				\field{company\_email: String} \annot{[A]}
-			}; &
-			\node[class] (co) {
-				\textbf{Company}\\
-				\field{email: String} \annot{[UI,R]}\\
-				\field{name: String} \annot{[RI,R]}\\
-				\field{address: Location} \annot{[LI,R]}
-			}; \\
-		};
-
-		% Relationship label boxes above arrows (increase offset for edlabel)
-		\node[labelbox, above=0.4cm of $(user.east)!0.5!(ed.west)$] (edlabel) {educational\_center\_email};
-		\node[labelbox, above=0.12cm of $(user.east)!0.5!(co.west)$] (colabel) {company\_email};
-
-		% Relationship arrows go from user.east to ed.west and co.west, with a vertical offset to go under the label boxes
-		\draw[->, thick] (user.east) -- ([yshift=-5pt]edlabel.south) -- ([yshift=-5pt]ed.west);
-		\draw[->, thick] (user.east) -- ([yshift=-5pt]colabel.south) -- ([yshift=-5pt]co.west);
-
-	\end{tikzpicture}
-\end{center}
+\input{./assets/tex/schema_diagram.tex}
 
 % }}}
 
@@ -232,15 +163,64 @@ and how they relate to each other is shown. Things to take note of:
 
 \par
 The schemas for the collections were defined using \texttt{YAML} files. These
-YAML files are then used by \texttt{Python} scripts to create the collections in
-the database and the appropiate classes in \texttt{Python} to handle them.
+YAML files are then used by \texttt{Python} scripts to create the collections
+in the database and the appropiate classes in \texttt{Python} to handle them.
 
 \par
 The following file is an example file used for testing the model for
 \texttt{User}.
 
-\lstinputlisting[language=yaml,caption={\texttt{models\_test.yaml}}]{./../models_test.yml}
+\lstinputlisting[
+	language=yaml,
+	caption={\texttt{models\_test.yaml}}
+]{./../models_test.yml}
 \color{black}
+
+\subsection{Project Structure}
+
+\par
+The project structure is divided into different folders for ease of navigation.
+Additional folders are added during the process of using and testing the ODM
+such as \texttt{\_\_pycache\_\_/} but these are local files that shouldn't be
+version controlled through \texttt{git}. The project structure for the \LaTeX\
+\ project is ignored in the file structure shown too since it is not relevant for
+the ODM file structure.
+
+\begin{verbatim}
+project_root/
+|-- ODM/
+|   |-- __init__.py
+|   |-- app.py
+|   |-- geo.py
+|   |-- model.py
+|-- data/
+|   |-- users.json
+|   |-- companies.json
+|   |-- educational_centers.json
+|   |-- models.yml
+|-- docs/
+|   |-- [tex project]
+|-- ODM_test.py
+|-- models_test.yml
+|-- nix.shell
+\end{verbatim}
+
+\par
+All relevant files for the ODM implementation are in the \texttt{ODM/} folder
+due to being part of the same ODM module. When importing such files during
+testing or deployment, one only has to write:
+
+\begin{lstlisting}[language=Python]
+from ODM import ... # Classes, functions to import
+\end{lstlisting}
+
+And then utilise these functions. Everything is put together through the
+\texttt{ODM/\_\_init\_\_.py} file.
+
+\lstinputlisting[
+	language=Python,
+	caption=\texttt{ODM/\_\_init\_\_.py}
+]{../ODM/__init__.py}
 
 % }}}
 
