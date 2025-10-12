@@ -4,7 +4,6 @@ import ODM
 # GeoJSON and geo locator
 import time
 from geopy.exc import GeocoderTimedOut
-#from typing import Generator, Any, Self
 from geojson import Point
 
 def getLocationPoint(address: str) -> Point:
