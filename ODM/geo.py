@@ -24,12 +24,6 @@ def getLocationPoint(address: str) -> Point:
         Coordinates of the address point
     """
 
-    import hashlib
-    h = int(hashlib.sha256(address.encode()).hexdigest(), 16)
-    lat = ((h % 10000) - 5000) / 1000.0
-    lon = (((h // 10000) % 10000) - 5000) / 1000.0
-    return {"type": "Point", "coordinates": [lon, lat]}
-
     max_attempts = 5
     attempts = 0
     location = None
