@@ -6,6 +6,9 @@ import time
 from geopy.exc import GeocoderTimedOut
 from geojson import Point
 
+# Simple in-memory cache for address geocoding
+_address_cache = {}
+
 def getLocationPoint(address: str) -> Point:
     """
     Gets the coordinates of an address in geojson.Point format.
@@ -22,6 +25,9 @@ def getLocationPoint(address: str) -> Point:
     geojson.Point
         Coordinates of the address point
     """
+
+    if address in _address_cache:
+        return _address_cache[address]
 
     max_attempts = 5
     attempts = 0
@@ -40,9 +46,19 @@ def getLocationPoint(address: str) -> Point:
             # Throw an exception if timeout is exceeded
             attempts += 1
             continue
+        except (GeocoderServiceError, GeocoderUnavailable) as e:
+            attempts += 1
+            print(f"Geocoding service error: {e}")
+            continue
+        except Exception as e:
+            print(f"Unexpected error during geocoding: {e}")
+            attempts += 1
+            continue
 
     if location is None:
         raise ValueError("No se pudieron obtener coordenadas")
 
-    # Return coordinate points of location
-    return Point([location.longitude, location.latitude])
+    # Return coordinate points of location and store in cache
+    point = Point([location.longitude, location.latitude])
+    _address_cache[address] = point
+    return point
