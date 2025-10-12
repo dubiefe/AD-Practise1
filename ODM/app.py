@@ -44,10 +44,22 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
 
     db = client[db_name]
 
-    # Open and read definitions file
+    # Open and read definitions file, with error handling
     print(f"Loading schema from {definitions_path}")
-    with open(definitions_path, 'r') as f:
-        schema = yaml.safe_load(f)
+    try:
+        with open(definitions_path, 'r') as f:
+            schema = yaml.safe_load(f)
+        if not isinstance(schema, dict):
+            raise ValueError("Schema file is not a valid dictionary format.")
+    except FileNotFoundError:
+        print(f"Error: Schema file '{definitions_path}' not found.")
+        return
+    except yaml.YAMLError as e:
+        print(f"Error parsing YAML file: {e}")
+        return
+    except Exception as e:
+        print(f"Unexpected error reading schema file: {e}")
+        return
 
 
     # For each item in the definitions file we create a class
