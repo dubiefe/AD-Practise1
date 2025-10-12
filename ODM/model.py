@@ -110,9 +110,9 @@ class Model:
         """
 
         # Define class attributes and check if __setattr__ is used for them
-        class_attributes = { "_required_vars", "_admissible_vars", "_db", 
+        internal_attributes = { "_required_vars", "_admissible_vars", "_db", 
                             "_data", "_location_var", "_modified_vars" }
-        if name in class_attributes:
+        if name in internal_attributes:
             super().__setattr__(name, value)
         else:
             # Check if the attribute is valid
@@ -141,9 +141,9 @@ class Model:
         """
 
         # Define class attributes and check if __getattr__ is used for them
-        class_attributes = { "_required_vars", "_admissible_vars", "_db", 
+        internal_attributes = { "_required_vars", "_admissible_vars", "_db", 
                             "_data", "_location_var", "_modified_vars" }
-        if name in class_attributes:
+        if name in internal_attributes:
             # return super().__getattr__(name)
             return super().__getattribute__(name)
         try:
