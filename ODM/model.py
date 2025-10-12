@@ -6,6 +6,9 @@ from pymongo.server_api import ServerApi
 # For type hints
 from typing import Any, Generator, Self
 
+# Import getLocationPoint function
+from ODM.geo import getLocationPoint
+
 class Model:
     """
     Abstract model class.
@@ -67,7 +70,7 @@ class Model:
         # Check if key (attribute) is valid
         valid_vars = self._required_vars.union(self._admissible_vars)
         for key in kwargs:
-            if key not in valid_vars and key != "_id":
+            if key not in valid_vars and key != "_id" and key != self._location_var:
                 raise ValueError(f"The attribute {key} doesn't exist")
 
         # Check if all required attributes are provided
@@ -82,6 +85,12 @@ class Model:
                 # Use the data attribute to store variables saved in the 
                 # database in a single attribute
                 self._data[key] = value
+
+        # Automatically generate the GeoJSON point for the location attribute if base field is present
+        if self._location_var and self._location_var.endswith("_loc"):
+            base_field = self._location_var[:-4]
+            if base_field in kwargs:
+                self._data[self._location_var] = getLocationPoint(kwargs[base_field])
 
     def __setattr__(self, name: str, value: str | dict) -> None:
         """
@@ -99,9 +108,14 @@ class Model:
             valid_vars = self._required_vars.union(self._admissible_vars)
             if name not in valid_vars:
                 raise AttributeError(f"[__setattr__] Invalid attribute: {name}")
-            else:
-                # Assign if data checks are passed
-                self._data[name] = value
+            # Assign if data checks are passed
+            self._data[name] = value
+            # If setting the base location field, also set the _loc field
+            if self._location_var and self._location_var.endswith("_loc"):
+                base_field = self._location_var[:-4]
+                if name == base_field:
+                    self._data[self._location_var] = getLocationPoint(value)
+
 
 
     def __getattr__(self, name: str) -> Any:
@@ -130,16 +144,26 @@ class Model:
         document is created with the model's values. Otherwise,
         the existing document is updated with the new values.
         """
+
         # Ensure required fields are present
         missing = [var for var in self._required_vars if var not in self._data]
         if missing:
             raise ValueError(f"Missing required fields: {missing}")
 
-        # Only save admissible (and required) fields
+        # TODO: Do we need to check for this again? (we checked for it in
+        # setattr)
+        # --- Update the location field if the base field is present ---
+        #if self._location_var and self._location_var.endswith("_loc"):
+        #    base_field = self._location_var[:-4]
+        #    if base_field in self._data:
+        #        self._data[self._location_var] = getLocationPoint(self._data[base_field])
+
+        # Save required, admissible, _id, and location _loc field
         valid_fields = self._required_vars.union(self._admissible_vars)
-        data_to_save = {key: value 
-            for key, value in self._data.items() 
-                if key in valid_fields or key == "_id"
+        to_save_fields = valid_fields.union({self._location_var}) if self._location_var else valid_fields
+        data_to_save = {key: value
+            for key, value in self._data.items()
+            if key in to_save_fields or key == "_id"
         }
 
         # If _id present, update, else insert
@@ -262,8 +286,7 @@ class Model:
                 except Exception as e:
                     raise ValueError(f"Error index on field '{field}': {e}")
 
-        # Check if the location variable is set (mandatory for all)
-        if cls._location_var == None:
+        if cls._location_var is None:
             raise ValueError(f"_location_var not set")
 
 class ModelCursor:

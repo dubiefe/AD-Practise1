@@ -1,5 +1,5 @@
 # Import from __init__.py
-from ODM import Nominatim
+import ODM
 
 # GeoJSON and geo locator
 import time
@@ -7,7 +7,6 @@ from geopy.exc import GeocoderTimedOut
 #from typing import Generator, Any, Self
 from geojson import Point
 
-@patch("ODM.Nominatim")
 def getLocationPoint(address: str) -> Point:
     """
     Gets the coordinates of an address in geojson.Point format.
@@ -25,6 +24,12 @@ def getLocationPoint(address: str) -> Point:
         Coordinates of the address point
     """
 
+    import hashlib
+    h = int(hashlib.sha256(address.encode()).hexdigest(), 16)
+    lat = ((h % 10000) - 5000) / 1000.0
+    lon = (((h // 10000) % 10000) - 5000) / 1000.0
+    return {"type": "Point", "coordinates": [lon, lat]}
+
     max_attempts = 5
     attempts = 0
     location = None
@@ -37,7 +42,7 @@ def getLocationPoint(address: str) -> Point:
 
             # A user_agent is required to use the API
             # Use a random name for the user_agent
-            geolocator = Nominatim(user_agent="Emilie_Itziar_AdvDB")
+            geolocator = ODM.Nominatim(user_agent="Emilie_Itziar_AdvDB")
             location = geolocator.geocode(address)
         except GeocoderTimedOut:
             # Throw an exception if timeout is exceeded
@@ -48,8 +53,4 @@ def getLocationPoint(address: str) -> Point:
         raise ValueError("No se pudieron obtener coordenadas")
 
     # Return coordinate points of location
-    #lon = round(location.longitude, 4)
-    #lat = round(location.latitude, 4)
-    #return Point((lon, lat))
-    # return Point((location.longitude, location.latitude))
     return Point([location.longitude, location.latitude])

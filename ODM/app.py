@@ -68,7 +68,8 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
         for field in regular_indexes:
             indexes.append({field: "regular"})
 
-        indexes.append({location_index: "2dsphere"})
+        if location_index:
+            indexes.append({f"{location_index}_loc": "2dsphere"})
 
         # Get variables
         required_vars = set(details.get('required_vars', []))     # set
