@@ -26,6 +26,9 @@ def getLocationPoint(address: str) -> Point:
         Coordinates of the address point
     """
 
+    # INFO: Remove this comment to avoid rate limiting in testing
+    #return Point([-3.703790, 40.416775])
+
     if address in _address_cache:
         return _address_cache[address]
 
