@@ -86,11 +86,13 @@ class Model:
                 # database in a single attribute
                 self._data[key] = value
 
-        # Automatically generate the GeoJSON point for the location attribute if base field is present
+        # Automatically generate the GeoJSON point for the location attribute if 
+        # base field is present
         if self._location_var and self._location_var.endswith("_loc"):
             base_field = self._location_var[:-4]
             if base_field in kwargs:
                 self._data[self._location_var] = getLocationPoint(kwargs[base_field])
+            # TODO: Maybe error?
 
     def __setattr__(self, name: str, value: str | dict) -> None:
         """
