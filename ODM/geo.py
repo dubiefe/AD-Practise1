@@ -3,7 +3,7 @@ import ODM
 
 # GeoJSON and geo locator
 import time
-from geopy.exc import GeocoderTimedOut
+from geopy.exc import GeocoderTimedOut, GeocoderServiceError, GeocoderUnavailable
 from geojson import Point
 
 # Simple in-memory cache for address geocoding
