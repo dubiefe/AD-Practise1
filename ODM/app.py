@@ -62,14 +62,14 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
         location_index = details.get('location_index', [])
 
         # Combine all index types into a list of dicts as required by init_class
-        indexes = []
+        indexes = {}
         for field in unique_indexes:
-            indexes.append({field: "unique"})
+            indexes[field] =  "unique"
         for field in regular_indexes:
-            indexes.append({field: "regular"})
+            indexes[field] =  "regular"
 
         if location_index:
-            indexes.append({f"{location_index}_loc": "2dsphere"})
+            indexes[f"{location_index}_loc"] = "2dsphere"
 
         # Get variables
         required_vars = set(details.get('required_vars', []))     # set
