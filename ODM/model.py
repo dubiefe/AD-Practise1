@@ -245,7 +245,7 @@ class Model:
         pymongo.command_cursor.CommandCursor
             pymongo cursor with the query result
         """
-        return cls.db.aggregate(pipeline)
+        return cls._db.aggregate(pipeline)
 
     @classmethod
     def find_by_id(cls, id: str) -> Self | None:
@@ -292,20 +292,19 @@ class Model:
         cls._location_var = None
 
         # Initialize indexes from the indexes dictionary, ascending by default
-        for index in indexes:
-            for field, idx_type in index.items():
-                try:
-                    if idx_type == "unique":
-                        cls._db.create_index([(field, pymongo.ASCENDING)], unique=True)
-                    elif idx_type == "regular":
-                        cls._db.create_index([(field, pymongo.ASCENDING)])
-                    elif idx_type == "2dsphere":
-                        cls._db.create_index([(field, pymongo.GEOSPHERE)])
-                        cls._location_var = field
-                    else:
-                        raise ValueError(f"Unknown '{field}': {idx_type}")
-                except Exception as e:
-                    raise ValueError(f"Error index on field '{field}': {e}")
+        for field, idx_type in indexes.items():
+            try:
+                if idx_type == "unique":
+                    cls._db.create_index([(field, pymongo.ASCENDING)], unique=True)
+                elif idx_type == "regular":
+                    cls._db.create_index([(field, pymongo.ASCENDING)])
+                elif idx_type == "2dsphere":
+                    cls._db.create_index([(field, pymongo.GEOSPHERE)])
+                    cls._location_var = field
+                else:
+                    raise ValueError(f"Unknown '{field}': {idx_type}")
+            except Exception as e:
+                raise ValueError(f"Error index on field '{field}': {e}")
 
         if cls._location_var is None:
             raise ValueError(f"_location_var not set")
