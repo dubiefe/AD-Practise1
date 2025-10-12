@@ -4,17 +4,15 @@
 
 pkgs.mkShell {
   buildInputs = with pkgs; [
-    python311
-    python311Packages.pymongo
-    python311Packages.geopy
-    python311Packages.geojson
-    python311Packages.pyyaml
-    python311Packages.pytest
-    # You may also want ipython for testing
-    # python311Packages.ipython
+    python312
+    python312Packages.pymongo
+    python312Packages.geopy
+    python312Packages.geojson
+    python312Packages.pyyaml
+    python312Packages.pytest
   ];
 
   shellHook = ''
-    echo "Python dependencies for ODM_template.py are available!"
+    echo "Python dependencies for ODM.py are available!"
   '';
 }
