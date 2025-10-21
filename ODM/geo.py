@@ -46,9 +46,9 @@ def getLocationPoint(address: str) -> Point:
             geolocator = ODM.Nominatim(user_agent="Emilie_Itziar_AdvDB")
             location = geolocator.geocode(address)
         except GeocoderTimedOut:
-            # Throw an exception if timeout is exceeded
+            # Return if timed out
             attempts += 1
-            continue
+            return ([0,0])
         except (GeocoderServiceError, GeocoderUnavailable) as e:
             attempts += 1
             print(f"Geocoding service error: {e}")

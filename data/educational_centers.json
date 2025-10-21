@@ -98,5 +98,15 @@
     "name": "Instituto Mendoza",
     "address": "Vitoria, España",
     "email": "info@institutomendoza.es"
+  },
+  {
+    "name": "Universidad Politécnica de Madrid",
+    "address": "Ciudad Universitaria (Av. Ramiro de Maeztu), 7, 28040 Madrid, España",
+    "email": "info@upm.es"
+  },
+  {
+    "name": "Universidad Autónoma de Madrid",
+    "address": "Campus de Cantoblanco, 28049 Madrid, España",
+    "email": "info@uam.es"
   }
 ]

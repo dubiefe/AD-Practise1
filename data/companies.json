@@ -98,5 +98,15 @@
     "name": "Almacenes Mendoza",
     "address": "Vitoria, España",
     "email": "info@almacenesmendoza.com"
+  },
+  {
+    "name": "Google Spain SL",
+    "address": "Calle de Génova, 27, 28004 Madrid, España",
+    "email": "info@google.es"
+  },
+  {
+    "name": "Microsoft Ibérica",
+    "address": "Avenida de Bruselas, 35, 28042 Madrid, España",
+    "email": "info@microsoft.es"
   }
 ]
