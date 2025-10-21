@@ -1,4 +1,4 @@
-# Advanced Databases - Practice 1
+# Advanced Databases - Practice 2
 
 College project for Advanced Databases at U-TAD
 
@@ -13,6 +13,16 @@ Toolset:
 - MongoDB
 - Nix (dependencies)
 - LaTeX (documentation)
+
+## TODO
+
+### Files to hand in
+
+- [ ] Jupyter notebook with queries
+- [ ] JSON files
+- [ ] YML dependencies
+- [ ] Initialization of database
+- [ ] ODM library
 
 ## Project structure
 
