@@ -24,6 +24,32 @@ Toolset:
 - [ ] Initialization of database
 - [ ] ODM library
 
+### Project TODO list
+
+- [x] Modify YML to include extra data:
+  - user description
+  - user companies
+  - user educational centers
+- [x] Modify JSON files to include extra data:
+  - user descriptions
+  - user completion dates
+  - companies: Google, Microsoft
+  - educational centers: UPM, UAM
+- [ ] Remove limits
+- [ ] Get all GeoJSON data for users
+- [ ] Copy database initialization to Jupyter Notebook
+- [ ] Put all queries in Jupyter Notebook
+
+### Queries
+
+- [ ] 1st query
+- [ ] 2nd query
+- [ ] 3rd query
+- [ ] 4th query
+- [ ] 5th query
+- [ ] 6th query
+- [ ] 7th query
+
 ## Project structure
 
 - The necessary files for the ODM are in the `ODM/` folder.
@@ -62,3 +88,8 @@ sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 # Initialize nix-shell environemnt using shell.nix
 nix-shell
 ```
+
+## Exceptions
+
+`ODM.getGeoLocation` can return a timed out error due to API but cannot be
+changed due to the test.
