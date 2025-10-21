@@ -6,10 +6,11 @@ User:
   admissible_vars:
     - age
     - address
+    - description
     - interests
     - skills
-    - company_email
-    - educational_center_email
+    - companies
+    - educational_centers
   unique_indexes:
     - name
   regular_indexes:

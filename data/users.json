@@ -5,8 +5,20 @@
     "address": "Calle Gran Vía, 1, Madrid, España",
     "interests": "reading,music,hiking",
     "skills": "Java,Python,project management",
-    "educational_center_email": "info@ucm.es",
-    "company_email": "contacto@tecnologiasavanzadas.com"
+    "educational_centers": [
+      {
+        "email": "info@ucm.es",
+        "completion_date": "2018"
+      },
+      {
+        "email": "info@upm.es",
+        "completion_date": "2021"
+      }
+    ],
+    "companies": [
+      "contacto@tecnologiasavanzadas.com"
+    ],
+    "description": "Graduate in Computer Science from UCM, works in project management and is interested in Artificial Intelligence and data-driven projects."
   },
   {
     "name": "Carlos García",
@@ -14,8 +26,20 @@
     "address": "Avenida de Andalucía, 2, Sevilla, España",
     "interests": "soccer,movies,music",
     "skills": "graphic design,Photoshop,digital marketing",
-    "educational_center_email": "info@ips.es",
-    "company_email": "contacto@industriasgarcia.com"
+    "educational_centers": [
+      {
+        "email": "info@ips.es",
+        "completion_date": "2016"
+      },
+      {
+        "email": "info@uam.es",
+        "completion_date": "2019"
+      }
+    ],
+    "companies": [
+      "contacto@industriasgarcia.com"
+    ],
+    "description": "Graphic designer with a diploma from IPS, freelances in digital marketing and explores Big Data visualizations for campaigns."
   },
   {
     "name": "Lucía Martínez",
@@ -23,8 +47,20 @@
     "address": "Calle del Prado, 3, Madrid, España",
     "interests": "reading,yoga,music",
     "skills": "project management,digital marketing,Python",
-    "educational_center_email": "info@ucm.es",
-    "company_email": "contacto@solucioneslopez.com"
+    "educational_centers": [
+      {
+        "email": "info@ucm.es",
+        "completion_date": "2017"
+      },
+      {
+        "email": "info@upm.es",
+        "completion_date": "2020"
+      }
+    ],
+    "companies": [
+      "contacto@solucioneslopez.com"
+    ],
+    "description": "Project manager with experience in digital marketing; studies data analytics and has applied Python to small Big Data tasks."
   },
   {
     "name": "Javier López",
@@ -32,16 +68,36 @@
     "address": "Paseo de la Reforma, 4, Barcelona, España",
     "interests": "cycling,technology,reading",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@etseib.es",
-    "company_email": "contacto@constructoramartinez.com"
+    "educational_centers": [
+      {
+        "email": "info@etseib.es",
+        "completion_date": "2019"
+      },
+      {
+        "email": "info@uam.es",
+        "completion_date": "2022"
+      }
+    ],
+    "companies": [
+      "contacto@constructoramartinez.com"
+    ],
+    "description": "Engineering student at ETSEIB, enjoys networking projects and hobbyist work with embedded systems and AI prototypes."
   },
   {
     "name": "Ana Ruiz",
     "email": "user5@cemv.es",
     "address": "Calle San Vicente, 5, Valencia, España",
     "skills": "customer service,administration,project management",
-    "educational_center_email": "info@cemv.es",
-    "company_email": "contacto@serviciosrivera.com"
+    "educational_centers": [
+      {
+        "email": "info@cemv.es",
+        "completion_date": "2015"
+      }
+    ],
+    "companies": [
+      "contacto@serviciosrivera.com"
+    ],
+    "description": "Administrative professional at Servicios Médicos Rivera, focused on customer workflows and operational improvements."
   },
   {
     "name": "Pedro Sánchez",
@@ -49,40 +105,85 @@
     "address": "Calle Alcalde Sainz de Baranda, 6, Madrid, España",
     "interests": "travel,photography,music",
     "skills": "JavaScript,React,Python",
-    "educational_center_email": "info@ifpl.es",
-    "company_email": "contacto@tecnologiasavanzadas.com"
+    "educational_centers": [
+      {
+        "email": "info@ifpl.es",
+        "completion_date": "2016"
+      },
+      {
+        "email": "info@upm.es",
+        "completion_date": "2023"
+      }
+    ],
+    "companies": [
+      "contacto@tecnologiasavanzadas.com",
+      "info@google.es"
+    ],
+    "description": "Frontend developer working with React at Tecnologías Avanzadas; attends meetups on Artificial Intelligence applied to web UX."
   },
   {
     "name": "Elena Torres",
     "email": "user7@ips.es",
     "address": "Avenida del Puerto, 7, Sevilla, España",
     "interests": "cooking,reading,music",
-    "educational_center_email": "info@ips.es",
-    "company_email": "info@agrotorres.com"
+    "educational_centers": [
+      {
+        "email": "info@ips.es",
+        "completion_date": "2018"
+      }
+    ],
+    "companies": [
+      "info@agrotorres.com"
+    ],
+    "description": "Alumna of IPS focused on sports management and community projects; volunteers at local cultural events."
   },
   {
     "name": "Miguel Ortega",
     "email": "user8@constructoramartinez.com",
     "address": "Calle Muntaner, 8, Barcelona, España",
     "skills": "AutoCAD,project management,Python",
-    "educational_center_email": "info@etseib.es",
-    "company_email": "contacto@constructoramartinez.com"
+    "educational_centers": [
+      {
+        "email": "info@etseib.es",
+        "completion_date": "2014"
+      }
+    ],
+    "companies": [
+      "contacto@constructoramartinez.com"
+    ],
+    "description": "Civil engineering technician using AutoCAD for construction projects; learning data analysis for site planning."
   },
   {
     "name": "Isabel Morales",
     "email": "user9@cemv.es",
     "address": "Calle Colón, 9, Valencia, España",
     "interests": "theater,classical music,reading",
-    "educational_center_email": "info@cemv.es",
-    "company_email": "info@textilesromero.com"
+    "educational_centers": [
+      {
+        "email": "info@cemv.es",
+        "completion_date": "2013"
+      }
+    ],
+    "companies": [
+      "info@textilesromero.com"
+    ],
+    "description": "Cultural studies graduate working part-time in a textile company and organising community arts events."
   },
   {
     "name": "Diego Navarro",
     "email": "user10@solucioneslopez.com",
     "address": "Calle Alcalá, 10, Madrid, España",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@ifpl.es",
-    "company_email": "contacto@solucioneslopez.com"
+    "educational_centers": [
+      {
+        "email": "info@ifpl.es",
+        "completion_date": "2020"
+      }
+    ],
+    "companies": [
+      "contacto@solucioneslopez.com"
+    ],
+    "description": "Data analyst at Soluciones López, focuses on dashboards and Big Data preprocessing pipelines."
   },
   {
     "name": "Laura González",
@@ -90,8 +191,16 @@
     "address": "Avenida Goya, 11, Zaragoza, España",
     "interests": "travel,reading,swimming",
     "skills": "Java,Python,leadership",
-    "educational_center_email": "info@unizar.es",
-    "company_email": "info@agrotorres.com"
+    "educational_centers": [
+      {
+        "email": "info@unizar.es",
+        "completion_date": "2022"
+      }
+    ],
+    "companies": [
+      "info@agrotorres.com"
+    ],
+    "description": "Computer science student interested in leadership roles and collaborative open-source work."
   },
   {
     "name": "Sergio Romero",
@@ -99,8 +208,16 @@
     "address": "Calle Ercilla, 12, Bilbao, España",
     "interests": "painting,music,technology",
     "skills": "Photoshop,graphic design,Python",
-    "educational_center_email": "info@artesbilbao.es",
-    "company_email": "info@textilesromero.com"
+    "educational_centers": [
+      {
+        "email": "info@artesbilbao.es",
+        "completion_date": "2011"
+      }
+    ],
+    "companies": [
+      "info@textilesromero.com"
+    ],
+    "description": "Designer blending traditional painting with digital tools, exploring image analysis and AI-assisted tools."
   },
   {
     "name": "Patricia Ruiz",
@@ -108,8 +225,16 @@
     "address": "Calle Gran Capitán, 13, Granada, España",
     "interests": "technology,reading,cooking",
     "skills": "Python,JavaScript,SQL",
-    "educational_center_email": "info@itgranada.es",
-    "company_email": "info@electronicaruiz.com"
+    "educational_centers": [
+      {
+        "email": "info@itgranada.es",
+        "completion_date": "2019"
+      }
+    ],
+    "companies": [
+      "info@electronicaruiz.com"
+    ],
+    "description": "IT student focused on web development and backend systems; curious about applying Big Data techniques to IoT."
   },
   {
     "name": "David Sánchez",
@@ -117,8 +242,16 @@
     "address": "Plaza Mayor, 14, Valladolid, España",
     "interests": "soccer,movies,reading",
     "skills": "Java,teamwork,marketing",
-    "educational_center_email": "info@cesvalladolid.es",
-    "company_email": "info@transportessanchez.com"
+    "educational_centers": [
+      {
+        "email": "info@cesvalladolid.es",
+        "completion_date": "2017"
+      }
+    ],
+    "companies": [
+      "info@transportessanchez.com"
+    ],
+    "description": "Marketing assistant at Transportes Sánchez, combining technical skills with client communication."
   },
   {
     "name": "Cristina Herrera",
@@ -126,8 +259,16 @@
     "address": "Avenida Alfonso X, 15, Alicante, España",
     "interests": "reading,travel,photography",
     "skills": "Excel,management,Python",
-    "educational_center_email": "info@negociosalicante.es",
-    "company_email": "info@consultorafernandez.com"
+    "educational_centers": [
+      {
+        "email": "info@negociosalicante.es",
+        "completion_date": "2021"
+      }
+    ],
+    "companies": [
+      "info@consultorafernandez.com"
+    ],
+    "description": "Business student with internships in consulting; uses Excel and Python for business analytics."
   },
   {
     "name": "Mario Ortega",
@@ -135,8 +276,16 @@
     "address": "Calle Mayor, 16, Murcia, España",
     "interests": "cycling,music,technology",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@um.es",
-    "company_email": "info@editorialortega.com"
+    "educational_centers": [
+      {
+        "email": "info@um.es",
+        "completion_date": "2012"
+      }
+    ],
+    "companies": [
+      "info@editorialortega.com"
+    ],
+    "description": "Engineering student interested in embedded systems and networking; experiments with small AI models."
   },
   {
     "name": "Sara Morales",
@@ -144,8 +293,16 @@
     "address": "Calle Estafeta, 17, Pamplona, España",
     "interests": "theater,reading,music",
     "skills": "customer service,administration,project management",
-    "educational_center_email": "info@icpamplona.es",
-    "company_email": "info@segurosmorales.com"
+    "educational_centers": [
+      {
+        "email": "info@icpamplona.es",
+        "completion_date": "2010"
+      }
+    ],
+    "companies": [
+      "info@segurosmorales.com"
+    ],
+    "description": "Customer service coordinator at Seguros Morales with experience organising local events."
   },
   {
     "name": "Iván Jiménez",
@@ -153,8 +310,16 @@
     "address": "Calle Castilla, 18, Santander, España",
     "interests": "music,reading,swimming",
     "skills": "JavaScript,React,Python",
-    "educational_center_email": "info@musicasantander.es",
-    "company_email": "info@farmaciajimenez.com"
+    "educational_centers": [
+      {
+        "email": "info@musicasantander.es",
+        "completion_date": "2014"
+      }
+    ],
+    "companies": [
+      "info@farmaciajimenez.com"
+    ],
+    "description": "Frontend developer and musician who explores interactive music tools built with web technologies."
   },
   {
     "name": "Paula Navarro",
@@ -162,8 +327,16 @@
     "address": "Calle Covadonga, 19, Gijón, España",
     "interests": "cooking,travel,reading",
     "skills": "AutoCAD,project management,Python",
-    "educational_center_email": "info@cfnavarro.es",
-    "company_email": "info@publicidadnavarro.com"
+    "educational_centers": [
+      {
+        "email": "info@cfnavarro.es",
+        "completion_date": "2016"
+      }
+    ],
+    "companies": [
+      "info@publicidadnavarro.com"
+    ],
+    "description": "Technical drafter using AutoCAD for advertising and retail space projects; interested in spatial data analysis."
   },
   {
     "name": "Alberto Castillo",
@@ -171,8 +344,16 @@
     "address": "Avenida del Brillante, 20, Córdoba, España",
     "interests": "reading,photography,movies",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@uco.es",
-    "company_email": "info@viajescastillo.com"
+    "educational_centers": [
+      {
+        "email": "info@uco.es",
+        "completion_date": "2013"
+      }
+    ],
+    "companies": [
+      "info@viajescastillo.com"
+    ],
+    "description": "Data enthusiast working on travel analytics and automated reporting for Viajes Castillo."
   },
   {
     "name": "Beatriz Pérez",
@@ -180,8 +361,16 @@
     "address": "Calle Vitoria, 21, Burgos, España",
     "interests": "languages,travel,music",
     "skills": "English,French,Spanish",
-    "educational_center_email": "info@idiomasburgos.es",
-    "company_email": "info@financierosperez.com"
+    "educational_centers": [
+      {
+        "email": "info@idiomasburgos.es",
+        "completion_date": "2018"
+      }
+    ],
+    "companies": [
+      "info@financierosperez.com"
+    ],
+    "description": "Language instructor with experience in corporate training and cross-cultural communication."
   },
   {
     "name": "Andrés Gómez",
@@ -189,8 +378,16 @@
     "address": "Avenida de Europa, 22, Toledo, España",
     "interests": "technology,reading,travel",
     "skills": "Java,Python,SQL",
-    "educational_center_email": "info@itteledo.es",
-    "company_email": "info@automovilesgomez.com"
+    "educational_centers": [
+      {
+        "email": "info@itteledo.es",
+        "completion_date": "2015"
+      }
+    ],
+    "companies": [
+      "info@automovilesgomez.com"
+    ],
+    "description": "Software developer focused on backend systems and database design; exploring Big Data tooling."
   },
   {
     "name": "Rocío Herrera",
@@ -198,8 +395,16 @@
     "address": "Calle Zamora, 23, Salamanca, España",
     "interests": "cooking,reading,music",
     "skills": "management,Excel,Python",
-    "educational_center_email": "info@hosteleriaherrera.es",
-    "company_email": "info@restaurantesherrera.com"
+    "educational_centers": [
+      {
+        "email": "info@hosteleriaherrera.es",
+        "completion_date": "2019"
+      }
+    ],
+    "companies": [
+      "info@restaurantesherrera.com"
+    ],
+    "description": "Hospitality manager experimenting with digital reservation systems and small-scale data analysis."
   },
   {
     "name": "Fernando Domínguez",
@@ -207,8 +412,16 @@
     "address": "Avenida de la Paz, 24, Logroño, España",
     "interests": "cycling,reading,travel",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@cesdominguez.es",
-    "company_email": "info@consultoriadominguez.com"
+    "educational_centers": [
+      {
+        "email": "info@cesdominguez.es",
+        "completion_date": "2012"
+      }
+    ],
+    "companies": [
+      "info@consultoriadominguez.com"
+    ],
+    "description": "Network engineer with C++ background, works on industrial networking and monitoring solutions."
   },
   {
     "name": "Marta Mendoza",
@@ -216,8 +429,16 @@
     "address": "Calle San Prudencio, 25, Vitoria, España",
     "interests": "reading,photography,travel",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@institutomendoza.es",
-    "company_email": "info@almacenesmendoza.com"
+    "educational_centers": [
+      {
+        "email": "info@institutomendoza.es",
+        "completion_date": "2020"
+      }
+    ],
+    "companies": [
+      "info@almacenesmendoza.com"
+    ],
+    "description": "Analyst at Almacenes Mendoza focused on inventory analytics and forecasting models."
   },
   {
     "name": "Juan Castillo",
@@ -225,8 +446,20 @@
     "address": "Calle Gran Vía, 26, Madrid, España",
     "interests": "reading,music,hiking",
     "skills": "Java,Python,project management",
-    "educational_center_email": "info@ucm.es",
-    "company_email": "contacto@tecnologiasavanzadas.com"
+    "educational_centers": [
+      {
+        "email": "info@ucm.es",
+        "completion_date": "2016"
+      },
+      {
+        "email": "info@upm.es",
+        "completion_date": "2019"
+      }
+    ],
+    "companies": [
+      "contacto@tecnologiasavanzadas.com"
+    ],
+    "description": "IT project lead with a background from UCM and coursework at UPM; coordinates cross-functional technical teams."
   },
   {
     "name": "Nuria García",
@@ -234,8 +467,16 @@
     "address": "Avenida de Andalucía, 27, Sevilla, España",
     "interests": "soccer,movies,music",
     "skills": "graphic design,Photoshop,digital marketing",
-    "educational_center_email": "info@ips.es",
-    "company_email": "contacto@industriasgarcia.com"
+    "educational_centers": [
+      {
+        "email": "info@ips.es",
+        "completion_date": "2015"
+      }
+    ],
+    "companies": [
+      "contacto@industriasgarcia.com"
+    ],
+    "description": "Designer working in-house on product packaging and brand campaigns."
   },
   {
     "name": "Raúl Martínez",
@@ -243,8 +484,16 @@
     "address": "Calle del Prado, 28, Madrid, España",
     "interests": "reading,yoga,music",
     "skills": "project management,digital marketing,Python",
-    "educational_center_email": "info@ucm.es",
-    "company_email": "contacto@solucioneslopez.com"
+    "educational_centers": [
+      {
+        "email": "info@ucm.es",
+        "completion_date": "2018"
+      }
+    ],
+    "companies": [
+      "contacto@solucioneslopez.com"
+    ],
+    "description": "Marketing project manager, uses Python for automating reporting and simple data tasks."
   },
   {
     "name": "Patricia López",
@@ -252,16 +501,32 @@
     "address": "Paseo de la Reforma, 29, Barcelona, España",
     "interests": "cycling,technology,reading",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@etseib.es",
-    "company_email": "contacto@constructoramartinez.com"
+    "educational_centers": [
+      {
+        "email": "info@etseib.es",
+        "completion_date": "2021"
+      }
+    ],
+    "companies": [
+      "contacto@constructoramartinez.com"
+    ],
+    "description": "Engineering student with practical experience in construction tech and networked sensor systems."
   },
   {
     "name": "José Ruiz",
     "email": "user30@cemv.es",
     "address": "Calle San Vicente, 30, Valencia, España",
     "skills": "customer service,administration,project management",
-    "educational_center_email": "info@cemv.es",
-    "company_email": "contacto@serviciosrivera.com"
+    "educational_centers": [
+      {
+        "email": "info@cemv.es",
+        "completion_date": "2010"
+      }
+    ],
+    "companies": [
+      "contacto@serviciosrivera.com"
+    ],
+    "description": "Administrative coordinator with emphasis on client satisfaction and process optimization."
   },
   {
     "name": "Clara Sánchez",
@@ -269,40 +534,85 @@
     "address": "Calle Alcalde Sainz de Baranda, 31, Madrid, España",
     "interests": "travel,photography,music",
     "skills": "JavaScript,React,Python",
-    "educational_center_email": "info@ifpl.es",
-    "company_email": "contacto@tecnologiasavanzadas.com"
+    "educational_centers": [
+      {
+        "email": "info@ifpl.es",
+        "completion_date": "2017"
+      },
+      {
+        "email": "info@uam.es",
+        "completion_date": "2024"
+      }
+    ],
+    "companies": [
+      "contacto@tecnologiasavanzadas.com",
+      "info@microsoft.es"
+    ],
+    "description": "Full-stack developer at Tecnologías Avanzadas; attends cloud workshops and studies AI-driven cloud services."
   },
   {
     "name": "Hugo Torres",
     "email": "user32@ips.es",
     "address": "Avenida del Puerto, 32, Sevilla, España",
     "interests": "cooking,reading,music",
-    "educational_center_email": "info@ips.es",
-    "company_email": "info@agrotorres.com"
+    "educational_centers": [
+      {
+        "email": "info@ips.es",
+        "completion_date": "2013"
+      }
+    ],
+    "companies": [
+      "info@agrotorres.com"
+    ],
+    "description": "Community program coordinator with a focus on sustainability projects."
   },
   {
     "name": "Sonia Ortega",
     "email": "user33@constructoramartinez.com",
     "address": "Calle Muntaner, 33, Barcelona, España",
     "skills": "AutoCAD,project management,Python",
-    "educational_center_email": "info@etseib.es",
-    "company_email": "contacto@constructoramartinez.com"
+    "educational_centers": [
+      {
+        "email": "info@etseib.es",
+        "completion_date": "2012"
+      }
+    ],
+    "companies": [
+      "contacto@constructoramartinez.com"
+    ],
+    "description": "Draftsperson specializing in architectural plans and project coordination."
   },
   {
     "name": "Alejandro Morales",
     "email": "user34@cemv.es",
     "address": "Calle Colón, 34, Valencia, España",
     "interests": "theater,classical music,reading",
-    "educational_center_email": "info@cemv.es",
-    "company_email": "info@textilesromero.com"
+    "educational_centers": [
+      {
+        "email": "info@cemv.es",
+        "completion_date": "2011"
+      }
+    ],
+    "companies": [
+      "info@textilesromero.com"
+    ],
+    "description": "Cultural enthusiast working part-time while completing studies in humanities."
   },
   {
     "name": "Carla Navarro",
     "email": "user35@solucioneslopez.com",
     "address": "Calle Alcalá, 35, Madrid, España",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@ifpl.es",
-    "company_email": "contacto@solucioneslopez.com"
+    "educational_centers": [
+      {
+        "email": "info@ifpl.es",
+        "completion_date": "2019"
+      }
+    ],
+    "companies": [
+      "contacto@solucioneslopez.com"
+    ],
+    "description": "Junior data analyst using Python for business intelligence and reporting on sales data."
   },
   {
     "name": "Pablo González",
@@ -310,8 +620,16 @@
     "address": "Avenida Goya, 36, Zaragoza, España",
     "interests": "travel,reading,swimming",
     "skills": "Java,Python,leadership",
-    "educational_center_email": "info@unizar.es",
-    "company_email": "info@agrotorres.com"
+    "educational_centers": [
+      {
+        "email": "info@unizar.es",
+        "completion_date": "2020"
+      }
+    ],
+    "companies": [
+      "info@agrotorres.com"
+    ],
+    "description": "Student leader active in university tech clubs and open-source initiatives."
   },
   {
     "name": "Lucía Romero",
@@ -319,8 +637,16 @@
     "address": "Calle Ercilla, 37, Bilbao, España",
     "interests": "painting,music,technology",
     "skills": "Photoshop,graphic design,Python",
-    "educational_center_email": "info@artesbilbao.es",
-    "company_email": "info@textilesromero.com"
+    "educational_centers": [
+      {
+        "email": "info@artesbilbao.es",
+        "completion_date": "2016"
+      }
+    ],
+    "companies": [
+      "info@textilesromero.com"
+    ],
+    "description": "Artist combining digital and traditional media; experiments with generative art using AI."
   },
   {
     "name": "Manuel Ruiz",
@@ -328,8 +654,16 @@
     "address": "Calle Gran Capitán, 38, Granada, España",
     "interests": "technology,reading,cooking",
     "skills": "Python,JavaScript,SQL",
-    "educational_center_email": "info@itgranada.es",
-    "company_email": "info@electronicaruiz.com"
+    "educational_centers": [
+      {
+        "email": "info@itgranada.es",
+        "completion_date": "2018"
+      }
+    ],
+    "companies": [
+      "info@electronicaruiz.com"
+    ],
+    "description": "IT technician improving internal systems and learning about data synchronization techniques."
   },
   {
     "name": "Berta Sánchez",
@@ -337,8 +671,16 @@
     "address": "Plaza Mayor, 39, Valladolid, España",
     "interests": "soccer,movies,reading",
     "skills": "Java,teamwork,marketing",
-    "educational_center_email": "info@cesvalladolid.es",
-    "company_email": "info@transportessanchez.com"
+    "educational_centers": [
+      {
+        "email": "info@cesvalladolid.es",
+        "completion_date": "2014"
+      }
+    ],
+    "companies": [
+      "info@transportessanchez.com"
+    ],
+    "description": "Junior marketing specialist focused on client outreach and analytics."
   },
   {
     "name": "Alfonso Herrera",
@@ -346,8 +688,16 @@
     "address": "Avenida Alfonso X, 40, Alicante, España",
     "interests": "reading,travel,photography",
     "skills": "Excel,management,Python",
-    "educational_center_email": "info@negociosalicante.es",
-    "company_email": "info@consultorafernandez.com"
+    "educational_centers": [
+      {
+        "email": "info@negociosalicante.es",
+        "completion_date": "2017"
+      }
+    ],
+    "companies": [
+      "info@consultorafernandez.com"
+    ],
+    "description": "Business student and intern at a consulting firm focusing on process improvement."
   },
   {
     "name": "Natalia Ortega",
@@ -355,8 +705,16 @@
     "address": "Calle Mayor, 41, Murcia, España",
     "interests": "cycling,music,technology",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@um.es",
-    "company_email": "info@editorialortega.com"
+    "educational_centers": [
+      {
+        "email": "info@um.es",
+        "completion_date": "2022"
+      }
+    ],
+    "companies": [
+      "info@editorialortega.com"
+    ],
+    "description": "Systems engineering student involved in robotics projects and embedded AI."
   },
   {
     "name": "Jorge Morales",
@@ -364,8 +722,16 @@
     "address": "Calle Estafeta, 42, Pamplona, España",
     "interests": "theater,reading,music",
     "skills": "customer service,administration,project management",
-    "educational_center_email": "info@icpamplona.es",
-    "company_email": "info@segurosmorales.com"
+    "educational_centers": [
+      {
+        "email": "info@icpamplona.es",
+        "completion_date": "2019"
+      }
+    ],
+    "companies": [
+      "info@segurosmorales.com"
+    ],
+    "description": "Operations assistant with experience in policy administration and customer relations."
   },
   {
     "name": "Claudia Jiménez",
@@ -373,8 +739,16 @@
     "address": "Calle Castilla, 43, Santander, España",
     "interests": "music,reading,swimming",
     "skills": "JavaScript,React,Python",
-    "educational_center_email": "info@musicasantander.es",
-    "company_email": "info@farmaciajimenez.com"
+    "educational_centers": [
+      {
+        "email": "info@musicasantander.es",
+        "completion_date": "2021"
+      }
+    ],
+    "companies": [
+      "info@farmaciajimenez.com"
+    ],
+    "description": "Full-stack developer focusing on interactive web apps and performance."
   },
   {
     "name": "Eduardo Navarro",
@@ -382,8 +756,16 @@
     "address": "Calle Covadonga, 44, Gijón, España",
     "interests": "cooking,travel,reading",
     "skills": "AutoCAD,project management,Python",
-    "educational_center_email": "info@cfnavarro.es",
-    "company_email": "info@publicidadnavarro.com"
+    "educational_centers": [
+      {
+        "email": "info@cfnavarro.es",
+        "completion_date": "2015"
+      }
+    ],
+    "companies": [
+      "info@publicidadnavarro.com"
+    ],
+    "description": "Designer and drafter creating layouts for retail spaces and signage."
   },
   {
     "name": "Silvia Castillo",
@@ -391,8 +773,16 @@
     "address": "Avenida del Brillante, 45, Córdoba, España",
     "interests": "reading,photography,movies",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@uco.es",
-    "company_email": "info@viajescastillo.com"
+    "educational_centers": [
+      {
+        "email": "info@uco.es",
+        "completion_date": "2016"
+      }
+    ],
+    "companies": [
+      "info@viajescastillo.com"
+    ],
+    "description": "Data analyst in travel sector applying predictive models to bookings data."
   },
   {
     "name": "Antonio Pérez",
@@ -400,8 +790,16 @@
     "address": "Calle Vitoria, 46, Burgos, España",
     "interests": "languages,travel,music",
     "skills": "English,French,Spanish",
-    "educational_center_email": "info@idiomasburgos.es",
-    "company_email": "info@financierosperez.com"
+    "educational_centers": [
+      {
+        "email": "info@idiomasburgos.es",
+        "completion_date": "2018"
+      }
+    ],
+    "companies": [
+      "info@financierosperez.com"
+    ],
+    "description": "Language teacher with experience providing corporate language courses."
   },
   {
     "name": "Mónica Gómez",
@@ -409,8 +807,16 @@
     "address": "Avenida de Europa, 47, Toledo, España",
     "interests": "technology,reading,travel",
     "skills": "Java,Python,SQL",
-    "educational_center_email": "info@itteledo.es",
-    "company_email": "info@automovilesgomez.com"
+    "educational_centers": [
+      {
+        "email": "info@itteledo.es",
+        "completion_date": "2013"
+      }
+    ],
+    "companies": [
+      "info@automovilesgomez.com"
+    ],
+    "description": "Software engineer focused on backend development and database scaling."
   },
   {
     "name": "Rubén Herrera",
@@ -418,8 +824,16 @@
     "address": "Calle Zamora, 48, Salamanca, España",
     "interests": "cooking,reading,music",
     "skills": "management,Excel,Python",
-    "educational_center_email": "info@hosteleriaherrera.es",
-    "company_email": "info@restaurantesherrera.com"
+    "educational_centers": [
+      {
+        "email": "info@hosteleriaherrera.es",
+        "completion_date": "2012"
+      }
+    ],
+    "companies": [
+      "info@restaurantesherrera.com"
+    ],
+    "description": "Restaurant manager handling operations and implementing data-driven reservation strategies."
   },
   {
     "name": "Teresa Domínguez",
@@ -427,8 +841,16 @@
     "address": "Avenida de la Paz, 49, Logroño, España",
     "interests": "cycling,reading,travel",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@cesdominguez.es",
-    "company_email": "info@consultoriadominguez.com"
+    "educational_centers": [
+      {
+        "email": "info@cesdominguez.es",
+        "completion_date": "2014"
+      }
+    ],
+    "companies": [
+      "info@consultoriadominguez.com"
+    ],
+    "description": "IT consultant with a focus on industrial network solutions and automation."
   },
   {
     "name": "Gonzalo Mendoza",
@@ -436,8 +858,16 @@
     "address": "Calle San Prudencio, 50, Vitoria, España",
     "interests": "reading,photography,travel",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@institutomendoza.es",
-    "company_email": "info@almacenesmendoza.com"
+    "educational_centers": [
+      {
+        "email": "info@institutomendoza.es",
+        "completion_date": "2019"
+      }
+    ],
+    "companies": [
+      "info@almacenesmendoza.com"
+    ],
+    "description": "Analyst supporting inventory and logistics reporting using Python."
   },
   {
     "name": "Sofía Castillo",
@@ -445,8 +875,21 @@
     "address": "Calle Gran Vía, 51, Madrid, España",
     "interests": "reading,music,hiking",
     "skills": "Java,Python,project management",
-    "educational_center_email": "info@ucm.es",
-    "company_email": "contacto@tecnologiasavanzadas.com"
+    "educational_centers": [
+      {
+        "email": "info@ucm.es",
+        "completion_date": "2023"
+      },
+      {
+        "email": "info@upm.es",
+        "completion_date": "2025"
+      }
+    ],
+    "companies": [
+      "contacto@tecnologiasavanzadas.com",
+      "info@google.es"
+    ],
+    "description": "Master's student studying Human-Computer Interaction; interested in Artificial Intelligence applied to UX."
   },
   {
     "name": "Jaime García",
@@ -454,8 +897,16 @@
     "address": "Avenida de Andalucía, 52, Sevilla, España",
     "interests": "soccer,movies,music",
     "skills": "graphic design,Photoshop,digital marketing",
-    "educational_center_email": "info@ips.es",
-    "company_email": "contacto@industriasgarcia.com"
+    "educational_centers": [
+      {
+        "email": "info@ips.es",
+        "completion_date": "2016"
+      }
+    ],
+    "companies": [
+      "contacto@industriasgarcia.com"
+    ],
+    "description": "Creative professional working on multi-channel campaigns and branding."
   },
   {
     "name": "Emma Martínez",
@@ -463,8 +914,16 @@
     "address": "Calle del Prado, 53, Madrid, España",
     "interests": "reading,yoga,music",
     "skills": "project management,digital marketing,Python",
-    "educational_center_email": "info@ucm.es",
-    "company_email": "contacto@solucioneslopez.com"
+    "educational_centers": [
+      {
+        "email": "info@ucm.es",
+        "completion_date": "2020"
+      }
+    ],
+    "companies": [
+      "contacto@solucioneslopez.com"
+    ],
+    "description": "Marketing specialist who uses analytics to measure campaign performance and audience segmentation."
   },
   {
     "name": "Miguel López",
@@ -472,16 +931,32 @@
     "address": "Paseo de la Reforma, 54, Barcelona, España",
     "interests": "cycling,technology,reading",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@etseib.es",
-    "company_email": "contacto@constructoramartinez.com"
+    "educational_centers": [
+      {
+        "email": "info@etseib.es",
+        "completion_date": "2022"
+      }
+    ],
+    "companies": [
+      "contacto@constructoramartinez.com"
+    ],
+    "description": "Student involved in autonomous vehicle research and embedded systems coursework."
   },
   {
     "name": "Valeria Ruiz",
     "email": "user55@cemv.es",
     "address": "Calle San Vicente, 55, Valencia, España",
     "skills": "customer service,administration,project management",
-    "educational_center_email": "info@cemv.es",
-    "company_email": "contacto@serviciosrivera.com"
+    "educational_centers": [
+      {
+        "email": "info@cemv.es",
+        "completion_date": "2011"
+      }
+    ],
+    "companies": [
+      "contacto@serviciosrivera.com"
+    ],
+    "description": "Operations specialist coordinating medical service schedules and client relations."
   },
   {
     "name": "Gabriel Sánchez",
@@ -489,40 +964,84 @@
     "address": "Calle Alcalde Sainz de Baranda, 56, Madrid, España",
     "interests": "travel,photography,music",
     "skills": "JavaScript,React,Python",
-    "educational_center_email": "info@ifpl.es",
-    "company_email": "contacto@tecnologiasavanzadas.com"
+    "educational_centers": [
+      {
+        "email": "info@ifpl.es",
+        "completion_date": "2018"
+      },
+      {
+        "email": "info@upm.es",
+        "completion_date": "2022"
+      }
+    ],
+    "companies": [
+      "contacto@tecnologiasavanzadas.com"
+    ],
+    "description": "Frontend engineer at Tecnologías Avanzadas working on scalable web apps and cloud integrations."
   },
   {
     "name": "Alicia Torres",
     "email": "user57@ips.es",
     "address": "Avenida del Puerto, 57, Sevilla, España",
     "interests": "cooking,reading,music",
-    "educational_center_email": "info@ips.es",
-    "company_email": "info@agrotorres.com"
+    "educational_centers": [
+      {
+        "email": "info@ips.es",
+        "completion_date": "2014"
+      }
+    ],
+    "companies": [
+      "info@agrotorres.com"
+    ],
+    "description": "Community outreach coordinator for Agroalimentaria Torres with interest in sustainable agriculture."
   },
   {
     "name": "Francisco Ortega",
     "email": "user58@constructoramartinez.com",
     "address": "Calle Muntaner, 58, Barcelona, España",
     "skills": "AutoCAD,project management,Python",
-    "educational_center_email": "info@etseib.es",
-    "company_email": "contacto@constructoramartinez.com"
+    "educational_centers": [
+      {
+        "email": "info@etseib.es",
+        "completion_date": "2013"
+      }
+    ],
+    "companies": [
+      "contacto@constructoramartinez.com"
+    ],
+    "description": "Site engineer focusing on CAD-based workflows and project documentation."
   },
   {
     "name": "Inés Morales",
     "email": "user59@cemv.es",
     "address": "Calle Colón, 59, Valencia, España",
     "interests": "theater,classical music,reading",
-    "educational_center_email": "info@cemv.es",
-    "company_email": "info@textilesromero.com"
+    "educational_centers": [
+      {
+        "email": "info@cemv.es",
+        "completion_date": "2010"
+      }
+    ],
+    "companies": [
+      "info@textilesromero.com"
+    ],
+    "description": "Arts enthusiast working part-time while finishing studies in humanities."
   },
   {
     "name": "Tomás Navarro",
     "email": "user60@solucioneslopez.com",
     "address": "Calle Alcalá, 60, Madrid, España",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@ifpl.es",
-    "company_email": "contacto@solucioneslopez.com"
+    "educational_centers": [
+      {
+        "email": "info@ifpl.es",
+        "completion_date": "2015"
+      }
+    ],
+    "companies": [
+      "contacto@solucioneslopez.com"
+    ],
+    "description": "Senior analyst with focus on automating ETL processes and dashboards."
   },
   {
     "name": "Victoria González",
@@ -530,8 +1049,16 @@
     "address": "Avenida Goya, 61, Zaragoza, España",
     "interests": "travel,reading,swimming",
     "skills": "Java,Python,leadership",
-    "educational_center_email": "info@unizar.es",
-    "company_email": "info@agrotorres.com"
+    "educational_centers": [
+      {
+        "email": "info@unizar.es",
+        "completion_date": "2021"
+      }
+    ],
+    "companies": [
+      "info@agrotorres.com"
+    ],
+    "description": "Student leader active in university programming competitions and collaborative projects."
   },
   {
     "name": "Oscar Romero",
@@ -539,8 +1066,16 @@
     "address": "Calle Ercilla, 62, Bilbao, España",
     "interests": "painting,music,technology",
     "skills": "Photoshop,graphic design,Python",
-    "educational_center_email": "info@artesbilbao.es",
-    "company_email": "info@textilesromero.com"
+    "educational_centers": [
+      {
+        "email": "info@artesbilbao.es",
+        "completion_date": "2017"
+      }
+    ],
+    "companies": [
+      "info@textilesromero.com"
+    ],
+    "description": "Designer exploring generative techniques and AI-driven image tools."
   },
   {
     "name": "Paula Ruiz",
@@ -548,8 +1083,16 @@
     "address": "Calle Gran Capitán, 63, Granada, España",
     "interests": "technology,reading,cooking",
     "skills": "Python,JavaScript,SQL",
-    "educational_center_email": "info@itgranada.es",
-    "company_email": "info@electronicaruiz.com"
+    "educational_centers": [
+      {
+        "email": "info@itgranada.es",
+        "completion_date": "2019"
+      }
+    ],
+    "companies": [
+      "info@electronicaruiz.com"
+    ],
+    "description": "IT student focused on backend development and data pipelines."
   },
   {
     "name": "Luis Sánchez",
@@ -557,8 +1100,16 @@
     "address": "Plaza Mayor, 64, Valladolid, España",
     "interests": "soccer,movies,reading",
     "skills": "Java,teamwork,marketing",
-    "educational_center_email": "info@cesvalladolid.es",
-    "company_email": "info@transportessanchez.com"
+    "educational_centers": [
+      {
+        "email": "info@cesvalladolid.es",
+        "completion_date": "2016"
+      }
+    ],
+    "companies": [
+      "info@transportessanchez.com"
+    ],
+    "description": "Junior developer with marketing exposure, working toward full-stack proficiency."
   },
   {
     "name": "Miriam Herrera",
@@ -566,8 +1117,16 @@
     "address": "Avenida Alfonso X, 65, Alicante, España",
     "interests": "reading,travel,photography",
     "skills": "Excel,management,Python",
-    "educational_center_email": "info@negociosalicante.es",
-    "company_email": "info@consultorafernandez.com"
+    "educational_centers": [
+      {
+        "email": "info@negociosalicante.es",
+        "completion_date": "2018"
+      }
+    ],
+    "companies": [
+      "info@consultorafernandez.com"
+    ],
+    "description": "Business analytics intern using Excel and Python to support consultancy projects."
   },
   {
     "name": "Adrián Ortega",
@@ -575,8 +1134,16 @@
     "address": "Calle Mayor, 66, Murcia, España",
     "interests": "cycling,music,technology",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@um.es",
-    "company_email": "info@editorialortega.com"
+    "educational_centers": [
+      {
+        "email": "info@um.es",
+        "completion_date": "2020"
+      }
+    ],
+    "companies": [
+      "info@editorialortega.com"
+    ],
+    "description": "Engineering student with interest in robotics and networked devices."
   },
   {
     "name": "Raquel Morales",
@@ -584,8 +1151,16 @@
     "address": "Calle Estafeta, 67, Pamplona, España",
     "interests": "theater,reading,music",
     "skills": "customer service,administration,project management",
-    "educational_center_email": "info@icpamplona.es",
-    "company_email": "info@segurosmorales.com"
+    "educational_centers": [
+      {
+        "email": "info@icpamplona.es",
+        "completion_date": "2011"
+      }
+    ],
+    "companies": [
+      "info@segurosmorales.com"
+    ],
+    "description": "Administrative professional with focus on client experience and process management."
   },
   {
     "name": "Samuel Jiménez",
@@ -593,8 +1168,16 @@
     "address": "Calle Castilla, 68, Santander, España",
     "interests": "music,reading,swimming",
     "skills": "JavaScript,React,Python",
-    "educational_center_email": "info@musicasantander.es",
-    "company_email": "info@farmaciajimenez.com"
+    "educational_centers": [
+      {
+        "email": "info@musicasantander.es",
+        "completion_date": "2012"
+      }
+    ],
+    "companies": [
+      "info@farmaciajimenez.com"
+    ],
+    "description": "Developer and musician building interactive web experiences for music education."
   },
   {
     "name": "Julia Navarro",
@@ -602,8 +1185,16 @@
     "address": "Calle Covadonga, 69, Gijón, España",
     "interests": "cooking,travel,reading",
     "skills": "AutoCAD,project management,Python",
-    "educational_center_email": "info@cfnavarro.es",
-    "company_email": "info@publicidadnavarro.com"
+    "educational_centers": [
+      {
+        "email": "info@cfnavarro.es",
+        "completion_date": "2014"
+      }
+    ],
+    "companies": [
+      "info@publicidadnavarro.com"
+    ],
+    "description": "Technical contributor in design projects and space planning."
   },
   {
     "name": "Álvaro Castillo",
@@ -611,8 +1202,16 @@
     "address": "Avenida del Brillante, 70, Córdoba, España",
     "interests": "reading,photography,movies",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@uco.es",
-    "company_email": "info@viajescastillo.com"
+    "educational_centers": [
+      {
+        "email": "info@uco.es",
+        "completion_date": "2013"
+      }
+    ],
+    "companies": [
+      "info@viajescastillo.com"
+    ],
+    "description": "Analyst supporting product and pricing strategy with data insights."
   },
   {
     "name": "Blanca Pérez",
@@ -620,8 +1219,16 @@
     "address": "Calle Vitoria, 71, Burgos, España",
     "interests": "languages,travel,music",
     "skills": "English,French,Spanish",
-    "educational_center_email": "info@idiomasburgos.es",
-    "company_email": "info@financierosperez.com"
+    "educational_centers": [
+      {
+        "email": "info@idiomasburgos.es",
+        "completion_date": "2015"
+      }
+    ],
+    "companies": [
+      "info@financierosperez.com"
+    ],
+    "description": "Language instructor and translator working with local businesses."
   },
   {
     "name": "Héctor Gómez",
@@ -629,8 +1236,16 @@
     "address": "Avenida de Europa, 72, Toledo, España",
     "interests": "technology,reading,travel",
     "skills": "Java,Python,SQL",
-    "educational_center_email": "info@itteledo.es",
-    "company_email": "info@automovilesgomez.com"
+    "educational_centers": [
+      {
+        "email": "info@itteledo.es",
+        "completion_date": "2019"
+      }
+    ],
+    "companies": [
+      "info@automovilesgomez.com"
+    ],
+    "description": "Developer in automotive projects focusing on backend integration and databases."
   },
   {
     "name": "Clara Herrera",
@@ -638,8 +1253,16 @@
     "address": "Calle Zamora, 73, Salamanca, España",
     "interests": "cooking,reading,music",
     "skills": "management,Excel,Python",
-    "educational_center_email": "info@hosteleriaherrera.es",
-    "company_email": "info@restaurantesherrera.com"
+    "educational_centers": [
+      {
+        "email": "info@hosteleriaherrera.es",
+        "completion_date": "2020"
+      }
+    ],
+    "companies": [
+      "info@restaurantesherrera.com"
+    ],
+    "description": "Hospitality manager interested in digital ordering systems and guest analytics."
   },
   {
     "name": "Joaquín Domínguez",
@@ -647,8 +1270,16 @@
     "address": "Avenida de la Paz, 74, Logroño, España",
     "interests": "cycling,reading,travel",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@cesdominguez.es",
-    "company_email": "info@consultoriadominguez.com"
+    "educational_centers": [
+      {
+        "email": "info@cesdominguez.es",
+        "completion_date": "2016"
+      }
+    ],
+    "companies": [
+      "info@consultoriadominguez.com"
+    ],
+    "description": "IT consultant focused on automation and network-based solutions for SMEs."
   },
   {
     "name": "Elisa Mendoza",
@@ -656,8 +1287,16 @@
     "address": "Calle San Prudencio, 75, Vitoria, España",
     "interests": "reading,photography,travel",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@institutomendoza.es",
-    "company_email": "info@almacenesmendoza.com"
+    "educational_centers": [
+      {
+        "email": "info@institutomendoza.es",
+        "completion_date": "2018"
+      }
+    ],
+    "companies": [
+      "info@almacenesmendoza.com"
+    ],
+    "description": "Data analyst who supports logistics and inventory planning using Python."
   },
   {
     "name": "Esteban Castillo",
@@ -665,8 +1304,20 @@
     "address": "Calle Gran Vía, 76, Madrid, España",
     "interests": "reading,music,hiking",
     "skills": "Java,Python,project management",
-    "educational_center_email": "info@ucm.es",
-    "company_email": "contacto@tecnologiasavanzadas.com"
+    "educational_centers": [
+      {
+        "email": "info@ucm.es",
+        "completion_date": "2019"
+      },
+      {
+        "email": "info@upm.es",
+        "completion_date": "2021"
+      }
+    ],
+    "companies": [
+      "contacto@tecnologiasavanzadas.com"
+    ],
+    "description": "Research assistant combining coursework in software engineering with project coordination."
   },
   {
     "name": "Andrea García",
@@ -674,8 +1325,16 @@
     "address": "Avenida de Andalucía, 77, Sevilla, España",
     "interests": "soccer,movies,music",
     "skills": "graphic design,Photoshop,digital marketing",
-    "educational_center_email": "info@ips.es",
-    "company_email": "contacto@industriasgarcia.com"
+    "educational_centers": [
+      {
+        "email": "info@ips.es",
+        "completion_date": "2017"
+      }
+    ],
+    "companies": [
+      "contacto@industriasgarcia.com"
+    ],
+    "description": "Designer working on corporate branding and product materials."
   },
   {
     "name": "César Martínez",
@@ -683,8 +1342,16 @@
     "address": "Calle del Prado, 78, Madrid, España",
     "interests": "reading,yoga,music",
     "skills": "project management,digital marketing,Python",
-    "educational_center_email": "info@ucm.es",
-    "company_email": "contacto@solucioneslopez.com"
+    "educational_centers": [
+      {
+        "email": "info@ucm.es",
+        "completion_date": "2022"
+      }
+    ],
+    "companies": [
+      "contacto@solucioneslopez.com"
+    ],
+    "description": "Marketing operations specialist focusing on campaign automation and analytics."
   },
   {
     "name": "Irene López",
@@ -692,16 +1359,32 @@
     "address": "Paseo de la Reforma, 79, Barcelona, España",
     "interests": "cycling,technology,reading",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@etseib.es",
-    "company_email": "contacto@constructoramartinez.com"
+    "educational_centers": [
+      {
+        "email": "info@etseib.es",
+        "completion_date": "2018"
+      }
+    ],
+    "companies": [
+      "contacto@constructoramartinez.com"
+    ],
+    "description": "Engineering student involved in networked sensors for construction monitoring."
   },
   {
     "name": "Felipe Ruiz",
     "email": "user80@cemv.es",
     "address": "Calle San Vicente, 80, Valencia, España",
     "skills": "customer service,administration,project management",
-    "educational_center_email": "info@cemv.es",
-    "company_email": "contacto@serviciosrivera.com"
+    "educational_centers": [
+      {
+        "email": "info@cemv.es",
+        "completion_date": "2010"
+      }
+    ],
+    "companies": [
+      "contacto@serviciosrivera.com"
+    ],
+    "description": "Operations coordinator managing administrative tasks in a medical services company."
   },
   {
     "name": "Aitana Sánchez",
@@ -709,40 +1392,80 @@
     "address": "Calle Alcalde Sainz de Baranda, 81, Madrid, España",
     "interests": "travel,photography,music",
     "skills": "JavaScript,React,Python",
-    "educational_center_email": "info@ifpl.es",
-    "company_email": "contacto@tecnologiasavanzadas.com"
+    "educational_centers": [
+      {
+        "email": "info@ifpl.es",
+        "completion_date": "2019"
+      }
+    ],
+    "companies": [
+      "contacto@tecnologiasavanzadas.com"
+    ],
+    "description": "Frontend developer focusing on responsive interfaces and performance optimization."
   },
   {
     "name": "Ignacio Torres",
     "email": "user82@ips.es",
     "address": "Avenida del Puerto, 82, Sevilla, España",
     "interests": "cooking,reading,music",
-    "educational_center_email": "info@ips.es",
-    "company_email": "info@agrotorres.com"
+    "educational_centers": [
+      {
+        "email": "info@ips.es",
+        "completion_date": "2013"
+      }
+    ],
+    "companies": [
+      "info@agrotorres.com"
+    ],
+    "description": "Program coordinator at Agroalimentaria Torres supporting product development initiatives."
   },
   {
     "name": "Marcos Ortega",
     "email": "user83@constructoramartinez.com",
     "address": "Calle Muntaner, 83, Barcelona, España",
     "skills": "AutoCAD,project management,Python",
-    "educational_center_email": "info@etseib.es",
-    "company_email": "contacto@constructoramartinez.com"
+    "educational_centers": [
+      {
+        "email": "info@etseib.es",
+        "completion_date": "2012"
+      }
+    ],
+    "companies": [
+      "contacto@constructoramartinez.com"
+    ],
+    "description": "Site technician focused on CAD and project documentation for construction projects."
   },
   {
     "name": "Daniela Morales",
     "email": "user84@cemv.es",
     "address": "Calle Colón, 84, Valencia, España",
     "interests": "theater,classical music,reading",
-    "educational_center_email": "info@cemv.es",
-    "company_email": "info@textilesromero.com"
+    "educational_centers": [
+      {
+        "email": "info@cemv.es",
+        "completion_date": "2011"
+      }
+    ],
+    "companies": [
+      "info@textilesromero.com"
+    ],
+    "description": "Arts and culture enthusiast working part-time in retail."
   },
   {
     "name": "Guillermo Navarro",
     "email": "user85@solucioneslopez.com",
     "address": "Calle Alcalá, 85, Madrid, España",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@ifpl.es",
-    "company_email": "contacto@solucioneslopez.com"
+    "educational_centers": [
+      {
+        "email": "info@ifpl.es",
+        "completion_date": "2016"
+      }
+    ],
+    "companies": [
+      "contacto@solucioneslopez.com"
+    ],
+    "description": "Senior data analyst supporting cross-functional teams and building dashboards for stakeholders."
   },
   {
     "name": "Lucía González",
@@ -750,8 +1473,16 @@
     "address": "Avenida Goya, 86, Zaragoza, España",
     "interests": "travel,reading,swimming",
     "skills": "Java,Python,leadership",
-    "educational_center_email": "info@unizar.es",
-    "company_email": "info@agrotorres.com"
+    "educational_centers": [
+      {
+        "email": "info@unizar.es",
+        "completion_date": "2020"
+      }
+    ],
+    "companies": [
+      "info@agrotorres.com"
+    ],
+    "description": "Student with leadership roles in campus clubs and volunteer programs."
   },
   {
     "name": "Víctor Romero",
@@ -759,8 +1490,16 @@
     "address": "Calle Ercilla, 87, Bilbao, España",
     "interests": "painting,music,technology",
     "skills": "Photoshop,graphic design,Python",
-    "educational_center_email": "info@artesbilbao.es",
-    "company_email": "info@textilesromero.com"
+    "educational_centers": [
+      {
+        "email": "info@artesbilbao.es",
+        "completion_date": "2015"
+      }
+    ],
+    "companies": [
+      "info@textilesromero.com"
+    ],
+    "description": "Designer exploring the intersection of art and algorithmic techniques."
   },
   {
     "name": "Marina Ruiz",
@@ -768,8 +1507,16 @@
     "address": "Calle Gran Capitán, 88, Granada, España",
     "interests": "technology,reading,cooking",
     "skills": "Python,JavaScript,SQL",
-    "educational_center_email": "info@itgranada.es",
-    "company_email": "info@electronicaruiz.com"
+    "educational_centers": [
+      {
+        "email": "info@itgranada.es",
+        "completion_date": "2018"
+      }
+    ],
+    "companies": [
+      "info@electronicaruiz.com"
+    ],
+    "description": "Backend developer focusing on data integrity and systems reliability."
   },
   {
     "name": "Ricardo Sánchez",
@@ -777,8 +1524,16 @@
     "address": "Plaza Mayor, 89, Valladolid, España",
     "interests": "soccer,movies,reading",
     "skills": "Java,teamwork,marketing",
-    "educational_center_email": "info@cesvalladolid.es",
-    "company_email": "info@transportessanchez.com"
+    "educational_centers": [
+      {
+        "email": "info@cesvalladolid.es",
+        "completion_date": "2014"
+      }
+    ],
+    "companies": [
+      "info@transportessanchez.com"
+    ],
+    "description": "Junior dev with an interest in combining marketing analytics and engineering."
   },
   {
     "name": "Lorena Herrera",
@@ -786,8 +1541,16 @@
     "address": "Avenida Alfonso X, 90, Alicante, España",
     "interests": "reading,travel,photography",
     "skills": "Excel,management,Python",
-    "educational_center_email": "info@negociosalicante.es",
-    "company_email": "info@consultorafernandez.com"
+    "educational_centers": [
+      {
+        "email": "info@negociosalicante.es",
+        "completion_date": "2019"
+      }
+    ],
+    "companies": [
+      "info@consultorafernandez.com"
+    ],
+    "description": "Consulting intern supporting clients with financial models and data summaries."
   },
   {
     "name": "Raúl Ortega",
@@ -795,8 +1558,16 @@
     "address": "Calle Mayor, 91, Murcia, España",
     "interests": "cycling,music,technology",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@um.es",
-    "company_email": "info@editorialortega.com"
+    "educational_centers": [
+      {
+        "email": "info@um.es",
+        "completion_date": "2021"
+      }
+    ],
+    "companies": [
+      "info@editorialortega.com"
+    ],
+    "description": "Engineering student engaged with hobby robotics and networked sensors."
   },
   {
     "name": "Natalia Morales",
@@ -804,8 +1575,16 @@
     "address": "Calle Estafeta, 92, Pamplona, España",
     "interests": "theater,reading,music",
     "skills": "customer service,administration,project management",
-    "educational_center_email": "info@icpamplona.es",
-    "company_email": "info@segurosmorales.com"
+    "educational_centers": [
+      {
+        "email": "info@icpamplona.es",
+        "completion_date": "2012"
+      }
+    ],
+    "companies": [
+      "info@segurosmorales.com"
+    ],
+    "description": "Project coordinator specialising in customer workflows and administrative process design."
   },
   {
     "name": "Ernesto Jiménez",
@@ -813,8 +1592,16 @@
     "address": "Calle Castilla, 93, Santander, España",
     "interests": "music,reading,swimming",
     "skills": "JavaScript,React,Python",
-    "educational_center_email": "info@musicasantander.es",
-    "company_email": "info@farmaciajimenez.com"
+    "educational_centers": [
+      {
+        "email": "info@musicasantander.es",
+        "completion_date": "2016"
+      }
+    ],
+    "companies": [
+      "info@farmaciajimenez.com"
+    ],
+    "description": "Web developer with a passion for building educational tools for music instruction."
   },
   {
     "name": "Marta Navarro",
@@ -822,8 +1609,16 @@
     "address": "Calle Covadonga, 94, Gijón, España",
     "interests": "cooking,travel,reading",
     "skills": "AutoCAD,project management,Python",
-    "educational_center_email": "info@cfnavarro.es",
-    "company_email": "info@publicidadnavarro.com"
+    "educational_centers": [
+      {
+        "email": "info@cfnavarro.es",
+        "completion_date": "2015"
+      }
+    ],
+    "companies": [
+      "info@publicidadnavarro.com"
+    ],
+    "description": "Drafting specialist working with retail and event layouts; interested in spatial analytics."
   },
   {
     "name": "Arturo Castillo",
@@ -831,8 +1626,16 @@
     "address": "Avenida del Brillante, 95, Córdoba, España",
     "interests": "reading,photography,movies",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@uco.es",
-    "company_email": "info@viajescastillo.com"
+    "educational_centers": [
+      {
+        "email": "info@uco.es",
+        "completion_date": "2014"
+      }
+    ],
+    "companies": [
+      "info@viajescastillo.com"
+    ],
+    "description": "Data practitioner focusing on predictive models for travel demand."
   },
   {
     "name": "Esther Pérez",
@@ -840,8 +1643,16 @@
     "address": "Calle Vitoria, 96, Burgos, España",
     "interests": "languages,travel,music",
     "skills": "English,French,Spanish",
-    "educational_center_email": "info@idiomasburgos.es",
-    "company_email": "info@financierosperez.com"
+    "educational_centers": [
+      {
+        "email": "info@idiomasburgos.es",
+        "completion_date": "2013"
+      }
+    ],
+    "companies": [
+      "info@financierosperez.com"
+    ],
+    "description": "Translator and language coach working with local SMEs to improve international communications."
   },
   {
     "name": "Roberto Gómez",
@@ -849,8 +1660,16 @@
     "address": "Avenida de Europa, 97, Toledo, España",
     "interests": "technology,reading,travel",
     "skills": "Java,Python,SQL",
-    "educational_center_email": "info@itteledo.es",
-    "company_email": "info@automovilesgomez.com"
+    "educational_centers": [
+      {
+        "email": "info@itteledo.es",
+        "completion_date": "2018"
+      }
+    ],
+    "companies": [
+      "info@automovilesgomez.com"
+    ],
+    "description": "Developer working on telematics and vehicle data collection systems."
   },
   {
     "name": "Yolanda Herrera",
@@ -858,8 +1677,16 @@
     "address": "Calle Zamora, 98, Salamanca, España",
     "interests": "cooking,reading,music",
     "skills": "management,Excel,Python",
-    "educational_center_email": "info@hosteleriaherrera.es",
-    "company_email": "info@restaurantesherrera.com"
+    "educational_centers": [
+      {
+        "email": "info@hosteleriaherrera.es",
+        "completion_date": "2011"
+      }
+    ],
+    "companies": [
+      "info@restaurantesherrera.com"
+    ],
+    "description": "Operations manager applying simple analytics to improve table turnover and guest satisfaction."
   },
   {
     "name": "Andrés Domínguez",
@@ -867,8 +1694,16 @@
     "address": "Avenida de la Paz, 99, Logroño, España",
     "interests": "cycling,reading,travel",
     "skills": "C++,networking,Python",
-    "educational_center_email": "info@cesdominguez.es",
-    "company_email": "info@consultoriadominguez.com"
+    "educational_centers": [
+      {
+        "email": "info@cesdominguez.es",
+        "completion_date": "2010"
+      }
+    ],
+    "companies": [
+      "info@consultoriadominguez.com"
+    ],
+    "description": "IT consultant focused on industrial networking and systems integration."
   },
   {
     "name": "Cristina Mendoza",
@@ -876,8 +1711,15 @@
     "address": "Calle San Prudencio, 100, Vitoria, España",
     "interests": "reading,photography,travel",
     "skills": "Python,data analysis,project management",
-    "educational_center_email": "info@institutomendoza.es",
-    "company_email": "info@almacenesmendoza.com"
+    "educational_centers": [
+      {
+        "email": "info@institutomendoza.es",
+        "completion_date": "2017"
+      }
+    ],
+    "companies": [
+      "info@almacenesmendoza.com"
+    ],
+    "description": "Data analyst supporting inventory management and forecasting."
   }
 ]
-
