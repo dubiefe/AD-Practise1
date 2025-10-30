@@ -1,112 +1,330 @@
-[
-  {
-    "name": "Tecnologías Avanzadas S.A.",
-    "address": "Madrid, España",
-    "email": "contacto@tecnologiasavanzadas.com"
+[{
+  "_id": {
+    "$oid": "6903981a8b5904b9d03a3c5a"
   },
-  {
-    "name": "Industrias García",
-    "address": "Sevilla, España",
-    "email": "contacto@industriasgarcia.com"
-  },
-  {
-    "name": "Soluciones Informáticas López",
-    "address": "Madrid, España",
-    "email": "contacto@solucioneslopez.com"
-  },
-  {
-    "name": "Constructora Martínez",
-    "address": "Barcelona, España",
-    "email": "contacto@constructoramartinez.com"
-  },
-  {
-    "name": "Servicios Médicos Rivera",
-    "address": "Valencia, España",
-    "email": "contacto@serviciosrivera.com"
-  },
-  {
-    "name": "Agroalimentaria Torres",
-    "address": "Zaragoza, España",
-    "email": "info@agrotorres.com"
-  },
-  {
-    "name": "Textiles Romero",
-    "address": "Bilbao, España",
-    "email": "info@textilesromero.com"
-  },
-  {
-    "name": "Electrónica Ruiz",
-    "address": "Granada, España",
-    "email": "info@electronicaruiz.com"
-  },
-  {
-    "name": "Transportes Sánchez",
-    "address": "Valladolid, España",
-    "email": "info@transportessanchez.com"
-  },
-  {
-    "name": "Consultora Fernández",
-    "address": "Alicante, España",
-    "email": "info@consultorafernandez.com"
-  },
-  {
-    "name": "Editorial Ortega",
-    "address": "Murcia, España",
-    "email": "info@editorialortega.com"
-  },
-  {
-    "name": "Seguros Morales",
-    "address": "Pamplona, España",
-    "email": "info@segurosmorales.com"
-  },
-  {
-    "name": "Farmacia Jiménez",
-    "address": "Santander, España",
-    "email": "info@farmaciajimenez.com"
-  },
-  {
-    "name": "Publicidad Navarro",
-    "address": "Gijón, España",
-    "email": "info@publicidadnavarro.com"
-  },
-  {
-    "name": "Viajes Castillo",
-    "address": "Córdoba, España",
-    "email": "info@viajescastillo.com"
-  },
-  {
-    "name": "Servicios Financieros Pérez",
-    "address": "Burgos, España",
-    "email": "info@financierosperez.com"
-  },
-  {
-    "name": "Automóviles Gómez",
-    "address": "Toledo, España",
-    "email": "info@automovilesgomez.com"
-  },
-  {
-    "name": "Restaurantes Herrera",
-    "address": "Salamanca, España",
-    "email": "info@restaurantesherrera.com"
-  },
-  {
-    "name": "Consultoría Domínguez",
-    "address": "Logroño, España",
-    "email": "info@consultoriadominguez.com"
-  },
-  {
-    "name": "Almacenes Mendoza",
-    "address": "Vitoria, España",
-    "email": "info@almacenesmendoza.com"
-  },
-  {
-    "name": "Google Spain SL",
-    "address": "Calle de Génova, 27, 28004 Madrid, España",
-    "email": "info@google.es"
-  },
-  {
-    "name": "Microsoft Ibérica",
-    "address": "Avenida de Bruselas, 35, 28042 Madrid, España",
-    "email": "info@microsoft.es"
+  "name": "Tecnologías Avanzadas S.A.",
+  "address": "Madrid, España",
+  "email": "contacto@tecnologiasavanzadas.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.703507,
+      40.416782
+    ]
   }
-]
+},
+{
+  "_id": {
+    "$oid": "6903981b8b5904b9d03a3c5b"
+  },
+  "name": "Industrias García",
+  "address": "Sevilla, España",
+  "email": "contacto@industriasgarcia.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -5.99534,
+      37.38863
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "6903981b8b5904b9d03a3c5c"
+  },
+  "name": "Soluciones Informáticas López",
+  "address": "Madrid, España",
+  "email": "contacto@solucioneslopez.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.703507,
+      40.416782
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "6903981d8b5904b9d03a3c5d"
+  },
+  "name": "Constructora Martínez",
+  "address": "Barcelona, España",
+  "email": "contacto@constructoramartinez.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      2.177073,
+      41.38258
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "6903981e8b5904b9d03a3c5e"
+  },
+  "name": "Servicios Médicos Rivera",
+  "address": "Valencia, España",
+  "email": "contacto@serviciosrivera.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -0.376335,
+      39.469707
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398208b5904b9d03a3c5f"
+  },
+  "name": "Agroalimentaria Torres",
+  "address": "Zaragoza, España",
+  "email": "info@agrotorres.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -0.880943,
+      41.652134
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398218b5904b9d03a3c60"
+  },
+  "name": "Textiles Romero",
+  "address": "Bilbao, España",
+  "email": "info@textilesromero.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -2.935004,
+      43.263002
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398238b5904b9d03a3c61"
+  },
+  "name": "Electrónica Ruiz",
+  "address": "Granada, España",
+  "email": "info@electronicaruiz.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.599534,
+      37.173499
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398248b5904b9d03a3c62"
+  },
+  "name": "Transportes Sánchez",
+  "address": "Valladolid, España",
+  "email": "info@transportessanchez.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -4.728605,
+      41.652181
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398268b5904b9d03a3c63"
+  },
+  "name": "Consultora Fernández",
+  "address": "Alicante, España",
+  "email": "info@consultorafernandez.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -0.488171,
+      38.343637
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398278b5904b9d03a3c64"
+  },
+  "name": "Editorial Ortega",
+  "address": "Murcia, España",
+  "email": "info@editorialortega.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -1.130543,
+      37.992379
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398298b5904b9d03a3c65"
+  },
+  "name": "Seguros Morales",
+  "address": "Pamplona, España",
+  "email": "info@segurosmorales.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -1.644009,
+      42.818199
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "6903982b8b5904b9d03a3c66"
+  },
+  "name": "Farmacia Jiménez",
+  "address": "Santander, España",
+  "email": "info@farmaciajimenez.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.810026,
+      43.461893
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "6903982c8b5904b9d03a3c67"
+  },
+  "name": "Publicidad Navarro",
+  "address": "Gijón, España",
+  "email": "info@publicidadnavarro.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -5.66275,
+      43.544942
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "6903982e8b5904b9d03a3c68"
+  },
+  "name": "Viajes Castillo",
+  "address": "Córdoba, España",
+  "email": "info@viajescastillo.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -4.776014,
+      37.884581
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "6903982f8b5904b9d03a3c69"
+  },
+  "name": "Servicios Financieros Pérez",
+  "address": "Burgos, España",
+  "email": "info@financierosperez.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.696977,
+      42.343926
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398318b5904b9d03a3c6a"
+  },
+  "name": "Automóviles Gómez",
+  "address": "Toledo, España",
+  "email": "info@automovilesgomez.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -4.024265,
+      39.855891
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398338b5904b9d03a3c6b"
+  },
+  "name": "Restaurantes Herrera",
+  "address": "Salamanca, España",
+  "email": "info@restaurantesherrera.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -5.664018,
+      40.965157
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398348b5904b9d03a3c6c"
+  },
+  "name": "Consultoría Domínguez",
+  "address": "Logroño, España",
+  "email": "info@consultoriadominguez.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -2.439668,
+      42.46612
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398368b5904b9d03a3c6d"
+  },
+  "name": "Almacenes Mendoza",
+  "address": "Vitoria, España",
+  "email": "info@almacenesmendoza.com",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -2.672403,
+      42.846509
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398378b5904b9d03a3c6e"
+  },
+  "name": "Google Spain SL",
+  "address": "Calle de Génova, 27, 28004 Madrid, España",
+  "email": "info@google.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.6921,
+      40.426012
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c6f"
+  },
+  "name": "Microsoft Ibérica",
+  "address": "Avenida de Bruselas, 35, 28042 Madrid, España",
+  "email": "info@microsoft.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.641435,
+      40.52917
+    ]
+  }
+}]

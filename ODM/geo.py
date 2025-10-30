@@ -25,43 +25,37 @@ def getLocationPoint(address: str) -> Point:
     geojson.Point
         Coordinates of the address point
     """
-
-    # INFO: Remove this comment to avoid rate limiting in testing
-    #return Point([-3.703790, 40.416775])
-
+    if not address or address.strip() == "": 
+        print(f"Skipping geocoding for empty or invalid address: {address}")
+        return Point([0, 0])
     if address in _address_cache:
         return _address_cache[address]
 
-    max_attempts = 5
+    max_attempts = 3
     attempts = 0
     location = None
+    point = Point([0,0])
 
-    # While the location hasn't been obtained and max number of attempts hasn't
-    # been reached, keep trying to obtain location
     while location is None and attempts < max_attempts:
         try:
             time.sleep(1)
-            # A user_agent is required to use the API
-            # Use a random name for the user_agent
             geolocator = ODM.Nominatim(user_agent="Emilie_Itziar_AdvDB")
             location = geolocator.geocode(address)
-        except GeocoderTimedOut:
-            # Return if timed out
+            attempts += 1  # Always increment!
+        except (GeocoderTimedOut, GeocoderServiceError, GeocoderUnavailable):
             attempts += 1
-            return ([0,0])
-        except (GeocoderServiceError, GeocoderUnavailable) as e:
-            attempts += 1
-            print(f"Geocoding service error: {e}")
+            print(f"Geocoding timed out for address '{address}', attempt {attempts}")
             continue
         except Exception as e:
             print(f"Unexpected error during geocoding: {e}")
             attempts += 1
             continue
 
-    if location is None:
-        raise ValueError("No se pudieron obtener coordenadas")
+    if location is not None:
+        point = Point([location.longitude, location.latitude])
+    else:
+        print(f"Could not geocode address '{address}'. Returning [0, 0].")
+        point = Point([0, 0])
 
-    # Return coordinate points of location and store in cache
-    point = Point([location.longitude, location.latitude])
     _address_cache[address] = point
     return point
