@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Universidad Complutense de Madrid",
+    "address": "Madrid, España",
+    "email": "info@ucm.es"
+  },
+  {
+    "name": "Instituto Politécnico de Sevilla",
+    "address": "Sevilla, España",
+    "email": "info@ips.es"
+  },
+  {
+    "name": "Escuela Técnica Superior de Ingeniería de Barcelona",
+    "address": "Barcelona, España",
+    "email": "info@etseib.es"
+  },
+  {
+    "name": "Centro de Estudios Médicos Valencia",
+    "address": "Valencia, España",
+    "email": "info@cemv.es"
+  },
+  {
+    "name": "Instituto de Formación Professional López",
+    "address": "Madrid, España",
+    "email": "info@ifpl.es"
+  },
+  {
+    "name": "Universidad de Zaragoza",
+    "address": "Zaragoza, España",
+    "email": "info@unizar.es"
+  },
+  {
+    "name": "Escuela de Artes y Oficios Bilbao",
+    "address": "Bilbao, España",
+    "email": "info@artesbilbao.es"
+  },
+  {
+    "name": "Instituto Tecnológico de Granada",
+    "address": "Granada, España",
+    "email": "info@itgranada.es"
+  },
+  {
+    "name": "Centro de Estudios Sociales Valladolid",
+    "address": "Valladolid, España",
+    "email": "info@cesvalladolid.es"
+  },
+  {
+    "name": "Escuela de Negocios Alicante",
+    "address": "Alicante, España",
+    "email": "info@negociosalicante.es"
+  },
+  {
+    "name": "Universidad de Murcia",
+    "address": "Murcia, España",
+    "email": "info@um.es"
+  },
+  {
+    "name": "Instituto de Ciencias Pamplona",
+    "address": "Pamplona, España",
+    "email": "info@icpamplona.es"
+  },
+  {
+    "name": "Escuela de Música Santander",
+    "address": "Santander, España",
+    "email": "info@musicasantander.es"
+  },
+  {
+    "name": "Centro de Formación Navarro",
+    "address": "Gijón, España",
+    "email": "info@cfnavarro.es"
+  },
+  {
+    "name": "Universidad de Córdoba",
+    "address": "Córdoba, España",
+    "email": "info@uco.es"
+  },
+  {
+    "name": "Escuela de Idiomas Pérez",
+    "address": "Burgos, España",
+    "email": "info@idiomasburgos.es"
+  },
+  {
+    "name": "Instituto de Tecnología Toledo",
+    "address": "Toledo, España",
+    "email": "info@itteledo.es"
+  },
+  {
+    "name": "Escuela de Hostelería Herrera",
+    "address": "Salamanca, España",
+    "email": "info@hosteleriaherrera.es"
+  },
+  {
+    "name": "Centro de Estudios Domínguez",
+    "address": "Logroño, España",
+    "email": "info@cesdominguez.es"
+  },
+  {
+    "name": "Instituto Mendoza",
+    "address": "Vitoria, España",
+    "email": "info@institutomendoza.es"
+  },
+  {
+    "name": "Universidad Politécnica de Madrid",
+    "address": "Ciudad Universitaria (Av. Ramiro de Maeztu), 7, 28040 Madrid, España",
+    "email": "info@upm.es"
+  },
+  {
+    "name": "Universidad Autónoma de Madrid",
+    "address": "Campus de Cantoblanco, 28049 Madrid, España",
+    "email": "info@uam.es"
+  }
+]

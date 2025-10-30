@@ -35,26 +35,26 @@ Toolset:
   - user completion dates
   - companies: Google, Microsoft
   - educational centers: UPM, UAM
-- [ ] Remove limits
-- [ ] Get all GeoJSON data for users
-- [ ] Copy database initialization to Jupyter Notebook
-- [ ] Put all queries in Jupyter Notebook
+- [x] Remove limits
+- [x] Get all GeoJSON data for users
+- [x] Copy database initialization to Jupyter Notebook
 
 ### Queries
 
-- [ ] 1st query
-- [ ] 2nd query
-- [ ] 3rd query
-- [ ] 4th query
-- [ ] 5th query
-- [ ] 6th query
-- [ ] 7th query
+- [x] 1st query
+- [x] 2nd query
+- [x] 3rd query
+- [ ] 4th query: (Output collection without having to re run query)
+- [x] 5th query
+- [ ] 6th query: (Average distance is apparently 7 million meters)
+- [x] 7th query
 
 ## Project structure
 
 - The necessary files for the ODM are in the `ODM/` folder.
 - `data/` contains mock data for users, companies and educational centers plus
   the model schemas.
+- `queries.ipynb` is the jupyter notebook that runs a series of queries
 - `nix.shell` only needed to install necessary python dependencies
 - `doc.pdf` contains a brief explanation of the project
 
@@ -71,7 +71,7 @@ project_root/
 |   |-- educational_centers.json
 |   |-- models.yml
 |-- README.md
-|-- ODM.py
+|-- queries.ipynb
 |-- doc.pdf
 |-- nix.shell
 ```
@@ -87,7 +87,13 @@ sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 
 # Initialize nix-shell environemnt using shell.nix
 nix-shell
+
+# Run jupyter notebook
+jupyter lab
 ```
+
+Make sure you have `mongodb` running as a service in your system, since the
+ODM uses a local connection to mongodb by default.
 
 ## Exceptions
 

@@ -83,7 +83,7 @@ doc/*.tmp
 doc/*.bak
 doc/*.swp
 doc/*.backup
-doc/*.sav
+doc/*.save
 doc/*.tmp
 doc/*.temp
 
@@ -110,3 +110,9 @@ doc/*.sub
 
 # Ignore zip files
 *.zip
+
+# Ignore jupyter
+.ipynb_checkpoints/
+.ipynb_checkpoints/*
+data/.ipynb_checkpoints/
+data/.ipynb_checkpoints/*

@@ -13,6 +13,8 @@ let
       geojson
       pyyaml
       pytest
+      tqdm
+      ipywidgets
 
       # Jupyter pieces to run notebooks
       notebook
