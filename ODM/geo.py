@@ -27,14 +27,13 @@ def getLocationPoint(address: str) -> Point:
     """
     if not address or address.strip() == "": 
         print(f"Skipping geocoding for empty or invalid address: {address}")
-        return Point([0, 0])
+        return None
     if address in _address_cache:
         return _address_cache[address]
 
     max_attempts = 3
     attempts = 0
     location = None
-    point = Point([0,0])
 
     while location is None and attempts < max_attempts:
         try:
@@ -54,8 +53,9 @@ def getLocationPoint(address: str) -> Point:
     if location is not None:
         point = Point([location.longitude, location.latitude])
     else:
-        print(f"Could not geocode address '{address}'. Returning [0, 0].")
-        point = Point([0, 0])
+        print(f"Could not geocode address '{address}'. Returning None.")
+        point = None
 
-    _address_cache[address] = point
+    _address_cache[address] = point # Because it is looping either way
+
     return point

@@ -129,9 +129,9 @@ class Model:
                 return False
             if isinstance(loc, dict):
                 coords = loc.get('coordinates')
-                return coords and coords != [0, 0]
+                return coords and coords != None
             if isinstance(loc, list):
-                return loc != [0, 0]
+                return loc != None
             return False
 
 
