@@ -56,12 +56,19 @@ conda env create -f environment.yml
 conda activate ODMEmilieItziar
 ```
 
+In case the wrong kernel is used, run the following command to get the right
+kernel to be used (change Kernel in Jupyter to the proper one)
+
+```bash
+python -m ipykernel install --user --name ODMEmilieItziar --display-name "Python (databases)"
+```
+
 ### Nix
 
 Using the nix package manager if you don't have conda:
 
 ```bash
-# Install nix
+# Install nix (authenticate with sudo)
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 
 # Initialize nix-shell environemnt using shell.nix
