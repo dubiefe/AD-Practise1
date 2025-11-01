@@ -88,3 +88,7 @@ jupyter lab
 jupyter lab
 ```
 
+## Issues
+
+Sometimes the jupyter notebook doesn't render stuff properly, re run all cells
+whenever this happens.
