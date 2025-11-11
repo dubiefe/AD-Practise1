@@ -32,13 +32,10 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
     client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
     print(f"Connected to database: {db_name}")
 
-    # Drop previous data
-    client.drop_database(db_name)
-
     # Send a ping to confirm a successful connection
     try:
         client.admin.command('ping')
-        print("Pinged your deployment. You successfully connected to MongoDB!")
+        print("Successfully connected to MongoDB!")
     except Exception as e:
         print(e)
 
@@ -93,15 +90,11 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
         # Initialize the class (link it to the collection, set attributes)
         cls = type(class_name, (Model,), {})
 
-        # Add classnames to globals so they are accesible from elsewhere
+        # Add classnames to globals so they are accessible from elsewhere
         scope[class_name] = cls
 
         # Initialize class per class and print class data
         cls.init_class(db_collection, indexes, required_vars, admissible_vars)
-        print(f"Collection: {db_collection.name}")
-        print(f"Required vars: {required_vars}")
-        print(f"Admissible vars: {admissible_vars}")
-        print(f"Indexes: {indexes}\n")
 
     # Ignore Pylance warning about MyModel, it cannot detect
     # that the class was declared in the previous line since it is done
