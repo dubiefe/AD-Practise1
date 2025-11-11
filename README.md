@@ -1,4 +1,4 @@
-# Advanced Databases - Practice 2
+# Advanced Databases - Assignment 3
 
 College project for Advanced Databases at U-TAD
 
@@ -11,6 +11,7 @@ Toolset:
 
 - Python (3.12)
 - MongoDB
+- Redis
 - Nix (dependencies)
 - LaTeX (documentation)
 
@@ -18,37 +19,27 @@ Toolset:
 
 ### Files to hand in
 
-- [ ] Jupyter notebook with queries
-- [ ] JSON files
-- [ ] YML dependencies
-- [ ] Initialization of database
-- [ ] ODM library
+- [ ] ODM file including cache
+- [ ] main.py for the ODM cache
+- [ ] Session class
+- [ ] HelpDesk class
+- [ ] main.py for the session and Helpdesk
 
 ### Project TODO list
 
-- [x] Modify YML to include extra data:
-  - user description
-  - user companies
-  - user educational centers
-- [x] Modify JSON files to include extra data:
-  - user descriptions
-  - user completion dates
-  - companies: Google, Microsoft
-  - educational centers: UPM, UAM
-- [ ] Remove limits
-- [ ] Get all GeoJSON data for users
-- [ ] Copy database initialization to Jupyter Notebook
-- [ ] Put all queries in Jupyter Notebook
-
-### Queries
-
-- [ ] 1st query
-- [ ] 2nd query
-- [ ] 3rd query
-- [ ] 4th query
-- [ ] 5th query
-- [ ] 6th query
-- [ ] 7th query
+- [ ] Do the updates in ODM and add the cache
+  - find_one_by_id
+  - save()
+  - delete()
+  - __setattr__
+- [ ] Test the ODM cache
+- [ ] Create Session class
+  - CRUD methods
+  - login()
+  - login_token()
+- [ ] Create HelpDesk
+- [ ] Test the session and helpdesk in the same file
+- [ ] Document the code (!! Exceptions !!)
 
 ## Project structure
 
