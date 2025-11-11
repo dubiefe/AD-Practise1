@@ -82,5 +82,11 @@ nix-shell
 
 ## Exceptions
 
+### ODM
+
 `ODM.getGeoLocation` can return a timed out error due to API but cannot be
 changed due to the test.
+
+### Session
+
+### HelpDesk
