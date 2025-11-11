@@ -1,112 +1,330 @@
-[
-  {
-    "name": "Universidad Complutense de Madrid",
-    "address": "Madrid, España",
-    "email": "info@ucm.es"
+[{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c70"
   },
-  {
-    "name": "Instituto Politécnico de Sevilla",
-    "address": "Sevilla, España",
-    "email": "info@ips.es"
-  },
-  {
-    "name": "Escuela Técnica Superior de Ingeniería de Barcelona",
-    "address": "Barcelona, España",
-    "email": "info@etseib.es"
-  },
-  {
-    "name": "Centro de Estudios Médicos Valencia",
-    "address": "Valencia, España",
-    "email": "info@cemv.es"
-  },
-  {
-    "name": "Instituto de Formación Professional López",
-    "address": "Madrid, España",
-    "email": "info@ifpl.es"
-  },
-  {
-    "name": "Universidad de Zaragoza",
-    "address": "Zaragoza, España",
-    "email": "info@unizar.es"
-  },
-  {
-    "name": "Escuela de Artes y Oficios Bilbao",
-    "address": "Bilbao, España",
-    "email": "info@artesbilbao.es"
-  },
-  {
-    "name": "Instituto Tecnológico de Granada",
-    "address": "Granada, España",
-    "email": "info@itgranada.es"
-  },
-  {
-    "name": "Centro de Estudios Sociales Valladolid",
-    "address": "Valladolid, España",
-    "email": "info@cesvalladolid.es"
-  },
-  {
-    "name": "Escuela de Negocios Alicante",
-    "address": "Alicante, España",
-    "email": "info@negociosalicante.es"
-  },
-  {
-    "name": "Universidad de Murcia",
-    "address": "Murcia, España",
-    "email": "info@um.es"
-  },
-  {
-    "name": "Instituto de Ciencias Pamplona",
-    "address": "Pamplona, España",
-    "email": "info@icpamplona.es"
-  },
-  {
-    "name": "Escuela de Música Santander",
-    "address": "Santander, España",
-    "email": "info@musicasantander.es"
-  },
-  {
-    "name": "Centro de Formación Navarro",
-    "address": "Gijón, España",
-    "email": "info@cfnavarro.es"
-  },
-  {
-    "name": "Universidad de Córdoba",
-    "address": "Córdoba, España",
-    "email": "info@uco.es"
-  },
-  {
-    "name": "Escuela de Idiomas Pérez",
-    "address": "Burgos, España",
-    "email": "info@idiomasburgos.es"
-  },
-  {
-    "name": "Instituto de Tecnología Toledo",
-    "address": "Toledo, España",
-    "email": "info@itteledo.es"
-  },
-  {
-    "name": "Escuela de Hostelería Herrera",
-    "address": "Salamanca, España",
-    "email": "info@hosteleriaherrera.es"
-  },
-  {
-    "name": "Centro de Estudios Domínguez",
-    "address": "Logroño, España",
-    "email": "info@cesdominguez.es"
-  },
-  {
-    "name": "Instituto Mendoza",
-    "address": "Vitoria, España",
-    "email": "info@institutomendoza.es"
-  },
-  {
-    "name": "Universidad Politécnica de Madrid",
-    "address": "Ciudad Universitaria (Av. Ramiro de Maeztu), 7, 28040 Madrid, España",
-    "email": "info@upm.es"
-  },
-  {
-    "name": "Universidad Autónoma de Madrid",
-    "address": "Campus de Cantoblanco, 28049 Madrid, España",
-    "email": "info@uam.es"
+  "name": "Universidad Complutense de Madrid",
+  "address": "Madrid, España",
+  "email": "info@ucm.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.703507,
+      40.416782
+    ]
   }
-]
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c71"
+  },
+  "name": "Instituto Politécnico de Sevilla",
+  "address": "Sevilla, España",
+  "email": "info@ips.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -5.99534,
+      37.38863
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c72"
+  },
+  "name": "Escuela Técnica Superior de Ingeniería de Barcelona",
+  "address": "Barcelona, España",
+  "email": "info@etseib.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      2.177073,
+      41.38258
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c73"
+  },
+  "name": "Centro de Estudios Médicos Valencia",
+  "address": "Valencia, España",
+  "email": "info@cemv.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -0.376335,
+      39.469707
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c74"
+  },
+  "name": "Instituto de Formación Professional López",
+  "address": "Madrid, España",
+  "email": "info@ifpl.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.703507,
+      40.416782
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c75"
+  },
+  "name": "Universidad de Zaragoza",
+  "address": "Zaragoza, España",
+  "email": "info@unizar.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -0.880943,
+      41.652134
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c76"
+  },
+  "name": "Escuela de Artes y Oficios Bilbao",
+  "address": "Bilbao, España",
+  "email": "info@artesbilbao.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -2.935004,
+      43.263002
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c77"
+  },
+  "name": "Instituto Tecnológico de Granada",
+  "address": "Granada, España",
+  "email": "info@itgranada.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.599534,
+      37.173499
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c78"
+  },
+  "name": "Centro de Estudios Sociales Valladolid",
+  "address": "Valladolid, España",
+  "email": "info@cesvalladolid.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -4.728605,
+      41.652181
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c79"
+  },
+  "name": "Escuela de Negocios Alicante",
+  "address": "Alicante, España",
+  "email": "info@negociosalicante.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -0.488171,
+      38.343637
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c7a"
+  },
+  "name": "Universidad de Murcia",
+  "address": "Murcia, España",
+  "email": "info@um.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -1.130543,
+      37.992379
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c7b"
+  },
+  "name": "Instituto de Ciencias Pamplona",
+  "address": "Pamplona, España",
+  "email": "info@icpamplona.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -1.644009,
+      42.818199
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c7c"
+  },
+  "name": "Escuela de Música Santander",
+  "address": "Santander, España",
+  "email": "info@musicasantander.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.810026,
+      43.461893
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c7d"
+  },
+  "name": "Centro de Formación Navarro",
+  "address": "Gijón, España",
+  "email": "info@cfnavarro.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -5.66275,
+      43.544942
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c7e"
+  },
+  "name": "Universidad de Córdoba",
+  "address": "Córdoba, España",
+  "email": "info@uco.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -4.776014,
+      37.884581
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c7f"
+  },
+  "name": "Escuela de Idiomas Pérez",
+  "address": "Burgos, España",
+  "email": "info@idiomasburgos.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -3.696977,
+      42.343926
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c80"
+  },
+  "name": "Instituto de Tecnología Toledo",
+  "address": "Toledo, España",
+  "email": "info@itteledo.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -4.024265,
+      39.855891
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c81"
+  },
+  "name": "Escuela de Hostelería Herrera",
+  "address": "Salamanca, España",
+  "email": "info@hosteleriaherrera.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -5.664018,
+      40.965157
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c82"
+  },
+  "name": "Centro de Estudios Domínguez",
+  "address": "Logroño, España",
+  "email": "info@cesdominguez.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -2.439668,
+      42.46612
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398398b5904b9d03a3c83"
+  },
+  "name": "Instituto Mendoza",
+  "address": "Vitoria, España",
+  "email": "info@institutomendoza.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      -2.672403,
+      42.846509
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "6903983d8b5904b9d03a3c84"
+  },
+  "name": "Universidad Politécnica de Madrid",
+  "address": "Ciudad Universitaria (Av. Ramiro de Maeztu), 7, 28040 Madrid, España",
+  "email": "info@upm.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      0,
+      0
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "690398418b5904b9d03a3c85"
+  },
+  "name": "Universidad Autónoma de Madrid",
+  "address": "Campus de Cantoblanco, 28049 Madrid, España",
+  "email": "info@uam.es",
+  "address_loc": {
+    "type": "Point",
+    "coordinates": [
+      0,
+      0
+    ]
+  }
+}]

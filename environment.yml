@@ -1,0 +1,15 @@
+name: ODMEmilieItziar
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pymongo
+  - geopy
+  - geojson
+  - pyyaml
+  - pytest
+  - tqdm
+  - ipywidgets
+  - notebook
+  - ipykernel
+  - jupyterlab

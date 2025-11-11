@@ -1,8 +1,5 @@
 [
   {
-    "_id": {
-      "$oid": "690388331e8847783aed083a"
-    },
     "name": "María Fernández",
     "email": "user1@ucm.es",
     "address": "Calle Gran Vía, 1, Madrid, España",
@@ -21,19 +18,9 @@
     "companies": [
       "contacto@tecnologiasavanzadas.com"
     ],
-    "description": "Graduate in Computer Science from UCM, works in project management and is interested in Artificial Intelligence and data-driven projects.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.872021,
-        40.473748
-      ]
-    }
+    "description": "Graduate in Computer Science from UCM, works in project management and is interested in Artificial Intelligence and data-driven projects."
   },
   {
-    "_id": {
-      "$oid": "690388341e8847783aed083b"
-    },
     "name": "Carlos García",
     "email": "user2@ips.es",
     "address": "Avenida de Andalucía, 2, Sevilla, España",
@@ -52,19 +39,9 @@
     "companies": [
       "contacto@industriasgarcia.com"
     ],
-    "description": "Graphic designer with a diploma from IPS, freelances in digital marketing and explores Big Data visualizations for campaigns.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -6.075601,
-        37.415931
-      ]
-    }
+    "description": "Graphic designer with a diploma from IPS, freelances in digital marketing and explores Big Data visualizations for campaigns."
   },
   {
-    "_id": {
-      "$oid": "690388361e8847783aed083c"
-    },
     "name": "Lucía Martínez",
     "email": "user3@ucm.es",
     "address": "Calle del Prado, 3, Madrid, España",
@@ -83,19 +60,9 @@
     "companies": [
       "contacto@solucioneslopez.com"
     ],
-    "description": "Project manager with experience in digital marketing; studies data analytics and has applied Python to small Big Data tasks.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.699621,
-        40.414708
-      ]
-    }
+    "description": "Project manager with experience in digital marketing; studies data analytics and has applied Python to small Big Data tasks."
   },
   {
-    "_id": {
-      "$oid": "69038e31f064b0915f86ed23"
-    },
     "name": "Javier López",
     "email": "user4@etseib.es",
     "address": "Paseo de la Reforma, 4, Barcelona, España",
@@ -114,19 +81,9 @@
     "companies": [
       "contacto@constructoramartinez.com"
     ],
-    "description": "Engineering student at ETSEIB, enjoys networking projects and hobbyist work with embedded systems and AI prototypes.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        0,
-        0
-      ]
-    }
+    "description": "Engineering student at ETSEIB, enjoys networking projects and hobbyist work with embedded systems and AI prototypes."
   },
   {
-    "_id": {
-      "$oid": "69038e32f064b0915f86ed24"
-    },
     "name": "Ana Ruiz",
     "email": "user5@cemv.es",
     "address": "Calle San Vicente, 5, Valencia, España",
@@ -140,19 +97,9 @@
     "companies": [
       "contacto@serviciosrivera.com"
     ],
-    "description": "Administrative professional at Servicios Médicos Rivera, focused on customer workflows and operational improvements.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -1.054322,
-        39.059986
-      ]
-    }
+    "description": "Administrative professional at Servicios Médicos Rivera, focused on customer workflows and operational improvements."
   },
   {
-    "_id": {
-      "$oid": "690397748b5904b9d03a3bfb"
-    },
     "name": "Pedro Sánchez",
     "email": "user6@tecnologiasavanzadas.com",
     "address": "Calle Alcalde Sainz de Baranda, 6, Madrid, España",
@@ -172,19 +119,9 @@
       "contacto@tecnologiasavanzadas.com",
       "info@google.es"
     ],
-    "description": "Frontend developer working with React at Tecnologías Avanzadas; attends meetups on Artificial Intelligence applied to web UX.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        0,
-        0
-      ]
-    }
+    "description": "Frontend developer working with React at Tecnologías Avanzadas; attends meetups on Artificial Intelligence applied to web UX."
   },
   {
-    "_id": {
-      "$oid": "690397768b5904b9d03a3bfc"
-    },
     "name": "Elena Torres",
     "email": "user7@ips.es",
     "address": "Avenida del Puerto, 7, Sevilla, España",
@@ -198,19 +135,9 @@
     "companies": [
       "info@agrotorres.com"
     ],
-    "description": "Alumna of IPS focused on sports management and community projects; volunteers at local cultural events.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.807167,
-        37.064958
-      ]
-    }
+    "description": "Alumna of IPS focused on sports management and community projects; volunteers at local cultural events."
   },
   {
-    "_id": {
-      "$oid": "690397778b5904b9d03a3bfd"
-    },
     "name": "Miguel Ortega",
     "email": "user8@constructoramartinez.com",
     "address": "Calle Muntaner, 8, Barcelona, España",
@@ -224,19 +151,9 @@
     "companies": [
       "contacto@constructoramartinez.com"
     ],
-    "description": "Civil engineering technician using AutoCAD for construction projects; learning data analysis for site planning.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        1.723112,
-        41.215793
-      ]
-    }
+    "description": "Civil engineering technician using AutoCAD for construction projects; learning data analysis for site planning."
   },
   {
-    "_id": {
-      "$oid": "690397788b5904b9d03a3bfe"
-    },
     "name": "Isabel Morales",
     "email": "user9@cemv.es",
     "address": "Calle Colón, 9, Valencia, España",
@@ -250,19 +167,9 @@
     "companies": [
       "info@textilesromero.com"
     ],
-    "description": "Cultural studies graduate working part-time in a textile company and organising community arts events.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -1.102652,
-        39.489095
-      ]
-    }
+    "description": "Cultural studies graduate working part-time in a textile company and organising community arts events."
   },
   {
-    "_id": {
-      "$oid": "6903977a8b5904b9d03a3bff"
-    },
     "name": "Diego Navarro",
     "email": "user10@solucioneslopez.com",
     "address": "Calle Alcalá, 10, Madrid, España",
@@ -276,19 +183,9 @@
     "companies": [
       "contacto@solucioneslopez.com"
     ],
-    "description": "Data analyst at Soluciones López, focuses on dashboards and Big Data preprocessing pipelines.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.299374,
-        40.432975
-      ]
-    }
+    "description": "Data analyst at Soluciones López, focuses on dashboards and Big Data preprocessing pipelines."
   },
   {
-    "_id": {
-      "$oid": "6903977b8b5904b9d03a3c00"
-    },
     "name": "Laura González",
     "email": "user11@unizar.es",
     "address": "Avenida Goya, 11, Zaragoza, España",
@@ -303,19 +200,9 @@
     "companies": [
       "info@agrotorres.com"
     ],
-    "description": "Computer science student interested in leadership roles and collaborative open-source work.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -0.875176,
-        41.686534
-      ]
-    }
+    "description": "Computer science student interested in leadership roles and collaborative open-source work."
   },
   {
-    "_id": {
-      "$oid": "6903977d8b5904b9d03a3c01"
-    },
     "name": "Sergio Romero",
     "email": "user12@artesbilbao.es",
     "address": "Calle Ercilla, 12, Bilbao, España",
@@ -330,19 +217,9 @@
     "companies": [
       "info@textilesromero.com"
     ],
-    "description": "Designer blending traditional painting with digital tools, exploring image analysis and AI-assisted tools.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.931333,
-        43.264818
-      ]
-    }
+    "description": "Designer blending traditional painting with digital tools, exploring image analysis and AI-assisted tools."
   },
   {
-    "_id": {
-      "$oid": "6903977e8b5904b9d03a3c02"
-    },
     "name": "Patricia Ruiz",
     "email": "user13@itgranada.es",
     "address": "Calle Gran Capitán, 13, Granada, España",
@@ -357,19 +234,9 @@
     "companies": [
       "info@electronicaruiz.com"
     ],
-    "description": "IT student focused on web development and backend systems; curious about applying Big Data techniques to IoT.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.604082,
-        37.178107
-      ]
-    }
+    "description": "IT student focused on web development and backend systems; curious about applying Big Data techniques to IoT."
   },
   {
-    "_id": {
-      "$oid": "690397808b5904b9d03a3c03"
-    },
     "name": "David Sánchez",
     "email": "user14@cesvalladolid.es",
     "address": "Plaza Mayor, 14, Valladolid, España",
@@ -384,19 +251,9 @@
     "companies": [
       "info@transportessanchez.com"
     ],
-    "description": "Marketing assistant at Transportes Sánchez, combining technical skills with client communication.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.03706,
-        41.835256
-      ]
-    }
+    "description": "Marketing assistant at Transportes Sánchez, combining technical skills with client communication."
   },
   {
-    "_id": {
-      "$oid": "690397818b5904b9d03a3c04"
-    },
     "name": "Cristina Herrera",
     "email": "user15@negociosalicante.es",
     "address": "Avenida Alfonso X, 15, Alicante, España",
@@ -411,19 +268,9 @@
     "companies": [
       "info@consultorafernandez.com"
     ],
-    "description": "Business student with internships in consulting; uses Excel and Python for business analytics.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -0.486644,
-        38.347359
-      ]
-    }
+    "description": "Business student with internships in consulting; uses Excel and Python for business analytics."
   },
   {
-    "_id": {
-      "$oid": "690397838b5904b9d03a3c05"
-    },
     "name": "Mario Ortega",
     "email": "user16@um.es",
     "address": "Calle Mayor, 16, Murcia, España",
@@ -438,19 +285,9 @@
     "companies": [
       "info@editorialortega.com"
     ],
-    "description": "Engineering student interested in embedded systems and networking; experiments with small AI models.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -1.072871,
-        37.975412
-      ]
-    }
+    "description": "Engineering student interested in embedded systems and networking; experiments with small AI models."
   },
   {
-    "_id": {
-      "$oid": "690397848b5904b9d03a3c06"
-    },
     "name": "Sara Morales",
     "email": "user17@icpamplona.es",
     "address": "Calle Estafeta, 17, Pamplona, España",
@@ -465,19 +302,9 @@
     "companies": [
       "info@segurosmorales.com"
     ],
-    "description": "Customer service coordinator at Seguros Morales with experience organising local events.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -1.642506,
-        42.818106
-      ]
-    }
+    "description": "Customer service coordinator at Seguros Morales with experience organising local events."
   },
   {
-    "_id": {
-      "$oid": "690397858b5904b9d03a3c07"
-    },
     "name": "Iván Jiménez",
     "email": "user18@musicasantander.es",
     "address": "Calle Castilla, 18, Santander, España",
@@ -492,19 +319,9 @@
     "companies": [
       "info@farmaciajimenez.com"
     ],
-    "description": "Frontend developer and musician who explores interactive music tools built with web technologies.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.063316,
-        43.258696
-      ]
-    }
+    "description": "Frontend developer and musician who explores interactive music tools built with web technologies."
   },
   {
-    "_id": {
-      "$oid": "690397878b5904b9d03a3c08"
-    },
     "name": "Paula Navarro",
     "email": "user19@cfnavarro.es",
     "address": "Calle Covadonga, 19, Gijón, España",
@@ -519,19 +336,9 @@
     "companies": [
       "info@publicidadnavarro.com"
     ],
-    "description": "Technical drafter using AutoCAD for advertising and retail space projects; interested in spatial data analysis.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.662496,
-        43.538535
-      ]
-    }
+    "description": "Technical drafter using AutoCAD for advertising and retail space projects; interested in spatial data analysis."
   },
   {
-    "_id": {
-      "$oid": "690397888b5904b9d03a3c09"
-    },
     "name": "Alberto Castillo",
     "email": "user20@uco.es",
     "address": "Avenida del Brillante, 20, Córdoba, España",
@@ -546,19 +353,9 @@
     "companies": [
       "info@viajescastillo.com"
     ],
-    "description": "Data enthusiast working on travel analytics and automated reporting for Viajes Castillo.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.785351,
-        37.897501
-      ]
-    }
+    "description": "Data enthusiast working on travel analytics and automated reporting for Viajes Castillo."
   },
   {
-    "_id": {
-      "$oid": "690397898b5904b9d03a3c0a"
-    },
     "name": "Beatriz Pérez",
     "email": "user21@idiomasburgos.es",
     "address": "Calle Vitoria, 21, Burgos, España",
@@ -573,19 +370,9 @@
     "companies": [
       "info@financierosperez.com"
     ],
-    "description": "Language instructor with experience in corporate training and cross-cultural communication.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.697156,
-        42.341726
-      ]
-    }
+    "description": "Language instructor with experience in corporate training and cross-cultural communication."
   },
   {
-    "_id": {
-      "$oid": "6903978c8b5904b9d03a3c0b"
-    },
     "name": "Andrés Gómez",
     "email": "user22@itteledo.es",
     "address": "Avenida de Europa, 22, Toledo, España",
@@ -600,19 +387,9 @@
     "companies": [
       "info@automovilesgomez.com"
     ],
-    "description": "Software developer focused on backend systems and database design; exploring Big Data tooling.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.029705,
-        39.874071
-      ]
-    }
+    "description": "Software developer focused on backend systems and database design; exploring Big Data tooling."
   },
   {
-    "_id": {
-      "$oid": "6903978e8b5904b9d03a3c0c"
-    },
     "name": "Rocío Herrera",
     "email": "user23@hosteleriaherrera.es",
     "address": "Calle Zamora, 23, Salamanca, España",
@@ -627,19 +404,9 @@
     "companies": [
       "info@restaurantesherrera.com"
     ],
-    "description": "Hospitality manager experimenting with digital reservation systems and small-scale data analysis.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.5104,
-        40.82818
-      ]
-    }
+    "description": "Hospitality manager experimenting with digital reservation systems and small-scale data analysis."
   },
   {
-    "_id": {
-      "$oid": "6903978f8b5904b9d03a3c0d"
-    },
     "name": "Fernando Domínguez",
     "email": "user24@cesdominguez.es",
     "address": "Avenida de la Paz, 24, Logroño, España",
@@ -654,19 +421,9 @@
     "companies": [
       "info@consultoriadominguez.com"
     ],
-    "description": "Network engineer with C++ background, works on industrial networking and monitoring solutions.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.439667,
-        42.465435
-      ]
-    }
+    "description": "Network engineer with C++ background, works on industrial networking and monitoring solutions."
   },
   {
-    "_id": {
-      "$oid": "690397918b5904b9d03a3c0e"
-    },
     "name": "Marta Mendoza",
     "email": "user25@institutomendoza.es",
     "address": "Calle San Prudencio, 25, Vitoria, España",
@@ -681,19 +438,9 @@
     "companies": [
       "info@almacenesmendoza.com"
     ],
-    "description": "Analyst at Almacenes Mendoza focused on inventory analytics and forecasting models.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.671131,
-        42.844126
-      ]
-    }
+    "description": "Analyst at Almacenes Mendoza focused on inventory analytics and forecasting models."
   },
   {
-    "_id": {
-      "$oid": "690397928b5904b9d03a3c0f"
-    },
     "name": "Juan Castillo",
     "email": "user26@ucm.es",
     "address": "Calle Gran Vía, 26, Madrid, España",
@@ -712,19 +459,9 @@
     "companies": [
       "contacto@tecnologiasavanzadas.com"
     ],
-    "description": "IT project lead with a background from UCM and coursework at UPM; coordinates cross-functional technical teams.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.871789,
-        40.471977
-      ]
-    }
+    "description": "IT project lead with a background from UCM and coursework at UPM; coordinates cross-functional technical teams."
   },
   {
-    "_id": {
-      "$oid": "690397948b5904b9d03a3c10"
-    },
     "name": "Nuria García",
     "email": "user27@ips.es",
     "address": "Avenida de Andalucía, 27, Sevilla, España",
@@ -739,19 +476,9 @@
     "companies": [
       "contacto@industriasgarcia.com"
     ],
-    "description": "Designer working in-house on product packaging and brand campaigns.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.947103,
-        37.386799
-      ]
-    }
+    "description": "Designer working in-house on product packaging and brand campaigns."
   },
   {
-    "_id": {
-      "$oid": "690397968b5904b9d03a3c11"
-    },
     "name": "Raúl Martínez",
     "email": "user28@ucm.es",
     "address": "Calle del Prado, 28, Madrid, España",
@@ -766,19 +493,9 @@
     "companies": [
       "contacto@solucioneslopez.com"
     ],
-    "description": "Marketing project manager, uses Python for automating reporting and simple data tasks.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.698255,
-        40.415007
-      ]
-    }
+    "description": "Marketing project manager, uses Python for automating reporting and simple data tasks."
   },
   {
-    "_id": {
-      "$oid": "6903979b8b5904b9d03a3c12"
-    },
     "name": "Patricia López",
     "email": "user29@etseib.es",
     "address": "Paseo de la Reforma, 29, Barcelona, España",
@@ -793,19 +510,9 @@
     "companies": [
       "contacto@constructoramartinez.com"
     ],
-    "description": "Engineering student with practical experience in construction tech and networked sensor systems.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        0,
-        0
-      ]
-    }
+    "description": "Engineering student with practical experience in construction tech and networked sensor systems."
   },
   {
-    "_id": {
-      "$oid": "6903979c8b5904b9d03a3c13"
-    },
     "name": "José Ruiz",
     "email": "user30@cemv.es",
     "address": "Calle San Vicente, 30, Valencia, España",
@@ -819,19 +526,9 @@
     "companies": [
       "contacto@serviciosrivera.com"
     ],
-    "description": "Administrative coordinator with emphasis on client satisfaction and process optimization.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        0.08474,
-        38.771561
-      ]
-    }
+    "description": "Administrative coordinator with emphasis on client satisfaction and process optimization."
   },
   {
-    "_id": {
-      "$oid": "690397a18b5904b9d03a3c14"
-    },
     "name": "Clara Sánchez",
     "email": "user31@tecnologiasavanzadas.com",
     "address": "Calle Alcalde Sainz de Baranda, 31, Madrid, España",
@@ -851,19 +548,9 @@
       "contacto@tecnologiasavanzadas.com",
       "info@microsoft.es"
     ],
-    "description": "Full-stack developer at Tecnologías Avanzadas; attends cloud workshops and studies AI-driven cloud services.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        0,
-        0
-      ]
-    }
+    "description": "Full-stack developer at Tecnologías Avanzadas; attends cloud workshops and studies AI-driven cloud services."
   },
   {
-    "_id": {
-      "$oid": "690397a28b5904b9d03a3c15"
-    },
     "name": "Hugo Torres",
     "email": "user32@ips.es",
     "address": "Avenida del Puerto, 32, Sevilla, España",
@@ -877,19 +564,9 @@
     "companies": [
       "info@agrotorres.com"
     ],
-    "description": "Community program coordinator with a focus on sustainability projects.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.807167,
-        37.064958
-      ]
-    }
+    "description": "Community program coordinator with a focus on sustainability projects."
   },
   {
-    "_id": {
-      "$oid": "690397a38b5904b9d03a3c16"
-    },
     "name": "Sonia Ortega",
     "email": "user33@constructoramartinez.com",
     "address": "Calle Muntaner, 33, Barcelona, España",
@@ -903,19 +580,9 @@
     "companies": [
       "contacto@constructoramartinez.com"
     ],
-    "description": "Draftsperson specializing in architectural plans and project coordination.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        1.723129,
-        41.215798
-      ]
-    }
+    "description": "Draftsperson specializing in architectural plans and project coordination."
   },
   {
-    "_id": {
-      "$oid": "690397a58b5904b9d03a3c17"
-    },
     "name": "Alejandro Morales",
     "email": "user34@cemv.es",
     "address": "Calle Colón, 34, Valencia, España",
@@ -929,19 +596,9 @@
     "companies": [
       "info@textilesromero.com"
     ],
-    "description": "Cultural enthusiast working part-time while completing studies in humanities.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -1.281801,
-        39.589598
-      ]
-    }
+    "description": "Cultural enthusiast working part-time while completing studies in humanities."
   },
   {
-    "_id": {
-      "$oid": "690397a68b5904b9d03a3c18"
-    },
     "name": "Carla Navarro",
     "email": "user35@solucioneslopez.com",
     "address": "Calle Alcalá, 35, Madrid, España",
@@ -955,19 +612,9 @@
     "companies": [
       "contacto@solucioneslopez.com"
     ],
-    "description": "Junior data analyst using Python for business intelligence and reporting on sales data.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.697972,
-        40.418524
-      ]
-    }
+    "description": "Junior data analyst using Python for business intelligence and reporting on sales data."
   },
   {
-    "_id": {
-      "$oid": "690397a88b5904b9d03a3c19"
-    },
     "name": "Pablo González",
     "email": "user36@unizar.es",
     "address": "Avenida Goya, 36, Zaragoza, España",
@@ -982,19 +629,9 @@
     "companies": [
       "info@agrotorres.com"
     ],
-    "description": "Student leader active in university tech clubs and open-source initiatives.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -0.878407,
-        41.686907
-      ]
-    }
+    "description": "Student leader active in university tech clubs and open-source initiatives."
   },
   {
-    "_id": {
-      "$oid": "690397a98b5904b9d03a3c1a"
-    },
     "name": "Lucía Romero",
     "email": "user37@artesbilbao.es",
     "address": "Calle Ercilla, 37, Bilbao, España",
@@ -1009,19 +646,9 @@
     "companies": [
       "info@textilesromero.com"
     ],
-    "description": "Artist combining digital and traditional media; experiments with generative art using AI.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.938548,
-        43.261205
-      ]
-    }
+    "description": "Artist combining digital and traditional media; experiments with generative art using AI."
   },
   {
-    "_id": {
-      "$oid": "690397ab8b5904b9d03a3c1b"
-    },
     "name": "Manuel Ruiz",
     "email": "user38@itgranada.es",
     "address": "Calle Gran Capitán, 38, Granada, España",
@@ -1036,19 +663,9 @@
     "companies": [
       "info@electronicaruiz.com"
     ],
-    "description": "IT technician improving internal systems and learning about data synchronization techniques.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.050042,
-        37.196979
-      ]
-    }
+    "description": "IT technician improving internal systems and learning about data synchronization techniques."
   },
   {
-    "_id": {
-      "$oid": "690397af8b5904b9d03a3c1c"
-    },
     "name": "Berta Sánchez",
     "email": "user39@cesvalladolid.es",
     "address": "Plaza Mayor, 39, Valladolid, España",
@@ -1063,19 +680,9 @@
     "companies": [
       "info@transportessanchez.com"
     ],
-    "description": "Junior marketing specialist focused on client outreach and analytics.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.728548,
-        41.652061
-      ]
-    }
+    "description": "Junior marketing specialist focused on client outreach and analytics."
   },
   {
-    "_id": {
-      "$oid": "690397b08b5904b9d03a3c1d"
-    },
     "name": "Alfonso Herrera",
     "email": "user40@negociosalicante.es",
     "address": "Avenida Alfonso X, 40, Alicante, España",
@@ -1090,19 +697,9 @@
     "companies": [
       "info@consultorafernandez.com"
     ],
-    "description": "Business student and intern at a consulting firm focusing on process improvement.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -0.487401,
-        38.347257
-      ]
-    }
+    "description": "Business student and intern at a consulting firm focusing on process improvement."
   },
   {
-    "_id": {
-      "$oid": "690397b28b5904b9d03a3c1e"
-    },
     "name": "Natalia Ortega",
     "email": "user41@um.es",
     "address": "Calle Mayor, 41, Murcia, España",
@@ -1117,19 +714,9 @@
     "companies": [
       "info@editorialortega.com"
     ],
-    "description": "Systems engineering student involved in robotics projects and embedded AI.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -0.98694,
-        37.601445
-      ]
-    }
+    "description": "Systems engineering student involved in robotics projects and embedded AI."
   },
   {
-    "_id": {
-      "$oid": "690397b38b5904b9d03a3c1f"
-    },
     "name": "Jorge Morales",
     "email": "user42@icpamplona.es",
     "address": "Calle Estafeta, 42, Pamplona, España",
@@ -1144,19 +731,9 @@
     "companies": [
       "info@segurosmorales.com"
     ],
-    "description": "Operations assistant with experience in policy administration and customer relations.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -1.641919,
-        42.817059
-      ]
-    }
+    "description": "Operations assistant with experience in policy administration and customer relations."
   },
   {
-    "_id": {
-      "$oid": "690397b58b5904b9d03a3c20"
-    },
     "name": "Claudia Jiménez",
     "email": "user43@musicasantander.es",
     "address": "Calle Castilla, 43, Santander, España",
@@ -1171,19 +748,9 @@
     "companies": [
       "info@farmaciajimenez.com"
     ],
-    "description": "Full-stack developer focusing on interactive web apps and performance.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.8164,
-        43.456271
-      ]
-    }
+    "description": "Full-stack developer focusing on interactive web apps and performance."
   },
   {
-    "_id": {
-      "$oid": "690397b68b5904b9d03a3c21"
-    },
     "name": "Eduardo Navarro",
     "email": "user44@cfnavarro.es",
     "address": "Calle Covadonga, 44, Gijón, España",
@@ -1198,19 +765,9 @@
     "companies": [
       "info@publicidadnavarro.com"
     ],
-    "description": "Designer and drafter creating layouts for retail spaces and signage.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.662473,
-        43.538619
-      ]
-    }
+    "description": "Designer and drafter creating layouts for retail spaces and signage."
   },
   {
-    "_id": {
-      "$oid": "690397b88b5904b9d03a3c22"
-    },
     "name": "Silvia Castillo",
     "email": "user45@uco.es",
     "address": "Avenida del Brillante, 45, Córdoba, España",
@@ -1225,19 +782,9 @@
     "companies": [
       "info@viajescastillo.com"
     ],
-    "description": "Data analyst in travel sector applying predictive models to bookings data.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.806736,
-        37.926253
-      ]
-    }
+    "description": "Data analyst in travel sector applying predictive models to bookings data."
   },
   {
-    "_id": {
-      "$oid": "690397b98b5904b9d03a3c23"
-    },
     "name": "Antonio Pérez",
     "email": "user46@idiomasburgos.es",
     "address": "Calle Vitoria, 46, Burgos, España",
@@ -1252,19 +799,9 @@
     "companies": [
       "info@financierosperez.com"
     ],
-    "description": "Language teacher with experience providing corporate language courses.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.694338,
-        42.342008
-      ]
-    }
+    "description": "Language teacher with experience providing corporate language courses."
   },
   {
-    "_id": {
-      "$oid": "690397ba8b5904b9d03a3c24"
-    },
     "name": "Mónica Gómez",
     "email": "user47@itteledo.es",
     "address": "Avenida de Europa, 47, Toledo, España",
@@ -1279,19 +816,9 @@
     "companies": [
       "info@automovilesgomez.com"
     ],
-    "description": "Software engineer focused on backend development and database scaling.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.029705,
-        39.874071
-      ]
-    }
+    "description": "Software engineer focused on backend development and database scaling."
   },
   {
-    "_id": {
-      "$oid": "690397bc8b5904b9d03a3c25"
-    },
     "name": "Rubén Herrera",
     "email": "user48@hosteleriaherrera.es",
     "address": "Calle Zamora, 48, Salamanca, España",
@@ -1306,19 +833,9 @@
     "companies": [
       "info@restaurantesherrera.com"
     ],
-    "description": "Restaurant manager handling operations and implementing data-driven reservation strategies.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.663845,
-        40.967652
-      ]
-    }
+    "description": "Restaurant manager handling operations and implementing data-driven reservation strategies."
   },
   {
-    "_id": {
-      "$oid": "690397bd8b5904b9d03a3c26"
-    },
     "name": "Teresa Domínguez",
     "email": "user49@cesdominguez.es",
     "address": "Avenida de la Paz, 49, Logroño, España",
@@ -1333,19 +850,9 @@
     "companies": [
       "info@consultoriadominguez.com"
     ],
-    "description": "IT consultant with a focus on industrial network solutions and automation.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.435136,
-        42.464632
-      ]
-    }
+    "description": "IT consultant with a focus on industrial network solutions and automation."
   },
   {
-    "_id": {
-      "$oid": "690397be8b5904b9d03a3c27"
-    },
     "name": "Gonzalo Mendoza",
     "email": "user50@institutomendoza.es",
     "address": "Calle San Prudencio, 50, Vitoria, España",
@@ -1360,19 +867,9 @@
     "companies": [
       "info@almacenesmendoza.com"
     ],
-    "description": "Analyst supporting inventory and logistics reporting using Python.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.672171,
-        42.844066
-      ]
-    }
+    "description": "Analyst supporting inventory and logistics reporting using Python."
   },
   {
-    "_id": {
-      "$oid": "690397c08b5904b9d03a3c28"
-    },
     "name": "Sofía Castillo",
     "email": "user51@ucm.es",
     "address": "Calle Gran Vía, 51, Madrid, España",
@@ -1392,19 +889,9 @@
       "contacto@tecnologiasavanzadas.com",
       "info@google.es"
     ],
-    "description": "Master's student studying Human-Computer Interaction; interested in Artificial Intelligence applied to UX.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.871477,
-        40.471293
-      ]
-    }
+    "description": "Master's student studying Human-Computer Interaction; interested in Artificial Intelligence applied to UX."
   },
   {
-    "_id": {
-      "$oid": "690397c18b5904b9d03a3c29"
-    },
     "name": "Jaime García",
     "email": "user52@ips.es",
     "address": "Avenida de Andalucía, 52, Sevilla, España",
@@ -1419,19 +906,9 @@
     "companies": [
       "contacto@industriasgarcia.com"
     ],
-    "description": "Creative professional working on multi-channel campaigns and branding.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.617119,
-        37.863898
-      ]
-    }
+    "description": "Creative professional working on multi-channel campaigns and branding."
   },
   {
-    "_id": {
-      "$oid": "690397c38b5904b9d03a3c2a"
-    },
     "name": "Emma Martínez",
     "email": "user53@ucm.es",
     "address": "Calle del Prado, 53, Madrid, España",
@@ -1446,19 +923,9 @@
     "companies": [
       "contacto@solucioneslopez.com"
     ],
-    "description": "Marketing specialist who uses analytics to measure campaign performance and audience segmentation.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.700759,
-        40.414465
-      ]
-    }
+    "description": "Marketing specialist who uses analytics to measure campaign performance and audience segmentation."
   },
   {
-    "_id": {
-      "$oid": "690397c88b5904b9d03a3c2b"
-    },
     "name": "Miguel López",
     "email": "user54@etseib.es",
     "address": "Paseo de la Reforma, 54, Barcelona, España",
@@ -1473,19 +940,9 @@
     "companies": [
       "contacto@constructoramartinez.com"
     ],
-    "description": "Student involved in autonomous vehicle research and embedded systems coursework.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        0,
-        0
-      ]
-    }
+    "description": "Student involved in autonomous vehicle research and embedded systems coursework."
   },
   {
-    "_id": {
-      "$oid": "690397ca8b5904b9d03a3c2c"
-    },
     "name": "Valeria Ruiz",
     "email": "user55@cemv.es",
     "address": "Calle San Vicente, 55, Valencia, España",
@@ -1499,19 +956,9 @@
     "companies": [
       "contacto@serviciosrivera.com"
     ],
-    "description": "Operations specialist coordinating medical service schedules and client relations.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -1.285821,
-        40.060674
-      ]
-    }
+    "description": "Operations specialist coordinating medical service schedules and client relations."
   },
   {
-    "_id": {
-      "$oid": "690397ce8b5904b9d03a3c2d"
-    },
     "name": "Gabriel Sánchez",
     "email": "user56@tecnologiasavanzadas.com",
     "address": "Calle Alcalde Sainz de Baranda, 56, Madrid, España",
@@ -1530,19 +977,9 @@
     "companies": [
       "contacto@tecnologiasavanzadas.com"
     ],
-    "description": "Frontend engineer at Tecnologías Avanzadas working on scalable web apps and cloud integrations.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        0,
-        0
-      ]
-    }
+    "description": "Frontend engineer at Tecnologías Avanzadas working on scalable web apps and cloud integrations."
   },
   {
-    "_id": {
-      "$oid": "690397cf8b5904b9d03a3c2e"
-    },
     "name": "Alicia Torres",
     "email": "user57@ips.es",
     "address": "Avenida del Puerto, 57, Sevilla, España",
@@ -1556,19 +993,9 @@
     "companies": [
       "info@agrotorres.com"
     ],
-    "description": "Community outreach coordinator for Agroalimentaria Torres with interest in sustainable agriculture.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.807167,
-        37.064958
-      ]
-    }
+    "description": "Community outreach coordinator for Agroalimentaria Torres with interest in sustainable agriculture."
   },
   {
-    "_id": {
-      "$oid": "690397d08b5904b9d03a3c2f"
-    },
     "name": "Francisco Ortega",
     "email": "user58@constructoramartinez.com",
     "address": "Calle Muntaner, 58, Barcelona, España",
@@ -1582,19 +1009,9 @@
     "companies": [
       "contacto@constructoramartinez.com"
     ],
-    "description": "Site engineer focusing on CAD-based workflows and project documentation.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        1.723129,
-        41.215798
-      ]
-    }
+    "description": "Site engineer focusing on CAD-based workflows and project documentation."
   },
   {
-    "_id": {
-      "$oid": "690397d28b5904b9d03a3c30"
-    },
     "name": "Inés Morales",
     "email": "user59@cemv.es",
     "address": "Calle Colón, 59, Valencia, España",
@@ -1608,19 +1025,9 @@
     "companies": [
       "info@textilesromero.com"
     ],
-    "description": "Arts enthusiast working part-time while finishing studies in humanities.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        0.109639,
-        38.84019
-      ]
-    }
+    "description": "Arts enthusiast working part-time while finishing studies in humanities."
   },
   {
-    "_id": {
-      "$oid": "690397d38b5904b9d03a3c31"
-    },
     "name": "Tomás Navarro",
     "email": "user60@solucioneslopez.com",
     "address": "Calle Alcalá, 60, Madrid, España",
@@ -1634,19 +1041,9 @@
     "companies": [
       "contacto@solucioneslopez.com"
     ],
-    "description": "Senior analyst with focus on automating ETL processes and dashboards.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.700432,
-        40.417538
-      ]
-    }
+    "description": "Senior analyst with focus on automating ETL processes and dashboards."
   },
   {
-    "_id": {
-      "$oid": "690397d58b5904b9d03a3c32"
-    },
     "name": "Victoria González",
     "email": "user61@unizar.es",
     "address": "Avenida Goya, 61, Zaragoza, España",
@@ -1661,19 +1058,9 @@
     "companies": [
       "info@agrotorres.com"
     ],
-    "description": "Student leader active in university programming competitions and collaborative projects.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -0.893196,
-        41.645094
-      ]
-    }
+    "description": "Student leader active in university programming competitions and collaborative projects."
   },
   {
-    "_id": {
-      "$oid": "690397d68b5904b9d03a3c33"
-    },
     "name": "Oscar Romero",
     "email": "user62@artesbilbao.es",
     "address": "Calle Ercilla, 62, Bilbao, España",
@@ -1688,19 +1075,9 @@
     "companies": [
       "info@textilesromero.com"
     ],
-    "description": "Designer exploring generative techniques and AI-driven image tools.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.933927,
-        43.263485
-      ]
-    }
+    "description": "Designer exploring generative techniques and AI-driven image tools."
   },
   {
-    "_id": {
-      "$oid": "690397d88b5904b9d03a3c34"
-    },
     "name": "Paula Ruiz",
     "email": "user63@itgranada.es",
     "address": "Calle Gran Capitán, 63, Granada, España",
@@ -1715,19 +1092,9 @@
     "companies": [
       "info@electronicaruiz.com"
     ],
-    "description": "IT student focused on backend development and data pipelines.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.050559,
-        37.197386
-      ]
-    }
+    "description": "IT student focused on backend development and data pipelines."
   },
   {
-    "_id": {
-      "$oid": "690397d98b5904b9d03a3c35"
-    },
     "name": "Luis Sánchez",
     "email": "user64@cesvalladolid.es",
     "address": "Plaza Mayor, 64, Valladolid, España",
@@ -1742,19 +1109,9 @@
     "companies": [
       "info@transportessanchez.com"
     ],
-    "description": "Junior developer with marketing exposure, working toward full-stack proficiency.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.728548,
-        41.652061
-      ]
-    }
+    "description": "Junior developer with marketing exposure, working toward full-stack proficiency."
   },
   {
-    "_id": {
-      "$oid": "690397db8b5904b9d03a3c36"
-    },
     "name": "Miriam Herrera",
     "email": "user65@negociosalicante.es",
     "address": "Avenida Alfonso X, 65, Alicante, España",
@@ -1769,19 +1126,9 @@
     "companies": [
       "info@consultorafernandez.com"
     ],
-    "description": "Business analytics intern using Excel and Python to support consultancy projects.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -0.486943,
-        38.347324
-      ]
-    }
+    "description": "Business analytics intern using Excel and Python to support consultancy projects."
   },
   {
-    "_id": {
-      "$oid": "690397dd8b5904b9d03a3c37"
-    },
     "name": "Adrián Ortega",
     "email": "user66@um.es",
     "address": "Calle Mayor, 66, Murcia, España",
@@ -1796,19 +1143,9 @@
     "companies": [
       "info@editorialortega.com"
     ],
-    "description": "Engineering student with interest in robotics and networked devices.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -1.161977,
-        37.940587
-      ]
-    }
+    "description": "Engineering student with interest in robotics and networked devices."
   },
   {
-    "_id": {
-      "$oid": "690397de8b5904b9d03a3c38"
-    },
     "name": "Raquel Morales",
     "email": "user67@icpamplona.es",
     "address": "Calle Estafeta, 67, Pamplona, España",
@@ -1823,19 +1160,9 @@
     "companies": [
       "info@segurosmorales.com"
     ],
-    "description": "Administrative professional with focus on client experience and process management.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -1.641175,
-        42.816958
-      ]
-    }
+    "description": "Administrative professional with focus on client experience and process management."
   },
   {
-    "_id": {
-      "$oid": "690397df8b5904b9d03a3c39"
-    },
     "name": "Samuel Jiménez",
     "email": "user68@musicasantander.es",
     "address": "Calle Castilla, 68, Santander, España",
@@ -1850,19 +1177,9 @@
     "companies": [
       "info@farmaciajimenez.com"
     ],
-    "description": "Developer and musician building interactive web experiences for music education.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -6.135388,
-        36.680771
-      ]
-    }
+    "description": "Developer and musician building interactive web experiences for music education."
   },
   {
-    "_id": {
-      "$oid": "690397e18b5904b9d03a3c3a"
-    },
     "name": "Julia Navarro",
     "email": "user69@cfnavarro.es",
     "address": "Calle Covadonga, 69, Gijón, España",
@@ -1877,19 +1194,9 @@
     "companies": [
       "info@publicidadnavarro.com"
     ],
-    "description": "Technical contributor in design projects and space planning.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.662473,
-        43.538619
-      ]
-    }
+    "description": "Technical contributor in design projects and space planning."
   },
   {
-    "_id": {
-      "$oid": "690397e28b5904b9d03a3c3b"
-    },
     "name": "Álvaro Castillo",
     "email": "user70@uco.es",
     "address": "Avenida del Brillante, 70, Córdoba, España",
@@ -1904,19 +1211,9 @@
     "companies": [
       "info@viajescastillo.com"
     ],
-    "description": "Analyst supporting product and pricing strategy with data insights.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.781389,
-        37.893054
-      ]
-    }
+    "description": "Analyst supporting product and pricing strategy with data insights."
   },
   {
-    "_id": {
-      "$oid": "690397e38b5904b9d03a3c3c"
-    },
     "name": "Blanca Pérez",
     "email": "user71@idiomasburgos.es",
     "address": "Calle Vitoria, 71, Burgos, España",
@@ -1931,19 +1228,9 @@
     "companies": [
       "info@financierosperez.com"
     ],
-    "description": "Language instructor and translator working with local businesses.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.68452,
-        42.345003
-      ]
-    }
+    "description": "Language instructor and translator working with local businesses."
   },
   {
-    "_id": {
-      "$oid": "690397e58b5904b9d03a3c3d"
-    },
     "name": "Héctor Gómez",
     "email": "user72@itteledo.es",
     "address": "Avenida de Europa, 72, Toledo, España",
@@ -1958,19 +1245,9 @@
     "companies": [
       "info@automovilesgomez.com"
     ],
-    "description": "Developer in automotive projects focusing on backend integration and databases.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.025665,
-        39.868527
-      ]
-    }
+    "description": "Developer in automotive projects focusing on backend integration and databases."
   },
   {
-    "_id": {
-      "$oid": "690397e68b5904b9d03a3c3e"
-    },
     "name": "Clara Herrera",
     "email": "user73@hosteleriaherrera.es",
     "address": "Calle Zamora, 73, Salamanca, España",
@@ -1985,19 +1262,9 @@
     "companies": [
       "info@restaurantesherrera.com"
     ],
-    "description": "Hospitality manager interested in digital ordering systems and guest analytics.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.663744,
-        40.969133
-      ]
-    }
+    "description": "Hospitality manager interested in digital ordering systems and guest analytics."
   },
   {
-    "_id": {
-      "$oid": "690397e78b5904b9d03a3c3f"
-    },
     "name": "Joaquín Domínguez",
     "email": "user74@cesdominguez.es",
     "address": "Avenida de la Paz, 74, Logroño, España",
@@ -2012,19 +1279,9 @@
     "companies": [
       "info@consultoriadominguez.com"
     ],
-    "description": "IT consultant focused on automation and network-based solutions for SMEs.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.433975,
-        42.464059
-      ]
-    }
+    "description": "IT consultant focused on automation and network-based solutions for SMEs."
   },
   {
-    "_id": {
-      "$oid": "690397e98b5904b9d03a3c40"
-    },
     "name": "Elisa Mendoza",
     "email": "user75@institutomendoza.es",
     "address": "Calle San Prudencio, 75, Vitoria, España",
@@ -2039,19 +1296,9 @@
     "companies": [
       "info@almacenesmendoza.com"
     ],
-    "description": "Data analyst who supports logistics and inventory planning using Python.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.672171,
-        42.844066
-      ]
-    }
+    "description": "Data analyst who supports logistics and inventory planning using Python."
   },
   {
-    "_id": {
-      "$oid": "690397ea8b5904b9d03a3c41"
-    },
     "name": "Esteban Castillo",
     "email": "user76@ucm.es",
     "address": "Calle Gran Vía, 76, Madrid, España",
@@ -2070,19 +1317,9 @@
     "companies": [
       "contacto@tecnologiasavanzadas.com"
     ],
-    "description": "Research assistant combining coursework in software engineering with project coordination.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.870709,
-        40.468297
-      ]
-    }
+    "description": "Research assistant combining coursework in software engineering with project coordination."
   },
   {
-    "_id": {
-      "$oid": "690397ec8b5904b9d03a3c42"
-    },
     "name": "Andrea García",
     "email": "user77@ips.es",
     "address": "Avenida de Andalucía, 77, Sevilla, España",
@@ -2097,19 +1334,9 @@
     "companies": [
       "contacto@industriasgarcia.com"
     ],
-    "description": "Designer working on corporate branding and product materials.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.941524,
-        37.386503
-      ]
-    }
+    "description": "Designer working on corporate branding and product materials."
   },
   {
-    "_id": {
-      "$oid": "690397ee8b5904b9d03a3c43"
-    },
     "name": "César Martínez",
     "email": "user78@ucm.es",
     "address": "Calle del Prado, 78, Madrid, España",
@@ -2124,19 +1351,9 @@
     "companies": [
       "contacto@solucioneslopez.com"
     ],
-    "description": "Marketing operations specialist focusing on campaign automation and analytics.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.698255,
-        40.415007
-      ]
-    }
+    "description": "Marketing operations specialist focusing on campaign automation and analytics."
   },
   {
-    "_id": {
-      "$oid": "690397f38b5904b9d03a3c44"
-    },
     "name": "Irene López",
     "email": "user79@etseib.es",
     "address": "Paseo de la Reforma, 79, Barcelona, España",
@@ -2151,19 +1368,9 @@
     "companies": [
       "contacto@constructoramartinez.com"
     ],
-    "description": "Engineering student involved in networked sensors for construction monitoring.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        0,
-        0
-      ]
-    }
+    "description": "Engineering student involved in networked sensors for construction monitoring."
   },
   {
-    "_id": {
-      "$oid": "690397f58b5904b9d03a3c45"
-    },
     "name": "Felipe Ruiz",
     "email": "user80@cemv.es",
     "address": "Calle San Vicente, 80, Valencia, España",
@@ -2177,19 +1384,9 @@
     "companies": [
       "contacto@serviciosrivera.com"
     ],
-    "description": "Operations coordinator managing administrative tasks in a medical services company.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -0.385992,
-        39.446642
-      ]
-    }
+    "description": "Operations coordinator managing administrative tasks in a medical services company."
   },
   {
-    "_id": {
-      "$oid": "690397fa8b5904b9d03a3c46"
-    },
     "name": "Aitana Sánchez",
     "email": "user81@tecnologiasavanzadas.com",
     "address": "Calle Alcalde Sainz de Baranda, 81, Madrid, España",
@@ -2204,19 +1401,9 @@
     "companies": [
       "contacto@tecnologiasavanzadas.com"
     ],
-    "description": "Frontend developer focusing on responsive interfaces and performance optimization.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        0,
-        0
-      ]
-    }
+    "description": "Frontend developer focusing on responsive interfaces and performance optimization."
   },
   {
-    "_id": {
-      "$oid": "690397fb8b5904b9d03a3c47"
-    },
     "name": "Ignacio Torres",
     "email": "user82@ips.es",
     "address": "Avenida del Puerto, 82, Sevilla, España",
@@ -2230,19 +1417,9 @@
     "companies": [
       "info@agrotorres.com"
     ],
-    "description": "Program coordinator at Agroalimentaria Torres supporting product development initiatives.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.807167,
-        37.064958
-      ]
-    }
+    "description": "Program coordinator at Agroalimentaria Torres supporting product development initiatives."
   },
   {
-    "_id": {
-      "$oid": "690397fc8b5904b9d03a3c48"
-    },
     "name": "Marcos Ortega",
     "email": "user83@constructoramartinez.com",
     "address": "Calle Muntaner, 83, Barcelona, España",
@@ -2256,19 +1433,9 @@
     "companies": [
       "contacto@constructoramartinez.com"
     ],
-    "description": "Site technician focused on CAD and project documentation for construction projects.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        1.723129,
-        41.215798
-      ]
-    }
+    "description": "Site technician focused on CAD and project documentation for construction projects."
   },
   {
-    "_id": {
-      "$oid": "690397fe8b5904b9d03a3c49"
-    },
     "name": "Daniela Morales",
     "email": "user84@cemv.es",
     "address": "Calle Colón, 84, Valencia, España",
@@ -2282,19 +1449,9 @@
     "companies": [
       "info@textilesromero.com"
     ],
-    "description": "Arts and culture enthusiast working part-time in retail.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -0.488798,
-        38.344406
-      ]
-    }
+    "description": "Arts and culture enthusiast working part-time in retail."
   },
   {
-    "_id": {
-      "$oid": "690397ff8b5904b9d03a3c4a"
-    },
     "name": "Guillermo Navarro",
     "email": "user85@solucioneslopez.com",
     "address": "Calle Alcalá, 85, Madrid, España",
@@ -2308,19 +1465,9 @@
     "companies": [
       "contacto@solucioneslopez.com"
     ],
-    "description": "Senior data analyst supporting cross-functional teams and building dashboards for stakeholders.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.685678,
-        40.420777
-      ]
-    }
+    "description": "Senior data analyst supporting cross-functional teams and building dashboards for stakeholders."
   },
   {
-    "_id": {
-      "$oid": "690398018b5904b9d03a3c4b"
-    },
     "name": "Lucía González",
     "email": "user86@unizar.es",
     "address": "Avenida Goya, 86, Zaragoza, España",
@@ -2335,19 +1482,9 @@
     "companies": [
       "info@agrotorres.com"
     ],
-    "description": "Student with leadership roles in campus clubs and volunteer programs.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -0.89344,
-        41.646367
-      ]
-    }
+    "description": "Student with leadership roles in campus clubs and volunteer programs."
   },
   {
-    "_id": {
-      "$oid": "690398028b5904b9d03a3c4c"
-    },
     "name": "Víctor Romero",
     "email": "user87@artesbilbao.es",
     "address": "Calle Ercilla, 87, Bilbao, España",
@@ -2362,19 +1499,9 @@
     "companies": [
       "info@textilesromero.com"
     ],
-    "description": "Designer exploring the intersection of art and algorithmic techniques.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.931039,
-        43.264834
-      ]
-    }
+    "description": "Designer exploring the intersection of art and algorithmic techniques."
   },
   {
-    "_id": {
-      "$oid": "690398048b5904b9d03a3c4d"
-    },
     "name": "Marina Ruiz",
     "email": "user88@itgranada.es",
     "address": "Calle Gran Capitán, 88, Granada, España",
@@ -2389,19 +1516,9 @@
     "companies": [
       "info@electronicaruiz.com"
     ],
-    "description": "Backend developer focusing on data integrity and systems reliability.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.604872,
-        37.177788
-      ]
-    }
+    "description": "Backend developer focusing on data integrity and systems reliability."
   },
   {
-    "_id": {
-      "$oid": "690398068b5904b9d03a3c4e"
-    },
     "name": "Ricardo Sánchez",
     "email": "user89@cesvalladolid.es",
     "address": "Plaza Mayor, 89, Valladolid, España",
@@ -2416,19 +1533,9 @@
     "companies": [
       "info@transportessanchez.com"
     ],
-    "description": "Junior dev with an interest in combining marketing analytics and engineering.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.728548,
-        41.652061
-      ]
-    }
+    "description": "Junior dev with an interest in combining marketing analytics and engineering."
   },
   {
-    "_id": {
-      "$oid": "690398088b5904b9d03a3c4f"
-    },
     "name": "Lorena Herrera",
     "email": "user90@negociosalicante.es",
     "address": "Avenida Alfonso X, 90, Alicante, España",
@@ -2443,19 +1550,9 @@
     "companies": [
       "info@consultorafernandez.com"
     ],
-    "description": "Consulting intern supporting clients with financial models and data summaries.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -0.486943,
-        38.347324
-      ]
-    }
+    "description": "Consulting intern supporting clients with financial models and data summaries."
   },
   {
-    "_id": {
-      "$oid": "6903980a8b5904b9d03a3c50"
-    },
     "name": "Raúl Ortega",
     "email": "user91@um.es",
     "address": "Calle Mayor, 91, Murcia, España",
@@ -2470,19 +1567,9 @@
     "companies": [
       "info@editorialortega.com"
     ],
-    "description": "Engineering student engaged with hobby robotics and networked sensors.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -1.150701,
-        38.007297
-      ]
-    }
+    "description": "Engineering student engaged with hobby robotics and networked sensors."
   },
   {
-    "_id": {
-      "$oid": "6903980b8b5904b9d03a3c51"
-    },
     "name": "Natalia Morales",
     "email": "user92@icpamplona.es",
     "address": "Calle Estafeta, 92, Pamplona, España",
@@ -2497,19 +1584,9 @@
     "companies": [
       "info@segurosmorales.com"
     ],
-    "description": "Project coordinator specialising in customer workflows and administrative process design.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -1.64201,
-        42.817276
-      ]
-    }
+    "description": "Project coordinator specialising in customer workflows and administrative process design."
   },
   {
-    "_id": {
-      "$oid": "6903980d8b5904b9d03a3c52"
-    },
     "name": "Ernesto Jiménez",
     "email": "user93@musicasantander.es",
     "address": "Calle Castilla, 93, Santander, España",
@@ -2524,19 +1601,9 @@
     "companies": [
       "info@farmaciajimenez.com"
     ],
-    "description": "Web developer with a passion for building educational tools for music instruction.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.824515,
-        43.453301
-      ]
-    }
+    "description": "Web developer with a passion for building educational tools for music instruction."
   },
   {
-    "_id": {
-      "$oid": "6903980f8b5904b9d03a3c53"
-    },
     "name": "Marta Navarro",
     "email": "user94@cfnavarro.es",
     "address": "Calle Covadonga, 94, Gijón, España",
@@ -2551,19 +1618,9 @@
     "companies": [
       "info@publicidadnavarro.com"
     ],
-    "description": "Drafting specialist working with retail and event layouts; interested in spatial analytics.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.662473,
-        43.538619
-      ]
-    }
+    "description": "Drafting specialist working with retail and event layouts; interested in spatial analytics."
   },
   {
-    "_id": {
-      "$oid": "690398108b5904b9d03a3c54"
-    },
     "name": "Arturo Castillo",
     "email": "user95@uco.es",
     "address": "Avenida del Brillante, 95, Córdoba, España",
@@ -2578,19 +1635,9 @@
     "companies": [
       "info@viajescastillo.com"
     ],
-    "description": "Data practitioner focusing on predictive models for travel demand.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.786607,
-        37.898822
-      ]
-    }
+    "description": "Data practitioner focusing on predictive models for travel demand."
   },
   {
-    "_id": {
-      "$oid": "690398128b5904b9d03a3c55"
-    },
     "name": "Esther Pérez",
     "email": "user96@idiomasburgos.es",
     "address": "Calle Vitoria, 96, Burgos, España",
@@ -2605,19 +1652,9 @@
     "companies": [
       "info@financierosperez.com"
     ],
-    "description": "Translator and language coach working with local SMEs to improve international communications.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.665652,
-        42.354453
-      ]
-    }
+    "description": "Translator and language coach working with local SMEs to improve international communications."
   },
   {
-    "_id": {
-      "$oid": "690398138b5904b9d03a3c56"
-    },
     "name": "Roberto Gómez",
     "email": "user97@itteledo.es",
     "address": "Avenida de Europa, 97, Toledo, España",
@@ -2632,19 +1669,9 @@
     "companies": [
       "info@automovilesgomez.com"
     ],
-    "description": "Developer working on telematics and vehicle data collection systems.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -4.027637,
-        39.871325
-      ]
-    }
+    "description": "Developer working on telematics and vehicle data collection systems."
   },
   {
-    "_id": {
-      "$oid": "690398148b5904b9d03a3c57"
-    },
     "name": "Yolanda Herrera",
     "email": "user98@hosteleriaherrera.es",
     "address": "Calle Zamora, 98, Salamanca, España",
@@ -2659,19 +1686,9 @@
     "companies": [
       "info@restaurantesherrera.com"
     ],
-    "description": "Operations manager applying simple analytics to improve table turnover and guest satisfaction.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -5.510254,
-        40.827866
-      ]
-    }
+    "description": "Operations manager applying simple analytics to improve table turnover and guest satisfaction."
   },
   {
-    "_id": {
-      "$oid": "690398178b5904b9d03a3c58"
-    },
     "name": "Andrés Domínguez",
     "email": "user99@cesdominguez.es",
     "address": "Avenida de la Paz, 99, Logroño, España",
@@ -2686,19 +1703,9 @@
     "companies": [
       "info@consultoriadominguez.com"
     ],
-    "description": "IT consultant focused on industrial networking and systems integration.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.425803,
-        42.462285
-      ]
-    }
+    "description": "IT consultant focused on industrial networking and systems integration."
   },
   {
-    "_id": {
-      "$oid": "690398188b5904b9d03a3c59"
-    },
     "name": "Cristina Mendoza",
     "email": "user100@institutomendoza.es",
     "address": "Calle San Prudencio, 100, Vitoria, España",
@@ -2713,98 +1720,6 @@
     "companies": [
       "info@almacenesmendoza.com"
     ],
-    "description": "Data analyst supporting inventory management and forecasting.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -2.672171,
-        42.844066
-      ]
-    }
-  },
-  {
-    "_id": {
-      "$oid": "69040001aabbccddeeff0011"
-    },
-    "name": "Laura Martínez",
-    "email": "user101@google.es",
-    "address": "Calle Serrano, 12, Madrid, España",
-    "interests": "AI,cloud computing,reading",
-    "skills": "Python,TensorFlow,data analysis",
-    "educational_centers": [
-      {
-        "email": "info@upm.es",
-        "completion_date": "2019"
-      },
-      {
-        "email": "info@ucm.es",
-        "completion_date": "2021"
-      }
-    ],
-    "companies": [
-      "info@google.es"
-    ],
-    "description": "Data engineer at Google Cloud Spain focusing on ML pipeline optimization.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.683,
-        40.429
-      ]
-    }
-  },
-  {
-    "_id": {
-      "$oid": "69040002aabbccddeeff0012"
-    },
-    "name": "Daniel Fernández",
-    "email": "user102@google.es",
-    "address": "Paseo de la Castellana, 110, Madrid, España",
-    "interests": "machine learning,travel,music",
-    "skills": "Go,Python,distributed systems",
-    "educational_centers": [
-      {
-        "email": "info@uam.es",
-        "completion_date": "2018"
-      }
-    ],
-    "companies": [
-      "info@google.es"
-    ],
-    "description": "Software engineer working on backend distributed services at Google Spain.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.69,
-        40.453
-      ]
-    }
-  },
-  {
-    "_id": {
-      "$oid": "69040003aabbccddeeff0013"
-    },
-    "name": "Elena Navarro",
-    "email": "user103@google.es",
-    "address": "Calle Princesa, 23, Madrid, España",
-    "interests": "AI ethics,design,music",
-    "skills": "UX research,data visualization,Python",
-    "educational_centers": [
-      {
-        "email": "info@ucm.es",
-        "completion_date": "2020"
-      }
-    ],
-    "companies": [
-      "info@google.es"
-    ],
-    "description": "UX researcher at Google focused on AI ethics and data visualization interfaces.",
-    "address_loc": {
-      "type": "Point",
-      "coordinates": [
-        -3.711,
-        40.426
-      ]
-    }
+    "description": "Data analyst supporting inventory management and forecasting."
   }
 ]
