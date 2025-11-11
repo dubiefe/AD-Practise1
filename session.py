@@ -2,6 +2,32 @@ import redis
 import uuid
 
 class Session:
+    """
+    Session class
+    Deal with sessions in redis
+
+    Attributes
+    ----------
+    _database
+        Connection to the redis database
+    _required_vars : set[str]
+        Set of attributes required to create a new session
+
+    Methods
+    -------
+    create(self, **kwargs : dict[str, str])
+        Create a new session in redis
+    read(self, username : str)
+        Read all session information according to the username given
+    update(self, username : str, **kwargs : dict[str, str])
+        Update the session according to the username given with the new data
+    delete(self, username : str)
+        Delete the session according to the username
+    login(self, username : str, password : str) -> dict[str, str] | int
+        Check the password given and return the privileges and the token of the user, or -1 if failed
+    login_token(self, token : str) -> str | int
+        Give the privileges of the user related to the token
+    """
 
     _database = None
     _required_vars: set[str] = ["username", "fullname", "password", "privileges"]
@@ -9,7 +35,7 @@ class Session:
     def __init__(self):
         self._database = redis.Redis(host='localhost', port=6379, db=0)
 
-    def create(self, **kwargs : dict[str, str | dict]):
+    def create(self, **kwargs : dict[str, str]):
         """
         Create a new session in redis with all the values in kwargs.
         Check if all the necessary data in in kwargs.
@@ -54,7 +80,7 @@ class Session:
         # Search user
         return self._database.hgetall(f"user:{username}")
     
-    def update(self, username : str, **kwargs : dict[str, str | dict]):
+    def update(self, username : str, **kwargs : dict[str, str]):
         """
         Update a session in redis according to the username
 
@@ -82,7 +108,7 @@ class Session:
         # Delete session
         self._database.delete(f"user:{username}")
 
-    def login(self, username : str, password : str):
+    def login(self, username : str, password : str) -> dict[str, str] | int:
         """
         Login to a session in redis according to the username
         Create a token with a lifetime of 1 month
@@ -119,7 +145,7 @@ class Session:
         return {"privileges":privileges.decode(), "token":token}
     
 
-    def login_token(self, token : str):
+    def login_token(self, token : str) -> str | int:
         """
         Login to a session in redis according to a token
         Return the privilege of the user

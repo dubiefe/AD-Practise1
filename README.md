@@ -67,6 +67,31 @@ project_root/
 |-- nix.shell
 ```
 
+## Project definition
+
+### ODM
+
+### Session
+
+For the session part, we needed to store the session data and the token.
+
+The session data is composed of:
+  - username
+  - fullname
+  - password
+  - privileges
+All this attributes will be stored as string in redis to avoid using too many types of data.
+The key used for the session will be user:username, this will create unique keys because two users won't be able to have the same username.
+The attributes od the session will be stored in a hash set in redis with the following template:
+  "user:username" {"username":"username", "fullname":"fullname", "password":"password", "privileges":"privileges"}
+
+The token will be stored independantly because it needs to have an expiration date.
+The token value will appear in the name of the key and the value will be the username of the session linked to the token.
+It will be stored in redis with the following template:
+  "token:token_value" "username"
+  
+### HelpDesk
+
 ## Dependencies
 
 If you don't have the Python dependencies installed locally, you can get them
@@ -88,5 +113,9 @@ nix-shell
 changed due to the test.
 
 ### Session
+
+`Session.create` can return two exceptions:
+  - an Exception if a key is missing between username, fullname, password and privileges
+  - an Exception if the username for the new session is already used by another session
 
 ### HelpDesk
