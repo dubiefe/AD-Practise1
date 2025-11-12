@@ -1,7 +1,7 @@
 import redis
 import uuid
 
-class Session:
+class Sessions:
     """
     Session class
     Deal with sessions in redis
@@ -58,16 +58,17 @@ class Session:
                 raise Exception(f"The key {var} is missing")
         
         # Check if the username already exists before creating
-        if self.read(kwargs["username"]) != {}:
+        if self.read(kwargs["username"]) != f"The session with username {kwargs["username"]} doesn't exists":
             raise Exception(f"The username {kwargs["username"]} already exists, use another one")
 
         else :
             # Create user
             id_user = f"user:{kwargs["username"]}"
             self._database.hset(id_user, mapping=kwargs)
+            print("User with username ", kwargs["username"], " has been created")
 
 
-    def read(self, username : str):
+    def read(self, username : str) -> dict[str,str] | str:
         """
         Read a session in redis according to the username
 
@@ -75,14 +76,24 @@ class Session:
         -----------
         username: str
             String with the username of the session we want to read
+
+        Return:
+        -------
+        A message if the session doesn't exists
+        Or a dictionary with the result of the reading in redis
         """
 
         # Search user
-        return self._database.hgetall(f"user:{username}")
+        read_result = self._database.hgetall(f"user:{username}")
+        
+        if read_result != {}:
+            return read_result
+        else:
+            return f"The session with username {username} doesn't exists"
     
     def update(self, username : str, **kwargs : dict[str, str]):
         """
-        Update a session in redis according to the username
+        Update a session in redis according to the username, only if it exists
 
         Parameters:
         -----------
@@ -93,7 +104,11 @@ class Session:
         """
 
         # Update session
-        self._database.hset(f"user:{username}", mapping=kwargs)
+        if self.read(username) != f"The session with username {username} doesn't exists":
+            self._database.hset(f"user:{username}", mapping=kwargs)
+            print("The session with the username ", username, " has been updated")
+        else:
+            print("The session with the username ", username, " can't be updated")
 
     def delete(self, username : str):
         """
@@ -107,6 +122,7 @@ class Session:
 
         # Delete session
         self._database.delete(f"user:{username}")
+        print("Session with username", username, " has been deleted")
 
     def login(self, username : str, password : str) -> dict[str, str] | int:
         """
@@ -123,7 +139,7 @@ class Session:
 
         Return:
         -------
-        -1 if the connetionc data are not good
+        -1 if the connection data are not good
         Or a dictionary with the privilege and the token of the user
         """
 
