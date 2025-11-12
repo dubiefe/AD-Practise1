@@ -155,7 +155,7 @@ class Sessions:
         # Create token with expiration date
         token = str(uuid.uuid4())
         id_token = f"token:{token}"
-        self._database.setex(id_token, 2592000, username)
+        self._database.setex(id_token, 2628000, username)
 
         # Return the dictionary
         return {"privileges":privileges.decode(), "token":token}
