@@ -86,7 +86,7 @@ The key used for the session will be user:username, this will create unique keys
 The attributes od the session will be stored in a hash set in redis with the following template:
   "user:username" {"username":"username", "fullname":"fullname", "password":"password", "privileges":"privileges"}
 
-The token will be stored independantly because it needs to have an expiration date.
+The token will be stored independantly because it needs to have an expiration date of one month.
 The token value will appear in the name of the key and the value will be the username of the session linked to the token.
 It will be stored in redis with the following template:
   "token:token_value" "username"
