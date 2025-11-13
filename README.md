@@ -83,7 +83,7 @@ The session data is composed of:
   - privileges
 All this attributes will be stored as string in redis to avoid using too many types of data.
 The key used for the session will be user:username, this will create unique keys because two users won't be able to have the same username.
-The attributes od the session will be stored in a hash set in redis with the following template:
+The attributes od the session will be stored in a hash in redis with the following template:
   "user:username" {"username":"username", "fullname":"fullname", "password":"password", "privileges":"privileges"}
 
 The token will be stored independantly because it needs to have an expiration date of one month.
@@ -92,6 +92,19 @@ It will be stored in redis with the following template:
   "token:token_value" "username"
   
 ### HelpDesk
+
+For the helpdesk, we needed to store the help requests (username, priority and message) and the list of help requests
+
+The list of help requests is called "HelpRequests", its values are the ids of help requests, they are composed like this:
+  priority:token
+
+The help requests are stored individually as hashes composed of:
+  priority:token {"username":"username", "message":"message"}
+
+When a help request has been read and deleted in the list, the hash related is deleted too.
+
+To test this functionment, you need to launch the main.py in a terminal and the send_request.py in another terminal. 
+This allows you to test the functionment of the waiting of help requests.
 
 ## Dependencies
 
