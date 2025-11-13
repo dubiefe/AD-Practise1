@@ -33,6 +33,9 @@ class Sessions:
     _required_vars: set[str] = ["username", "fullname", "password", "privileges"]
 
     def __init__(self):
+        """
+        Initialize the connection with redis
+        """
         self._database = redis.Redis(host='localhost', port=6379, db=0)
 
     def create(self, **kwargs : dict[str, str]):

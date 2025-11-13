@@ -1,4 +1,10 @@
+"""
+File to test the functionment of the Sessions and HelpDesk
+To test the BLOPOP of getHelpRequest, launch the file send_request.py after this one in another terminal
+"""
+
 from sessions import Sessions
+from help_desk import HelpDesk
 
 # Test of the sessions 
 print("---------------------- Sessions ----------------------")
@@ -65,18 +71,18 @@ print("")
 print("----------- Login with username and password -----------")
 print("")
 
-login1 = newSession.login("dubiefe","123")
-print("Login with wrong info: ", login1)
-login2 = newSession.login("dubiefe","1234")
-print("Login with correct info: ", login2)
+#login1 = newSession.login("dubiefe","123")
+#print("Login with wrong info: ", login1)
+#login2 = newSession.login("dubiefe","1234")
+#print("Login with correct info: ", login2)
 
 ## IV - Login with token
 print("")
 print("----------- Login with token -----------")
 print("")
 
-print("Login with an existing token: ", newSession.login_token(login2["token"]))
-print("Login with a non-existing token: ", newSession.login_token("123"))
+#print("Login with an existing token: ", newSession.login_token(login2["token"]))
+#print("Login with a non-existing token: ", newSession.login_token("123"))
 
 ## V - Delete session
 print("")
@@ -85,3 +91,26 @@ print("")
 
 newSession.delete("dubiefe")
 print("Reading the deleted session: ", newSession.read("dubiefe"))
+
+
+# Test of the helpdesk 
+print("")
+print("---------------------- HelpDesk ----------------------")
+print("")
+
+## Create an instance to use helpdesk
+newHelpDesk = HelpDesk()
+
+## I - Post help requests
+newHelpDesk.postHelpRequest("dubiefe", "Hello world", 4)
+newHelpDesk.postHelpRequest("david", "Hello world", 5)
+newHelpDesk.postHelpRequest("thomas", "Hello world", 1)
+newHelpDesk.postHelpRequest("claire", "Hello world", 6)
+print("")
+
+## II - Get help requests
+print(newHelpDesk.getHelpRequest())
+print(newHelpDesk.getHelpRequest())
+print(newHelpDesk.getHelpRequest())
+print(newHelpDesk.getHelpRequest())
+print(newHelpDesk.getHelpRequest())
