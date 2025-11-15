@@ -1,9 +1,9 @@
-# Import fom __init__.py
 import ODM
 
-# GeoJSON and geo locator
 import time
-from geopy.exc import GeocoderTimedOut, GeocoderServiceError, GeocoderUnavailable
+from geopy.exc import (
+    GeocoderTimedOut, GeocoderServiceError, GeocoderUnavailable
+)
 from geojson import Point
 
 # Simple in-memory cache for address geocoding
@@ -11,22 +11,30 @@ _address_cache = {}
 
 def getLocationPoint(address: str) -> Point:
     """
-    Gets the coordinates of an address in geojson.Point format.
-    Uses the geopy API to obtain the coordinates of the address.
-    Be careful, the API is public and has a request limit, use sleeps.
+    Geocode a street address and return coordinates as geojson.Point.
+
+    Uses geopy to obtain coordinates for an address string.
+    Caches results for repeated use. Retries up to 3 times, sleeping between
+    calls due to geopy rate limits.
 
     Parameters
     ----------
     address : str
-        Full address from which to obtain coordinates
+        Full street address to geocode.
 
     Returns
     -------
-    geojson.Point
-        Coordinates of the address point
+    geojson.Point or None
+        geojson.Point coordinates if successful, else None.
+
+    Notes
+    -----
+    - If address is empty/None, returns None.
+    - Caches successful geocode results.
+    - Retries on geocoding errors (up to 3 times).
     """
-    if not address or address.strip() == "": 
-        print(f"Skipping geocoding for empty or invalid address: {address}")
+    if not address or address.strip() == "":
+        print(f"Skipping geocoding for empty/invalid address: {address}")
         return None
     if address in _address_cache:
         return _address_cache[address]
@@ -40,10 +48,15 @@ def getLocationPoint(address: str) -> Point:
             time.sleep(1)
             geolocator = ODM.Nominatim(user_agent="Emilie_Itziar_AdvDB")
             location = geolocator.geocode(address)
-            attempts += 1  # Always increment!
-        except (GeocoderTimedOut, GeocoderServiceError, GeocoderUnavailable):
             attempts += 1
-            print(f"Geocoding timed out for address '{address}', attempt {attempts}")
+        except (
+            GeocoderTimedOut, GeocoderServiceError, GeocoderUnavailable
+        ):
+            attempts += 1
+            print(
+                f"Geocoding timed out for address '{address}', "
+                f"attempt {attempts}"
+            )
             continue
         except Exception as e:
             print(f"Unexpected error during geocoding: {e}")
@@ -56,6 +69,5 @@ def getLocationPoint(address: str) -> Point:
         print(f"Could not geocode address '{address}'. Returning None.")
         point = None
 
-    _address_cache[address] = point # Because it is looping either way
-
+    _address_cache[address] = point
     return point
