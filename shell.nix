@@ -15,6 +15,7 @@ let
       pytest
       tqdm
       ipywidgets
+      redis
 
       # Jupyter pieces to run notebooks
       notebook
