@@ -11,28 +11,36 @@ from pathlib import Path
 # Import Model class
 from ODM.model import Model
 
-def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://localhost:27017/", db_name="abd", scope=globals()) -> None:
+def initApp(
+        definitions_path: str = "./models.yml",
+        mongodb_uri="mongodb://localhost:27017/",
+        db_name="abd",
+        scope=globals()
+    ) -> None:
     """
-    Declares the classes that inherit from Model for each of the
-    models of the collections defined in definitions_path.
-    Initializes the model classes by providing the indexes and
-    allowed and required attributes for each of them, and the connection to the
-    database collection.
+    Initialize application models from YAML schema and connect to MongoDB.
+
+    Dynamically creates classes that inherit from `Model` for each collection
+    in the schema file. Sets up indexes, attributes, and DB collections.
 
     Parameters
     ----------
-    definitions_path : str
-        Path to the model definitions file
-    mongodb_uri : str
-        URI for connecting to the database
-    db_name : str
-        Name of the database
+    definitions_path : str, optional
+        Path to YAML model definitions file (default './models.yml').
+    mongodb_uri : str, optional
+        MongoDB connection URI (default 'mongodb://localhost:27017/').
+    db_name : str, optional
+        Name of MongoDB database (default 'abd').
+    scope : dict, optional
+        Dictionary (e.g., globals()) for registering model classes.
+
+    Returns
+    -------
+    None
     """
-    # Initialize database
     client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
     print(f"Connected to database: {db_name}")
 
-    # Send a ping to confirm a successful connection
     try:
         client.admin.command('ping')
         print("Successfully connected to MongoDB!")
@@ -40,14 +48,12 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
         print(e)
 
     db = client[db_name]
-
-    # Open and read definitions file, with error handling
     print(f"Loading schema from {definitions_path}")
     try:
         with open(definitions_path, 'r') as f:
             schema = yaml.safe_load(f)
         if not isinstance(schema, dict):
-            raise ValueError("Schema file is not a valid dictionary format.")
+            raise ValueError("Schema file is not a valid dictionary.")
     except FileNotFoundError:
         print(f"Error: Schema file '{definitions_path}' not found.")
         return
@@ -58,44 +64,26 @@ def initApp(definitions_path: str = "./models.yml", mongodb_uri="mongodb://local
         print(f"Unexpected error reading schema file: {e}")
         return
 
-
-    # For each item in the definitions file we create a class
     for class_name, details in schema.items():
-
         print(f"Initializing model: {class_name}")
-
-        # Get required data from schema
-        # Extract indexes from schema
         unique_indexes = details.get('unique_indexes', [])
         regular_indexes = details.get('regular_indexes', [])
         location_index = details.get('location_index', [])
 
-        # Combine all index types into a list of dicts as required by init_class
         indexes = {}
         for field in unique_indexes:
-            indexes[field] =  "unique"
+            indexes[field] = "unique"
         for field in regular_indexes:
-            indexes[field] =  "regular"
-
+            indexes[field] = "regular"
         if location_index:
             indexes[f"{location_index}_loc"] = "2dsphere"
 
-        # Get variables
-        required_vars = set(details.get('required_vars', []))     # set
-        admissible_vars = set(details.get('admissible_vars', [])) # set
+        required_vars = set(details.get('required_vars', []))
+        admissible_vars = set(details.get('admissible_vars', []))
 
-        # Get or create the MongoDB collection
         db_collection = db[class_name]
-
-        # Initialize the class (link it to the collection, set attributes)
         cls = type(class_name, (Model,), {})
-
-        # Add classnames to globals so they are accessible from elsewhere
         scope[class_name] = cls
-
-        # Initialize class per class and print class data
-        cls.init_class(db_collection, indexes, required_vars, admissible_vars)
-
-    # Ignore Pylance warning about MyModel, it cannot detect
-    # that the class was declared in the previous line since it is done
-    # at runtime.
+        cls.init_class(
+            db_collection, indexes, required_vars, admissible_vars
+        )

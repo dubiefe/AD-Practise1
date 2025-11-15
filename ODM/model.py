@@ -1,58 +1,50 @@
-# PyMongo dependencies
 import pymongo
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from pymongo.errors import DuplicateKeyError
 
-# For type hints
 from typing import Any, Generator, Self
-
-# Import getLocationPoint function
 from ODM.geo import getLocationPoint, _address_cache
 
 class Model:
     """
-    Abstract model class.
-    Create as many classes inheriting from this class as
-    collections/models desired in the database.
+    Base class for ODM models (database collections).
 
     Attributes
     ----------
-    _required_vars : set[str]
-        Set of attributes required by the model
-    _admissible_vars : set[str]
-        Set of attributes allowed by the model
-    _location_var : set[str]
-        Attribute used to store location by the model
+    _required_vars : set of str
+        Required attribute names.
+    _admissible_vars : set of str
+        Allowed attribute names.
+    _location_var : str or None
+        Attribute name for location data.
     _db : pymongo.collection.Collection
-        Connection to the database collection
-    _modified_vars : set[str]
-        Set of attributes changed in the instantiated object
-    _data : pymongo.collection.Collection
-        Data saved by instantiated object
+        MongoDB collection reference.
+    _modified_vars : set of str
+        Changed attribute names.
+    _data : dict
+        Internal data dictionary.
 
     Methods
     -------
-    __setattr__(name: str, value: str | dict) -> None
-        Overrides the attribute assignment method to control
-        which attributes are modified and when.
-    __getattr__(name: str) -> Any
-        Overrides the attribute access method
-    save() -> None
-        Saves the model to the database
-    delete() -> None
-        Deletes the model from the database
-    find(filter: dict[str, str | dict]) -> ModelCursor
-        Performs a read query in the DB.
-        Returns a ModelCursor of models
-    aggregate(pipeline: list[dict]) -> pymongo.command_cursor.CommandCursor
-        Returns the result of an aggregate query.
-    find_by_id(id: str) -> dict | None
-        Searches for a document by its ID using cache and returns it.
-        If not found, returns None.
-    init_class(db_collection: pymongo.collection.Collection, required_vars: set[str], admissible_vars: set[str]) -> None
-       Initializes class variables during system initialization.
+    __setattr__(name, value)
+        Control assignment, track changes.
+    __getattr__(name)
+        Control attribute access.
+    save()
+        Save the model instance to the database.
+    delete()
+        Delete the instance from the database.
+    find(filter)
+        Find documents matching filter.
+    aggregate(pipeline)
+        MongoDB aggregate query.
+    find_by_id(id)
+        Find record by its '_id'.
+    init_class(...)
+        Setup for DB, fields, indexes.
     """
+
     _required_vars: set[str]
     _admissible_vars: set[str]
     _location_var: None
@@ -61,15 +53,31 @@ class Model:
     _data: dict[str, str | dict] = {}
 
     def __init__(self, **kwargs: dict[str, str | dict]):
+        """
+        Initialize a Model instance. Validates required attributes.
+
+        Parameters
+        ----------
+        **kwargs : dict
+            Keyword arguments for attribute values.
+
+        Raises
+        ------
+        ValueError
+            Missing required or unknown attributes.
+        """
         self._data = {}
         self._modified_vars = set()
 
         valid_vars = self._required_vars.union(self._admissible_vars)
         for key in kwargs:
-            if key not in valid_vars and key != "_id" and key != self._location_var:
+            if key not in valid_vars and key != "_id" \
+                and key != self._location_var:
                 raise ValueError(f"The attribute {key} doesn't exist")
 
-        missing_key = [var for var in self._required_vars if var not in kwargs]
+        missing_key = [
+            var for var in self._required_vars if var not in kwargs
+        ]
         if missing_key:
             raise ValueError(f"Missing required fields: {missing_key}")
 
@@ -78,9 +86,26 @@ class Model:
                 self._data[key] = value
 
     def __setattr__(self, name: str, value: str | dict) -> None:
-        internal_attributes = { "_required_vars", "_admissible_vars", "_db", 
-                            "_data", "_location_var", "_modified_vars" }
-        if name in internal_attributes:
+        """
+        Override for setting attributes (tracks changes, restricts assignment).
+
+        Parameters
+        ----------
+        name : str
+            Attribute name.
+        value : any
+            Value to assign.
+
+        Raises
+        ------
+        AttributeError
+            If invalid attribute given.
+        """
+        internal = {
+            "_required_vars", "_admissible_vars", "_db",
+            "_data", "_location_var", "_modified_vars"
+        }
+        if name in internal:
             super().__setattr__(name, value)
         else:
             valid_vars = self._required_vars.union(self._admissible_vars)
@@ -93,9 +118,29 @@ class Model:
             self._data[name] = value
 
     def __getattr__(self, name: str) -> Any:
-        internal_attributes = { "_required_vars", "_admissible_vars", "_db", 
-                            "_data", "_location_var", "_modified_vars" }
-        if name in internal_attributes:
+        """
+        Attribute access override (handles data fields).
+
+        Parameters
+        ----------
+        name : str
+            Attribute name.
+
+        Returns
+        -------
+        Any
+            Attribute value.
+
+        Raises
+        ------
+        AttributeError
+            If attribute not found.
+        """
+        internal = {
+            "_required_vars", "_admissible_vars", "_db",
+            "_data", "_location_var", "_modified_vars"
+        }
+        if name in internal:
             return super().__getattribute__(name)
         try:
             return self._data[name]
@@ -104,88 +149,170 @@ class Model:
 
     def save(self) -> None:
         """
-        Saves the model to the database.
-        Calculates location only if record is new, address changed, or location is missing/invalid.
+        Save the model instance to the database.
+
+        Location calculation is performed only if:
+        - the record is new,
+        - address field changed,
+        - location field missing.
+
+        Upserts by unique key.
         """
-        # Check required fields
-        missing = [var for var in self._required_vars if var not in self._data]
-        if missing:
-            raise ValueError(f"Missing required fields: {missing}")
-
         valid_fields = self._required_vars.union(self._admissible_vars)
-        to_save_fields = valid_fields.union({self._location_var}) if self._location_var else valid_fields
+        to_save_fields = valid_fields.union(
+            {self._location_var}
+        ) if self._location_var else valid_fields
 
-        # Helper: find existing document
-        def find_existing():
-            if "_id" in self._data:
-                return self._db.find_one({"_id": self._data["_id"]})
-            elif "name" in self._data:
-                return self._db.find_one({"name": self._data["name"]})
-            return None
+        filter_key = (
+            "_id" if "_id" in self._data else
+            "name" if "name" in self._data else
+            None
+        )
+        filter_val = self._data.get(filter_key) if filter_key else None
 
-        # Helper: check if location is valid
-        def is_valid_location(loc):
-            if not loc:
-                return False
-            if isinstance(loc, dict):
-                coords = loc.get('coordinates')
-                return coords and coords != None
-            if isinstance(loc, list):
-                return loc != None
-            return False
-
+        existing_doc = (
+            self._db.find_one({filter_key: filter_val})
+            if filter_key else None
+        )
 
         # Location calculation
         if self._location_var and self._location_var.endswith("_loc"):
             base_field = self._location_var[:-4]
             address_value = self._data.get(base_field)
-            existing_doc = find_existing()
-            existing_address = existing_doc.get(base_field) if existing_doc else None
-            existing_location = existing_doc.get(self._location_var) if existing_doc else None
+            existing_location = (
+                existing_doc.get(self._location_var) if existing_doc else None
+            )
 
-            # Only update location if new, address changed, or location missing/invalid
-            if address_value and (not existing_doc or address_value != existing_address or not is_valid_location(existing_location)):
-                self._data[self._location_var] = _address_cache.get(address_value) or getLocationPoint(address_value)
+            if address_value and (
+                not existing_doc
+                or base_field in self._modified_vars
+                or existing_location is None
+            ):
+                self._data[self._location_var] = \
+                    _address_cache.get(address_value) or \
+                    getLocationPoint(address_value)
                 self._modified_vars.add(self._location_var)
-            elif existing_doc and is_valid_location(existing_location):
+            elif existing_doc and existing_location is not None:
                 self._data[self._location_var] = existing_location
 
-        # Upsert/update/insert logic
-        if "_id" in self._data:
-            if self._modified_vars:
-                data_to_update = {k: self._data[k] for k in self._modified_vars if k in to_save_fields or k == "_id"}
-                if data_to_update:
-                    self._db.update_one({"_id": self._data["_id"]}, {"$set": data_to_update})
-                self._modified_vars.clear()
-        elif self._db.find_one({"name": self._data["name"]}):
-            data_to_update = {k: self._data[k] for k in to_save_fields if k in self._data}
-            res = self._db.update_one({"name": self._data["name"]}, {"$set": data_to_update})
-            self._data["_id"] = res.upserted_id
-            self._modified_vars.clear()
+        data_to_save = {
+            k: v for k, v in self._data.items()
+            if k in to_save_fields or k == "_id"
+        }
+
+        if existing_doc:
+            data_to_update = {
+                k: self._data[k] for k in self._modified_vars
+                if k in to_save_fields or k == "_id"
+            }
+            if data_to_update:
+                self._db.update_one(
+                    {filter_key: filter_val}, {"$set": data_to_update}
+                )
+            self._data["_id"] = existing_doc["_id"]
         else:
-            data_to_save = {k: v for k, v in self._data.items() if k in to_save_fields or k == "_id"}
             res = self._db.insert_one(data_to_save)
             self._data["_id"] = res.inserted_id
-            self._modified_vars.clear()
+
+        self._modified_vars.clear()
 
     def delete(self) -> None:
-        self._db.delete_one({"_id": self._data["_id"]})
+        """
+        Delete the model instance from the database.
+
+        Removes the record with the given unique key.
+        """
+        filter_key = (
+            "_id" if "_id" in self._data else
+            "name" if "name" in self._data else
+            None
+        )
+        filter_val = self._data.get(filter_key) if filter_key else None
+        if filter_key and filter_val:
+            self._db.delete_one({filter_key: filter_val})
 
     @classmethod
     def find(cls, filter: dict[str, str | dict]) -> Any:
+        """
+        Find and return models matching a filter.
+
+        Parameters
+        ----------
+        filter : dict
+            Query conditions.
+
+        Returns
+        -------
+        ModelCursor
+            Cursor over matching Model records.
+        """
         result_find = cls._db.find(filter)
         return ModelCursor(model_class=cls, cursor=result_find)
 
     @classmethod
-    def aggregate(cls, pipeline: list[dict]) -> pymongo.command_cursor.CommandCursor:
+    def aggregate(
+        cls, pipeline: list[dict]
+    ) -> pymongo.command_cursor.CommandCursor:
+        """
+        Aggregate query with a pipeline.
+
+        Parameters
+        ----------
+        pipeline : list of dict
+            Aggregation pipeline.
+
+        Returns
+        -------
+        pymongo.command_cursor.CommandCursor
+            Query result.
+        """
         return cls._db.aggregate(pipeline)
 
     @classmethod
     def find_by_id(cls, id: str) -> Self | None:
+        """
+        Find record by MongoDB object ID.
+
+        Parameters
+        ----------
+        id : str
+            Object ID as string.
+
+        Returns
+        -------
+        Model or None
+            Instance if found, else None.
+        """
+        # Implementation needed
         pass
 
     @classmethod
-    def init_class(cls, db_collection: pymongo.collection.Collection, indexes: dict[str, str], required_vars: set[str], admissible_vars: set[str]) -> None:
+    def init_class(
+        cls,
+        db_collection: pymongo.collection.Collection,
+        indexes: dict[str, str],
+        required_vars: set[str],
+        admissible_vars: set[str]
+    ) -> None:
+        """
+        Initialize class with DB collection and indexes.
+
+        Parameters
+        ----------
+        db_collection : pymongo.collection.Collection
+            MongoDB collection.
+        indexes : dict
+            Field names to index type.
+        required_vars : set of str
+            Required attributes.
+        admissible_vars : set of str
+            Additional allowed attributes.
+
+        Raises
+        ------
+        ValueError
+            On index creation errors or missing location.
+        """
         cls._db = db_collection
         cls._required_vars = required_vars
         cls._admissible_vars = admissible_vars
@@ -194,32 +321,85 @@ class Model:
         for field, idx_type in indexes.items():
             try:
                 if idx_type == "unique":
-                    cls._db.create_index([(field, pymongo.ASCENDING)], unique=True)
+                    cls._db.create_index(
+                        [(field, pymongo.ASCENDING)],
+                        unique=True
+                    )
                 elif idx_type == "regular":
                     cls._db.create_index([(field, pymongo.ASCENDING)])
                 elif idx_type == "2dsphere":
                     cls._db.create_index([(field, pymongo.GEOSPHERE)])
                     cls._location_var = field
                 else:
-                    raise ValueError(f"Unknown '{field}': {idx_type}")
+                    raise ValueError(
+                        f"Unknown '{field}': {idx_type}"
+                    )
             except Exception as e:
-                raise ValueError(f"Error index on field '{field}': {e}")
+                raise ValueError(
+                    f"Error index on field '{field}': {e}"
+                )
 
         if cls._location_var is None:
             raise ValueError(f"_location_var not set")
 
 class ModelCursor:
-    def __init__(self, model_class: Model, cursor: pymongo.cursor.Cursor):
+    """
+    Iterator for Model query results.
+
+    Parameters
+    ----------
+    model_class : Model
+        Model class for instantiation.
+    cursor : pymongo.cursor.Cursor
+        PyMongo cursor.
+
+    Methods
+    -------
+    alive()
+        Is there more results?
+    __iter__()
+        Iterator over Model instances.
+    """
+
+    def __init__(
+        self, model_class: Model, cursor: pymongo.cursor.Cursor
+    ):
+        """
+        Initialize ModelCursor.
+
+        Parameters
+        ----------
+        model_class : Model
+            Model type for instantiation.
+        cursor : pymongo.cursor.Cursor
+            PyMongo cursor.
+        """
         self.model = model_class
         self.cursor = cursor
         self._alive = True
 
-    def alive(self):
+    def alive(self) -> bool:
+        """
+        Returns whether this cursor has more results.
+
+        Returns
+        -------
+        bool
+            True if more results, False otherwise.
+        """
         return self._alive
 
     def __iter__(self) -> Generator:
+        """
+        Yields Model instances from cursor until exhausted.
+
+        Returns
+        -------
+        Generator
+            Iterator over Model instances.
+        """
         def generator():
-            while self.alive(): 
+            while self.alive():
                 try:
                     document = next(self.cursor)
                     yield self.model(**document)
