@@ -43,15 +43,15 @@ class Model:
     __getattr__(name)
         Control attribute access.
     save()
-        Save the model instance to the database.
+        Save the model instance to the database and to the cache (write-through).
     delete()
         Delete the instance from the database.
     find(filter)
-        Find documents matching filter.
+        Find documents matching filter (Redis cache).
     aggregate(pipeline)
-        MongoDB aggregate query.
+        MongoDB aggregate query (Redis cache).
     find_by_id(id)
-        Find record by its '_id'.
+        Find record by its '_id' (Redis cache).
     init_class(...)
         Setup for DB, fields, indexes.
     """
@@ -169,6 +169,9 @@ class Model:
         - location field missing.
 
         Upserts by unique key.
+
+        After writing to the database,
+        update the single-document cache in Redis (write-through).
         """
         valid_fields = self._required_vars.union(self._admissible_vars)
         to_save_fields = valid_fields.union(
@@ -228,6 +231,15 @@ class Model:
 
         self._modified_vars.clear()
 
+        # Save/refresh single-document cache by _id key after DB write
+        if hasattr(self.__class__, "_redis_client") and self._redis_client is not None:
+            cache_key = f"{self.__class__.__name__}:byid:{str(self._data['_id'])}"
+            self._redis_client.set(
+                cache_key,
+                json.dumps(self._data, cls=MongoJSONEncoder),
+                ex=86400
+            )
+
     def delete(self) -> None:
         """
         Delete the model instance from the database.
@@ -257,28 +269,31 @@ class Model:
         -------
         ModelCursor
             Cursor over matching Model records.
+        Uses Redis caching for repeated queries.
         """
-
-        # Generate a unique key for the filter by hashing it
         filter_str = json.dumps(filter, sort_keys=True)
         cache_key = f"{cls.__name__}:find:{hashlib.md5(filter_str.encode()).hexdigest()}"
 
-        cached = cls._redis_client.get(cache_key)
-        if cached:
-            # Cached should be a list of dicts
-            results = json.loads(cached)
-            return ModelCursor(model_class=cls,
-                              cursor=iter(results))  # Use a generator!
+        if cls._redis_client is not None:
+            cached = cls._redis_client.get(cache_key)
+            if cached:
+                results = json.loads(cached)
+                return ModelCursor(model_class=cls, cursor=iter(results))
 
-        # Not found in cache, query DB
         db_results = list(cls._db.find(filter))
-        cls._redis_client.set(cache_key, json.dumps(db_results), ex=86400)
+        # Serialize using custom encoder to handle ObjectId
+        if cls._redis_client is not None:
+            cls._redis_client.set(
+                cache_key, 
+                json.dumps(db_results, cls=MongoJSONEncoder), 
+                ex=86400
+            )
         return ModelCursor(model_class=cls, cursor=iter(db_results))
 
     @classmethod
     def aggregate(
         cls, pipeline: list[dict]
-    ) -> pymongo.command_cursor.CommandCursor:
+    ) -> list[dict]:
         """
         Aggregate query with a pipeline.
 
@@ -289,10 +304,10 @@ class Model:
 
         Returns
         -------
-        pymongo.command_cursor.CommandCursor
-            Query result.
+        list of dict
+            Aggregation results, possibly from cache.
+        Uses Redis cache for repeat queries.
         """
-        # Serialize the pipeline and hash it to use as the cache key
         pipe_str = json.dumps(pipeline, sort_keys=True)
         cache_key = f"{cls.__name__}:aggregate:{hashlib.md5(pipe_str.encode()).hexdigest()}"
 
@@ -304,11 +319,12 @@ class Model:
 
         # Perform the aggregation query
         result = list(cls._db.aggregate(pipeline))
-
-        # Cache the result in Redis, with an expiry (24 hours)
         if cls._redis_client is not None:
-            cls._redis_client.set(cache_key, json.dumps(result, cls=MongoJSONEncoder), ex=(86400))
-
+            cls._redis_client.set(
+                cache_key, 
+                json.dumps(result, cls=MongoJSONEncoder), 
+                ex=86400
+            )
         return result
 
     @classmethod
@@ -325,9 +341,32 @@ class Model:
         -------
         Model or None
             Instance if found, else None.
+        Uses Redis cache for repeat lookups.
         """
-        # Implementation needed
-        pass
+        cache_key = f"{cls.__name__}:byid:{str(id)}"
+
+        if cls._redis_client is not None:
+            cached = cls._redis_client.get(cache_key)
+            if cached:
+                data = json.loads(cached)
+                return cls(**data)
+
+        # Convert string id to ObjectId if possible
+        try:
+            object_id = ObjectId(id)
+        except Exception:
+            object_id = id
+
+        doc = cls._db.find_one({"_id": object_id})
+        if doc:
+            if cls._redis_client is not None:
+                cls._redis_client.set(
+                    cache_key,
+                    json.dumps(doc, cls=MongoJSONEncoder),
+                    ex=86400
+                )
+            return cls(**doc)
+        return None
 
     @classmethod
     def init_class(
