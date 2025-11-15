@@ -11,6 +11,9 @@ from pathlib import Path
 # Import Model class
 from ODM.model import Model
 
+# Import Redis
+import redis
+
 def initApp(
         definitions_path: str = "./models.yml",
         mongodb_uri="mongodb://localhost:27017/",
@@ -63,6 +66,14 @@ def initApp(
     except Exception as e:
         print(f"Unexpected error reading schema file: {e}")
         return
+
+    # Initialize Redis client
+    r = redis.Redis(host='localhost', port=6379, db=0)
+
+    # Set redis configuration
+    r.config_set('maxmemory', 150 * 1024 * 1024)  
+    r.config_set('maxmemory-policy', 'volatile-ttl')
+
 
     for class_name, details in schema.items():
         print(f"Initializing model: {class_name}")

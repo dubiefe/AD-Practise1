@@ -3,8 +3,19 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from pymongo.errors import DuplicateKeyError
 
+import redis
+import json
+import hashlib
+from bson import ObjectId
+
 from typing import Any, Generator, Self
 from ODM.geo import getLocationPoint, _address_cache
+
+class MongoJSONEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, ObjectId):
+            return str(obj)
+        return super().default(obj)
 
 class Model:
     """
@@ -49,6 +60,7 @@ class Model:
     _admissible_vars: set[str]
     _location_var: None
     _db: pymongo.collection.Collection
+    _redis_cache: redis.client.Redis
     _modified_vars: set[str] = set()
     _data: dict[str, str | dict] = {}
 
@@ -246,8 +258,22 @@ class Model:
         ModelCursor
             Cursor over matching Model records.
         """
-        result_find = cls._db.find(filter)
-        return ModelCursor(model_class=cls, cursor=result_find)
+
+        # Generate a unique key for the filter by hashing it
+        filter_str = json.dumps(filter, sort_keys=True)
+        cache_key = f"{cls.__name__}:find:{hashlib.md5(filter_str.encode()).hexdigest()}"
+
+        cached = cls._redis_client.get(cache_key)
+        if cached:
+            # Cached should be a list of dicts
+            results = json.loads(cached)
+            return ModelCursor(model_class=cls,
+                              cursor=iter(results))  # Use a generator!
+
+        # Not found in cache, query DB
+        db_results = list(cls._db.find(filter))
+        cls._redis_client.set(cache_key, json.dumps(db_results), ex=86400)
+        return ModelCursor(model_class=cls, cursor=iter(db_results))
 
     @classmethod
     def aggregate(
@@ -266,7 +292,24 @@ class Model:
         pymongo.command_cursor.CommandCursor
             Query result.
         """
-        return cls._db.aggregate(pipeline)
+        # Serialize the pipeline and hash it to use as the cache key
+        pipe_str = json.dumps(pipeline, sort_keys=True)
+        cache_key = f"{cls.__name__}:aggregate:{hashlib.md5(pipe_str.encode()).hexdigest()}"
+
+        # Check Redis cache
+        if cls._redis_client is not None:
+            cached = cls._redis_client.get(cache_key)
+            if cached:
+                return json.loads(cached)
+
+        # Perform the aggregation query
+        result = list(cls._db.aggregate(pipeline))
+
+        # Cache the result in Redis, with an expiry (24 hours)
+        if cls._redis_client is not None:
+            cls._redis_client.set(cache_key, json.dumps(result, cls=MongoJSONEncoder), ex=(86400))
+
+        return result
 
     @classmethod
     def find_by_id(cls, id: str) -> Self | None:
@@ -313,10 +356,16 @@ class Model:
         ValueError
             On index creation errors or missing location.
         """
+        # Initialize class attributes
         cls._db = db_collection
         cls._required_vars = required_vars
         cls._admissible_vars = admissible_vars
         cls._location_var = None
+        cls._redis_client = redis.Redis(host='localhost', port=6379, db=0)
+
+        # Set redis configuration
+        cls._redis_client.config_set('maxmemory', 150 * 1024 * 1024)  
+        cls._redis_client.config_set('maxmemory-policy', 'volatile-ttl')
 
         for field, idx_type in indexes.items():
             try:
