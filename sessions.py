@@ -90,7 +90,7 @@ class Sessions:
         # Search user
         read_result = self._database.hgetall(f"user:{username}")
         
-        if read_result != {}:
+        if read_result:
             return read_result
         else:
             return f"The session with username {username} doesn't exists"
