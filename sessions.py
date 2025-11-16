@@ -30,13 +30,14 @@ class Sessions:
     """
 
     _database = None
-    _required_vars: set[str] = ["username", "fullname", "password", "privileges"]
+    _required_vars: set[str]
 
     def __init__(self):
         """
         Initialize the connection with redis
         """
         self._database = redis.Redis(host='localhost', port=6379, db=0)
+        self._required_vars = ["username", "fullname", "password", "privileges"]
 
     def create(self, **kwargs : dict[str, str]):
         """
@@ -89,7 +90,7 @@ class Sessions:
         # Search user
         read_result = self._database.hgetall(f"user:{username}")
         
-        if read_result != {}:
+        if read_result:
             return read_result
         else:
             return f"The session with username {username} doesn't exists"
@@ -183,6 +184,7 @@ class Sessions:
         # Check the token
         usernameFound = self._database.get(f"token:{token}")
         if usernameFound == None:
+            print("Your token has expired, use normal log in to have a new one.")
             return -1
 
         # Get the privilege
