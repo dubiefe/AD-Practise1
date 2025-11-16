@@ -160,6 +160,8 @@ jupyter lab
 Sometimes the jupyter notebook doesn't render stuff properly, re run all cells
 whenever this happens.
 
+## Exceptions
+
 ### ODM
 
 `ODM.getGeoLocation` can return a timed out error due to API but cannot be
@@ -170,5 +172,3 @@ changed due to the test.
 `Session.create` can return two exceptions:
   - an Exception if a key is missing between username, fullname, password and privileges
   - an Exception if the username for the new session is already used by another session
-
-### HelpDesk
