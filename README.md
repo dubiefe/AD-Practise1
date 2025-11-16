@@ -215,7 +215,7 @@ jupyter lab
 jupyter lab
 ```
 
-## Issues
+## Issues & Exceptions
 
 ### Jupyter
 
