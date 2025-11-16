@@ -1,10 +1,11 @@
-name: ODMEmilieItziar
+name: ODMEmilieItziarRedis
 channels:
   - conda-forge
 dependencies:
   - python=3.12
   - pymongo
   - geopy
+  - redis-py
   - geojson
   - pyyaml
   - pytest

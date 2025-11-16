@@ -118,14 +118,14 @@ If you have conda, you can install the dependencies using:
 ```bash
 # Create conda environment from YML file
 conda env create -f environment.yml
-conda activate ODMEmilieItziar
+conda activate ODMEmilieItziarRedis
 ```
 
 In case the wrong kernel is used, run the following command to get the right
 kernel to be used (change Kernel in Jupyter to the proper one)
 
 ```bash
-python -m ipykernel install --user --name ODMEmilieItziar --display-name "Python (ODMEmilieItziar)"
+python -m ipykernel install --user --name ODMEmilieItziarRedis --display-name "Python (ODMEmilieItziarRedis)"
 ```
 
 ### Nix
