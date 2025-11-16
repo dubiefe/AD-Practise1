@@ -183,6 +183,7 @@ class Sessions:
         # Check the token
         usernameFound = self._database.get(f"token:{token}")
         if usernameFound == None:
+            print("Your token has expired, use normal log in to have a new one.")
             return -1
 
         # Get the privilege

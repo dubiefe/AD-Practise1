@@ -1,6 +1,6 @@
 """
 File to test the functionment of the Sessions and HelpDesk
-To test the BLOPOP of getHelpRequest, launch the file send_request.py after this one in another terminal
+To test the BLPOP of getHelpRequest, launch the file send_request.py after this one in another terminal
 """
 
 from sessions import Sessions
