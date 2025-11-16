@@ -71,18 +71,18 @@ print("")
 print("----------- Login with username and password -----------")
 print("")
 
-#login1 = newSession.login("dubiefe","123")
-#print("Login with wrong info: ", login1)
-#login2 = newSession.login("dubiefe","1234")
-#print("Login with correct info: ", login2)
+login1 = newSession.login("dubiefe","123")
+print("Login with wrong info: ", login1)
+login2 = newSession.login("dubiefe","1234")
+print("Login with correct info: ", login2)
 
 ## IV - Login with token
 print("")
 print("----------- Login with token -----------")
 print("")
 
-#print("Login with an existing token: ", newSession.login_token(login2["token"]))
-#print("Login with a non-existing token: ", newSession.login_token("123"))
+print("Login with an existing token: ", newSession.login_token(login2["token"]))
+print("Login with a non-existing token: ", newSession.login_token("123"))
 
 ## V - Delete session
 print("")
