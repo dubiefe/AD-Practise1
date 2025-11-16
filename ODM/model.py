@@ -172,6 +172,11 @@ class Model:
 
         After writing to the database,
         update the single-document cache in Redis (write-through).
+        Also invalidate cached find and aggregate results so queries/aggregations
+        will be refreshed next time they run.
+
+        NOTE: This performs a blank deletion of all keys matching
+        "*:find:*" and "*:aggregate:*" (global across all models).
         """
         valid_fields = self._required_vars.union(self._admissible_vars)
         to_save_fields = valid_fields.union(
@@ -232,7 +237,8 @@ class Model:
         self._modified_vars.clear()
 
         # Save/refresh single-document cache by _id key after DB write
-        if hasattr(self.__class__, "_redis_client") and self._redis_client is not None:
+        if self._redis_client is not None:
+            # Write-through: set the byid cache for this document (resets expiry)
             cache_key = f"{self.__class__.__name__}:byid:{str(self._data['_id'])}"
             self._redis_client.set(
                 cache_key,
@@ -240,20 +246,55 @@ class Model:
                 ex=86400
             )
 
+            # Clear cache for find and aggregate queries
+            self.__class__._clear_find_and_aggregate_cache()
+
     def delete(self) -> None:
         """
         Delete the model instance from the database.
 
         Removes the record with the given unique key.
         """
+        # Filter key is ID, name or none (if neither exists)
         filter_key = (
             "_id" if "_id" in self._data else
             "name" if "name" in self._data else
             None
         )
+
+        # If no filter key exists, nothing to delete
         filter_val = self._data.get(filter_key) if filter_key else None
         if filter_key and filter_val:
             self._db.delete_one({filter_key: filter_val})
+
+            # After deletion, remove 'byid' cache and invalidate other caches
+            if self._redis_client is not None:
+
+                # Delete by-id cache for this document if we have an _id
+                if "_id" in self._data:
+                    byid_key = f"{self.__class__.__name__}:byid:{str(self._data['_id'])}"
+                    self._redis_client.delete(byid_key)
+
+                # Invalidate caches (blank delete) using shared helper
+                self.__class__._clear_find_and_aggregate_cache()
+
+    @classmethod
+    def _clear_find_and_aggregate_cache(cls) -> None:
+        """
+        Clear cached find and aggregate keys in Redis.
+
+        Performs a blank deletion of all keys matching "*:find:*" and "*:aggregate:*".
+        Uses SCAN to avoid blocking Redis on large keyspaces.
+        Exceptions are swallowed to avoid interfering with DB operations.
+        """
+        if not hasattr(cls, "_redis_client") or cls._redis_client is None:
+            return
+
+        for key in cls._redis_client.scan_iter(match="*:find:*"):
+            cls._redis_client.delete(key)
+
+        for key in cls._redis_client.scan_iter(match="*:aggregate:*"):
+            cls._redis_client.delete(key)
 
     @classmethod
     def find(cls, filter: dict[str, str | dict]) -> Any:
@@ -281,6 +322,7 @@ class Model:
                 return ModelCursor(model_class=cls, cursor=iter(results))
 
         db_results = list(cls._db.find(filter))
+
         # Serialize using custom encoder to handle ObjectId
         if cls._redis_client is not None:
             cls._redis_client.set(
@@ -295,7 +337,7 @@ class Model:
         cls, pipeline: list[dict]
     ) -> list[dict]:
         """
-        Aggregate query with a pipeline.
+        Aggregate query with a pipeline (with Redis cache).
 
         Parameters
         ----------
@@ -359,7 +401,8 @@ class Model:
 
         doc = cls._db.find_one({"_id": object_id})
         if doc:
-            if cls._redis_client is not None:
+            # If cache set, store in cache, else just return
+            cls._redis_client is not None:
                 cls._redis_client.set(
                     cache_key,
                     json.dumps(doc, cls=MongoJSONEncoder),
